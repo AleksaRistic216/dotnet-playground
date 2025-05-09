@@ -1,0 +1,1 @@
+DELETE FROM "Users" WHERE "Id" > 0;
