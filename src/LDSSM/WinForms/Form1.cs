@@ -7,8 +7,7 @@ namespace WinForms
 		public Form1(LDSSMDbContext context)
 		{
 			InitializeComponent();
-			var users = context.Users.ToList();
-			dataGridView1.DataSource = users;
+			gridControl1.DataSource = context.Users.ToList();
 		}
 
 		private void Form1_Load(object sender, EventArgs e) { }
