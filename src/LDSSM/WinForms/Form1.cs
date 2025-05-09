@@ -1,37 +1,25 @@
-using System.ComponentModel;
-using DevExpress.Data.Linq;
-using LDSSM.Contracts.Entities;
 using LDSSM.Contracts.Interfaces.IRepositories;
-using LDSSM.Repository;
 
 namespace LDSSM.WinForms
 {
 	public partial class Form1 : Form
 	{
-		public Form1(IUserRepository userRepository)
+		private readonly IUserRepository userRepository;
+		private readonly IServiceProvider serviceProvider;
+
+		public Form1(IUserRepository userRepository, IServiceProvider serviceProvider)
 		{
+			this.userRepository = userRepository;
+			this.serviceProvider = serviceProvider;
 			InitializeComponent();
-			gridControl1.DataSource = userRepository.GetMultiple().ToList();
 		}
 
 		private void Form1_Load(object sender, EventArgs e) { }
 
-		static IListSource CreateServerModeSource(IUserRepository repo)
+		private void button1_Click(object sender, EventArgs e)
 		{
-			var source = new EntityServerModeSource();
-			source.ElementType = typeof(UserEntity);
-			source.QueryableSource = repo.GetMultiple();
-			source.KeyExpression = nameof(UserEntity.Id);
-			return source;
-		}
-
-		static IListSource CreateInstantFeedbackSource(IUserRepository repo)
-		{
-			var source = new EntityInstantFeedbackSource();
-			source.DesignTimeElementType = typeof(UserEntity);
-			source.GetQueryable += (s, e) => e.QueryableSource = repo.GetMultiple();
-			source.KeyExpression = nameof(UserEntity.Id);
-			return source;
+			using var dxForm = (DXGridForm)serviceProvider.GetService(typeof(DXGridForm));
+			dxForm.ShowDialog();
 		}
 	}
 }

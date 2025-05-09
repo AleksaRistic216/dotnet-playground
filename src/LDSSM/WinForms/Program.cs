@@ -30,6 +30,7 @@ namespace LDSSM.WinForms
 		{
 			var builder = Host.CreateApplicationBuilder();
 			builder.Services.AddTransient<Form1>();
+			builder.Services.AddScoped<DXGridForm>();
 			builder.Configuration.AddJsonFile(
 				"appsettings.json",
 				optional: false,
