@@ -1,4 +1,4 @@
-﻿using Repository;
+﻿using LDSSM.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 builder

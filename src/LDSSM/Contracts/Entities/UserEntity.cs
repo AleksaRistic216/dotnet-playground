@@ -1,6 +1,6 @@
 ﻿using LSCore.Repository.Contracts;
 
-namespace Contracts.Entities;
+namespace LDSSM.Contracts.Entities;
 
 public class UserEntity : LSCoreEntity
 {

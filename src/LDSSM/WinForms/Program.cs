@@ -1,11 +1,13 @@
 using System.Configuration;
+using LDSSM.Repository;
+using LSCore.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Primitives;
-using Repository;
 using ConfigurationManager = Microsoft.Extensions.Configuration.ConfigurationManager;
 
-namespace WinForms
+namespace LDSSM.WinForms
 {
 	internal static class Program
 	{
@@ -17,27 +19,26 @@ namespace WinForms
 		[STAThread]
 		static void Main()
 		{
-			var serviceCollection = new ServiceCollection();
-			ConfigureServices(serviceCollection);
-			serviceProvider = serviceCollection.BuildServiceProvider();
+			var host = BuildHost();
 			// To customize application configuration such as set high DPI settings or default font,
 			// see https://aka.ms/applicationconfiguration.
 			ApplicationConfiguration.Initialize();
-			Application.Run(serviceProvider.GetRequiredService<Form1>());
+			Application.Run(host.Services.GetRequiredService<Form1>());
 		}
 
-		private static void ConfigureServices(IServiceCollection services)
+		private static IHost BuildHost()
 		{
-			// Register forms
-			services.AddTransient<Form1>();
-			var configurationManager = new ConfigurationManager();
-			configurationManager.AddJsonFile(
+			var builder = Host.CreateApplicationBuilder();
+			builder.Services.AddTransient<Form1>();
+			builder.Configuration.AddJsonFile(
 				"appsettings.json",
 				optional: false,
 				reloadOnChange: true
 			);
-			services.AddSingleton<IConfigurationRoot>(configurationManager);
-			services.AddEntityFrameworkNpgsql().AddDbContext<LDSSMDbContext>();
+			builder.Services.AddSingleton<IConfigurationRoot>(builder.Configuration);
+			builder.Services.AddEntityFrameworkNpgsql().AddDbContext<LDSSMDbContext>();
+			builder.AddLSCoreDependencyInjection("LDSSM");
+			return builder.Build();
 		}
 	}
 }

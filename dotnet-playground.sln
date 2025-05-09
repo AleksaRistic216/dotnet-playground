@@ -8,13 +8,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Large Data Set - Server Mod
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "src\LDSSM\Contracts\Contracts.csproj", "{4388204C-45DF-BCCF-AC9D-98397A22B670}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LDSSM.Contracts", "src\LDSSM\Contracts\LDSSM.Contracts.csproj", "{4388204C-45DF-BCCF-AC9D-98397A22B670}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMigrations", "src\LDSSM\DbMigrations\DbMigrations.csproj", "{8575D889-E08A-66C7-B57C-E335E0944088}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "src\LDSSM\Repository\Repository.csproj", "{62B2648E-BDC1-B46C-D1F2-DDCB945D2FBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LDSSM.Repository", "src\LDSSM\Repository\LDSSM.Repository.csproj", "{62B2648E-BDC1-B46C-D1F2-DDCB945D2FBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "src\LDSSM\WinForms\WinForms.csproj", "{A89BF70D-18FA-4E47-9DE3-53F8E84D3C1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LDSSM.WinForms", "src\LDSSM\WinForms\LDSSM.WinForms.csproj", "{A89BF70D-18FA-4E47-9DE3-53F8E84D3C1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

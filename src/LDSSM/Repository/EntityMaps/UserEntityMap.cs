@@ -1,8 +1,8 @@
-﻿using Contracts.Entities;
+﻿using LDSSM.Contracts.Entities;
 using LSCore.Repository;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Repository.EntityMaps;
+namespace LDSSM.Repository.EntityMaps;
 
 internal class UserEntityMap : LSCoreEntityMap<UserEntity>
 {

@@ -1,4 +1,4 @@
-﻿namespace WinForms {
+﻿namespace LDSSM.WinForms {
     partial class Form1 {
         /// <summary>
         ///  Required designer variable.

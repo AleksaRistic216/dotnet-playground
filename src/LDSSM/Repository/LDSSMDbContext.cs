@@ -1,10 +1,10 @@
-﻿using Contracts.Entities;
+﻿using LDSSM.Contracts.Entities;
+using LDSSM.Repository.EntityMaps;
 using LSCore.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Repository.EntityMaps;
 
-namespace Repository;
+namespace LDSSM.Repository;
 
 public class LDSSMDbContext(
 	DbContextOptions<LDSSMDbContext> options,

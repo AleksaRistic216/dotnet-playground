@@ -1,4 +1,4 @@
-﻿using Contracts.Constants;
+﻿using LDSSM.Contracts.Constants;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
