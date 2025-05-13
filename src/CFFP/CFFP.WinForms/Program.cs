@@ -1,14 +1,45 @@
-namespace CFFP.WinForms {
-    internal static class Program {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main() {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
-        }
-    }
+using Common.Repository;
+using LSCore.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+namespace CFFP.WinForms
+{
+	internal static class Program
+	{
+		/// <summary>
+		/// </summary>
+		[STAThread]
+		static void Main()
+		{
+			var host = BuildHost();
+			ApplicationConfiguration.Initialize();
+			Application.Run(host.Services.GetRequiredService<Form1>());
+		}
+
+		private static IHost BuildHost()
+		{
+			var builder = Host.CreateApplicationBuilder();
+			builder.Services.AddTransient<Form1>();
+			builder.Services.AddScoped<Form1>();
+			builder.Configuration.AddJsonFile(
+				"appsettings.json",
+				optional: false,
+				reloadOnChange: true
+			);
+			builder.Services.AddSingleton<IConfigurationRoot>(builder.Configuration);
+			builder.Services.AddEntityFrameworkNpgsql().AddDbContext<CommonDbContext>();
+			builder.AddLSCoreDependencyInjection(
+				"CFFP",
+				(opt) =>
+				{
+					opt.Scan.SetShouldScanAssemblyPredicate(
+						(a) => a.FullName != null && a.FullName.StartsWith("Common")
+					);
+				}
+			);
+			return builder.Build();
+		}
+	}
 }
