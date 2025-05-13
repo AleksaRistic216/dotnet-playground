@@ -27,13 +27,13 @@ namespace SSGL.WinForms
 			var builder = Host.CreateApplicationBuilder();
 			builder.Services.AddTransient<Form1>();
 			builder.Services.AddSingleton<IConfigurationRoot>(builder.Configuration);
-			if (_useDatabase)
+			builder.Configuration.AddJsonFile(
+				"appsettings.json",
+				optional: true,
+				reloadOnChange: true
+			);
+			if (builder.Configuration["USE_DATABASE"] is "true")
 			{
-				builder.Configuration.AddJsonFile(
-					"appsettings.json",
-					optional: false,
-					reloadOnChange: true
-				);
 				builder.Services.AddEntityFrameworkNpgsql().AddDbContext<CommonDbContext>();
 				builder.AddLSCoreDependencyInjection(
 					"SSGL",
