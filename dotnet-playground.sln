@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Large Data Set - Server Mode", "Large Data Set - Server Mode", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
-	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LDSSM.WinForms", "src\LDSSM\WinForms\LDSSM.WinForms.csproj", "{A89BF70D-18FA-4E47-9DE3-53F8E84D3C1D}"
 EndProject
@@ -19,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Contracts", "src\Common.Contracts\Common.Contracts.csproj", "{F3D57754-1750-4FF7-A1BF-3CAB71233A02}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.DbMigrations", "src\Common.DbMigrations\Common.DbMigrations.csproj", "{A44C5D70-5B0E-4BA2-8082-AC837926BC53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semantic Search - Grids Lookups", "Semantic Search - Grids Lookups", "{114D8EFB-AA04-4353-93A2-45FF3608B046}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
