@@ -1,9 +1,9 @@
-﻿using LDSSM.Contracts.Constants;
+﻿using Common.Contracts.Constants;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DbMigrations.Migrations
+namespace Common.DbMigrations.Migrations
 {
 	/// <inheritdoc />
 	public partial class SystemUserSeedMigration : Migration

@@ -1,11 +1,8 @@
-using System.Configuration;
-using LDSSM.Repository;
+using Common.Repository;
 using LSCore.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Primitives;
-using ConfigurationManager = Microsoft.Extensions.Configuration.ConfigurationManager;
 
 namespace LDSSM.WinForms
 {
@@ -37,8 +34,16 @@ namespace LDSSM.WinForms
 				reloadOnChange: true
 			);
 			builder.Services.AddSingleton<IConfigurationRoot>(builder.Configuration);
-			builder.Services.AddEntityFrameworkNpgsql().AddDbContext<LDSSMDbContext>();
-			builder.AddLSCoreDependencyInjection("LDSSM");
+			builder.Services.AddEntityFrameworkNpgsql().AddDbContext<CommonDbContext>();
+			builder.AddLSCoreDependencyInjection(
+				"LDSSM",
+				(opt) =>
+				{
+					opt.Scan.SetShouldScanAssemblyPredicate(
+						(a) => a.FullName != null && a.FullName.StartsWith("Common")
+					);
+				}
+			);
 			return builder.Build();
 		}
 	}

@@ -17,7 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Repository\LDSSM.Repository.csproj" />
+    <ProjectReference Include="..\Common.Repository\Common.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="LDSSM.Repository">
+      <HintPath>..\LDSSM\Repository\bin\Debug\net9.0\LDSSM.Repository.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

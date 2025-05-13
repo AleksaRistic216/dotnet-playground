@@ -1,27 +1,107 @@
 ﻿using System.ComponentModel;
+using Common.Contracts.Entities;
+using Common.Contracts.Interfaces.IRepositories;
+using Common.Repository;
 using DevExpress.Data.Linq;
 using DevExpress.XtraBars;
-using LDSSM.Contracts.Entities;
-using LDSSM.Contracts.Interfaces.IRepositories;
-using LDSSM.Repository;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 
 namespace LDSSM.WinForms
 {
 	public partial class DXGridForm : DevExpress.XtraBars.Ribbon.RibbonForm
 	{
-		private readonly LDSSMDbContext dbContext;
+		private readonly CommonDbContext dbContext;
 		private readonly IUserRepository userRepository;
 
-		public DXGridForm(LDSSMDbContext dbContext, IUserRepository userRepository)
+		public DXGridForm(CommonDbContext dbContext, IUserRepository userRepository)
 		{
 			this.dbContext = dbContext;
 			this.userRepository = userRepository;
 			InitializeComponent();
+			this.gridView1.OptionsMenu.ShowConditionalFormattingItem = true;
 		}
 
 		private void DXGridForm_Load(object sender, EventArgs e) { }
 
-		static IListSource CreateServerModeSource(LDSSMDbContext dbContext)
+		private void ApplyFilters()
+		{
+			ApplyPhoneNumberConditionalFilters();
+		}
+
+		private void ApplyPhoneNumberConditionalFilters()
+		{
+			var textRule = new FormatConditionRuleExpression()
+			{
+				Appearance = { BackColor = Color.Bisque },
+				Expression = string.Join(
+					" or ",
+					Enumerable
+						.Range(100, 300)
+						.Select(x => $"Contains([{nameof(UserEntity.Phone)}], '+{x}')")
+						.ToList()
+				),
+			};
+			var formatTextRule = new GridFormatRule
+			{
+				Rule = textRule,
+				Column = gridView1.Columns[nameof(UserEntity.Phone)],
+			};
+			gridView1.FormatRules.Add(formatTextRule);
+		}
+
+		#region Helpers
+		GridFormatRule CreateFormatRuleDate(GridColumn column, FilterDateType dateType)
+		{
+			var dateRule = new FormatConditionRuleDateOccuring
+			{
+				Appearance = { BackColor = Color.LightGreen },
+				DateType = dateType,
+			};
+			var formatDateRule = new GridFormatRule { Rule = dateRule, Column = column };
+			return formatDateRule;
+		}
+
+		GridFormatRule CreateFormatRuleIntGreater(GridColumn column, int value)
+		{
+			var intRule = new FormatConditionRuleValue
+			{
+				Appearance = { ForeColor = Color.LightGreen, FontStyleDelta = FontStyle.Bold },
+				Value1 = value,
+				Condition = FormatCondition.Greater,
+			};
+			var formatIntRule = new GridFormatRule { Rule = intRule, Column = column };
+			return formatIntRule;
+		}
+
+		GridFormatRule CreateFormatRuleIntLess(GridColumn column, int value)
+		{
+			var intRule = new FormatConditionRuleValue
+			{
+				Appearance = { ForeColor = Color.Red, FontStyleDelta = FontStyle.Bold },
+				Value1 = value,
+				Condition = FormatCondition.Less,
+			};
+			var formatIntRule = new GridFormatRule { Rule = intRule, Column = column };
+			return formatIntRule;
+		}
+
+		GridFormatRule CreateFormatRuleTextEquals(GridColumn column, string text)
+		{
+			var textRule = new FormatConditionRuleValue
+			{
+				Appearance = { BackColor = Color.Red },
+				Value1 = text,
+				Condition = FormatCondition.Equal,
+			};
+			var formatTextRule = new GridFormatRule { Rule = textRule, Column = column };
+			return formatTextRule;
+		}
+		#endregion
+
+
+		static IListSource CreateServerModeSource(CommonDbContext dbContext)
 		{
 			var source = new EntityServerModeSource();
 			source.ElementType = typeof(UserEntity);
@@ -30,7 +110,7 @@ namespace LDSSM.WinForms
 			return source;
 		}
 
-		static IListSource CreateInstantFeedbackSource(LDSSMDbContext dbContext)
+		static IListSource CreateInstantFeedbackSource(CommonDbContext dbContext)
 		{
 			var source = new EntityInstantFeedbackSource();
 			source.DesignTimeElementType = typeof(UserEntity);
@@ -95,6 +175,8 @@ namespace LDSSM.WinForms
 			{
 				gridControl1.DataSource = CreateInstantFeedbackSource(userRepository);
 			}
+
+			ApplyFilters();
 		}
 	}
 }

@@ -1,6 +1,6 @@
-﻿using LDSSM.Contracts.Entities;
+﻿using Common.Contracts.Entities;
 using LSCore.Repository.Contracts;
 
-namespace LDSSM.Contracts.Interfaces.IRepositories;
+namespace Common.Contracts.Interfaces.IRepositories;
 
 public interface IUserRepository : ILSCoreRepositoryBase<UserEntity>;

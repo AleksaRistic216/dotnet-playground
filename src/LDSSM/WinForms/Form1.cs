@@ -1,4 +1,4 @@
-using LDSSM.Contracts.Interfaces.IRepositories;
+using Common.Contracts.Interfaces.IRepositories;
 
 namespace LDSSM.WinForms
 {

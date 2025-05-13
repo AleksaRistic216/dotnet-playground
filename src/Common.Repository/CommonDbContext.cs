@@ -1,15 +1,15 @@
-﻿using LDSSM.Contracts.Entities;
-using LDSSM.Repository.EntityMaps;
+﻿using Common.Contracts.Entities;
+using Common.Repository.EntityMaps;
 using LSCore.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace LDSSM.Repository;
+namespace Common.Repository;
 
-public class LDSSMDbContext(
-	DbContextOptions<LDSSMDbContext> options,
+public class CommonDbContext(
+	DbContextOptions<CommonDbContext> options,
 	IConfigurationRoot configuration
-) : LSCoreDbContext<LDSSMDbContext>(options)
+) : LSCoreDbContext<CommonDbContext>(options)
 {
 	public DbSet<UserEntity> Users { get; set; }
 
@@ -20,7 +20,7 @@ public class LDSSMDbContext(
 			$"Server={configuration["POSTGRES_HOST"]};Port={configuration["POSTGRES_PORT"]};Userid={configuration["POSTGRES_USER"]};Password={configuration["POSTGRES_PASSWORD"]};Pooling=false;MinPoolSize=1;MaxPoolSize=20;Timeout=15;Database={configuration["POSTGRES_DATABASE"]};Include Error Detail=true;",
 			(action) =>
 			{
-				action.MigrationsAssembly("DbMigrations");
+				action.MigrationsAssembly("Common.DbMigrations");
 			}
 		);
 	}

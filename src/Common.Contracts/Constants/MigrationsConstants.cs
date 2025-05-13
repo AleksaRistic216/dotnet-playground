@@ -1,4 +1,4 @@
-﻿namespace LDSSM.Contracts.Constants;
+﻿namespace Common.Contracts.Constants;
 
 public static class MigrationsConstants
 {
