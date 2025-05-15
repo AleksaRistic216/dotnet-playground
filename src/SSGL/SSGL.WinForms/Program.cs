@@ -21,6 +21,7 @@ namespace SSGL.WinForms
 		[STAThread]
 		static void Main()
 		{
+			throw new Exception("Broken app.");
 			var host = BuildHost();
 			ApplicationConfiguration.Initialize();
 			Application.Run(host.Services.GetRequiredService<Form1>());
