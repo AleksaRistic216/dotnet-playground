@@ -64,7 +64,7 @@ namespace SSGL.WinForms
 				.AsIEmbeddingGenerator();
 			var vectorStore = new InMemoryVectorStore();
 			builder.Services.AddSingleton<IEmbeddingGenerator>(embeddingGenerator);
-			var container = AIExtensionsContainerDesktop.Default;
+			//var container = AIExtensionsContainerDesktop.Default;
 			//container.AddEmbeddingGenerator(embeddingGenerator);
 			#endregion
 			return builder.Build();
