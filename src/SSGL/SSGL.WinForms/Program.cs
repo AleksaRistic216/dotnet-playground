@@ -1,9 +1,13 @@
 using Common.Contracts.Interfaces.IRepositories;
 using Common.Repository;
+using DevExpress.AIIntegration;
 using LSCore.DependencyInjection;
+using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.SemanticKernel.Connectors.InMemory;
+using OpenAI;
 using SSGL.Repository;
 
 namespace SSGL.WinForms
@@ -49,6 +53,19 @@ namespace SSGL.WinForms
 			{
 				builder.Services.AddTransient<IUserRepository, UserMockRepository>();
 			}
+
+			#region Embedding
+
+			var model = builder.Configuration["EMBEDDING_MODEL"];
+			var key = builder.Configuration["OPEN_AI_KEY"];
+			var embeddingGenerator = new OpenAIClient(key)
+				.GetEmbeddingClient(model)
+				.AsIEmbeddingGenerator();
+			var vectorStore = new InMemoryVectorStore();
+			builder.Services.AddSingleton<IEmbeddingGenerator>(embeddingGenerator);
+			var container = AIExtensionsContainerDesktop.Default;
+			//container.AddEmbeddingGenerator(embeddingGenerator);
+			#endregion
 			return builder.Build();
 		}
 	}

@@ -8,10 +8,11 @@ namespace SSGL.WinForms
 		{
 			InitializeComponent();
 			var data = userRepository.GetMultiple().OrderBy(x => Guid.NewGuid()).Take(1000);
-			gridControl1.DataSource = data.ToList();
+			var datSource = new BindingSource();
+			datSource.DataSource = data.ToList();
+			gridControl1.DataSource = datSource;
+			//gridView1.OptionsFind.Behavior = FindPanelBehavior.Search;
 		}
-
-		private void Populate() { }
 
 		private void Form1_Load(object sender, EventArgs e) { }
 	}
