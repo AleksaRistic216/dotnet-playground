@@ -40,13 +40,13 @@
             ribbonControl1.EmptyAreaImageOptions.ImagePadding = new Padding(28, 23, 28, 23);
             ribbonControl1.ExpandCollapseItem.Id = 0;
             ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem });
-            ribbonControl1.Location = new Point(0, 0);
+            ribbonControl1.Location = new Point(520, 0);
             ribbonControl1.Margin = new Padding(3, 2, 3, 2);
             ribbonControl1.MaxItemId = 1;
             ribbonControl1.Name = "ribbonControl1";
             ribbonControl1.OptionsMenuMinWidth = 305;
             ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
-            ribbonControl1.Size = new Size(2154, 308);
+            ribbonControl1.Size = new Size(1634, 308);
             ribbonControl1.StatusBar = ribbonStatusBar1;
             // 
             // ribbonPage1
@@ -69,12 +69,12 @@
             // 
             // accordionControl1
             // 
-            accordionControl1.Dock = DockStyle.Right;
+            accordionControl1.Dock = DockStyle.Left;
             accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement1 });
-            accordionControl1.Location = new Point(1634, 64);
+            accordionControl1.Location = new Point(0, 0);
             accordionControl1.MinimumSize = new Size(0, 1102);
             accordionControl1.Name = "accordionControl1";
-            accordionControl1.Size = new Size(520, 1102);
+            accordionControl1.Size = new Size(520, 1164);
             accordionControl1.TabIndex = 1;
             accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -88,7 +88,7 @@
             panel1.BackColor = Color.FromArgb(255, 128, 255);
             panel1.Controls.Add(ribbonStatusBar1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 308);
+            panel1.Location = new Point(520, 308);
             panel1.Name = "panel1";
             panel1.Size = new Size(1634, 856);
             panel1.TabIndex = 3;
@@ -99,12 +99,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2154, 1164);
             Controls.Add(panel1);
-            Controls.Add(accordionControl1);
             Controls.Add(ribbonControl1);
+            Controls.Add(accordionControl1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form2";
             NavigationControl = accordionControl1;
-            NavigationControlLayoutMode = DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToFormTitle;
+            NavigationControlLayoutMode = DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToTop;
             Ribbon = ribbonControl1;
             StatusBar = ribbonStatusBar1;
             Text = "Form2";
