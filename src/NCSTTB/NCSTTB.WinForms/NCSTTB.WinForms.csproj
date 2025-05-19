@@ -20,16 +20,13 @@
     <PackageReference Include="DevExpress.Design.Nuget" Version="25.1.0" />
     <PackageReference Include="LSCore.DependencyInjection" Version="9.1.4.1" />
     <PackageReference Include="LSCore.Repository" Version="9.1.4.1" />
-    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.4.4-preview.1.25259.16" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
-    <PackageReference Include="Microsoft.SemanticKernel.Connectors.InMemory" Version="1.49.0-preview" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common.Repository\Common.Repository.csproj" />
-    <ProjectReference Include="..\SSGL.Repository\SSGL.Repository.csproj" />
   </ItemGroup>
+
 </Project>
