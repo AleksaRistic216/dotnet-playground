@@ -33,6 +33,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ribbon", "Ribbon", "{F709B3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ribbon.WindowsForms", "src\24.2\Ribbon\Ribbon.WindowsForms\Ribbon.WindowsForms.csproj", "{6DE14CE0-73E9-47A9-8029-0404AB5C3A3A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mnemonic", "Mnemonic", "{82A738CD-ABDA-460F-B36A-F66F3877F601}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mnemonic.WinForms", "src\Mnemonic\Mnemonic.WinForms\Mnemonic.WinForms.csproj", "{B2223EA9-26FB-4B3A-84B0-6E3F7D3D4AC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,10 @@ Global
 		{6DE14CE0-73E9-47A9-8029-0404AB5C3A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DE14CE0-73E9-47A9-8029-0404AB5C3A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DE14CE0-73E9-47A9-8029-0404AB5C3A3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2223EA9-26FB-4B3A-84B0-6E3F7D3D4AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2223EA9-26FB-4B3A-84B0-6E3F7D3D4AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2223EA9-26FB-4B3A-84B0-6E3F7D3D4AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2223EA9-26FB-4B3A-84B0-6E3F7D3D4AC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +95,7 @@ Global
 		{18CD8354-55CC-4596-9263-70B520FE64F9} = {D61BDA21-0DF4-42B4-B647-B11605EAD8C2}
 		{F709B375-2FDB-4CA2-93A5-F589CE1441BA} = {149001AE-8AD2-49F8-83D8-6793B2482F7E}
 		{6DE14CE0-73E9-47A9-8029-0404AB5C3A3A} = {F709B375-2FDB-4CA2-93A5-F589CE1441BA}
+		{B2223EA9-26FB-4B3A-84B0-6E3F7D3D4AC1} = {82A738CD-ABDA-460F-B36A-F66F3877F601}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A90437B2-8291-4D4D-A10E-41C0BC349D6D}
