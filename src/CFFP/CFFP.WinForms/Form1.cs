@@ -1,5 +1,6 @@
 using Common.Contracts.Entities;
 using Common.Contracts.Interfaces.IRepositories;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Base;
@@ -10,6 +11,8 @@ namespace CFFP.WinForms
 	{
 		public Form1(IUserRepository userRepository)
 		{
+			var barManager = new BarManager();
+			barManager.Form = this;
 			InitializeComponent();
 			var data = userRepository.GetMultiple().Take(1000);
 			gridControl1.DataSource = data.ToList();

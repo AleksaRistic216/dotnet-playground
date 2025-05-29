@@ -22,7 +22,6 @@ namespace CFFP.WinForms
 		{
 			var builder = Host.CreateApplicationBuilder();
 			builder.Services.AddTransient<Form1>();
-			builder.Services.AddScoped<Form1>();
 			builder.Configuration.AddJsonFile(
 				"appsettings.json",
 				optional: false,
