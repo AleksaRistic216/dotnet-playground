@@ -41,6 +41,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Charts", "Charts", "{084998
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charts.WinForms", "src\Charts\Charts.WinForms\Charts.WinForms.csproj", "{F614E22B-E476-4E1F-80FF-CA714F61FDBA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{B2D5A5E0-09BA-40BB-9618-6721B6E8D19A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templates.WinForms", "src\Templates\Templates.WinForms\Templates.WinForms.csproj", "{CCC32406-F488-4E3A-9B50-189DE10CF078}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +95,10 @@ Global
 		{F614E22B-E476-4E1F-80FF-CA714F61FDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F614E22B-E476-4E1F-80FF-CA714F61FDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F614E22B-E476-4E1F-80FF-CA714F61FDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC32406-F488-4E3A-9B50-189DE10CF078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC32406-F488-4E3A-9B50-189DE10CF078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC32406-F488-4E3A-9B50-189DE10CF078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC32406-F488-4E3A-9B50-189DE10CF078}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,6 +113,7 @@ Global
 		{6DE14CE0-73E9-47A9-8029-0404AB5C3A3A} = {F709B375-2FDB-4CA2-93A5-F589CE1441BA}
 		{B2223EA9-26FB-4B3A-84B0-6E3F7D3D4AC1} = {82A738CD-ABDA-460F-B36A-F66F3877F601}
 		{F614E22B-E476-4E1F-80FF-CA714F61FDBA} = {08499896-2FA3-48A8-A6B8-0862FE53348F}
+		{CCC32406-F488-4E3A-9B50-189DE10CF078} = {B2D5A5E0-09BA-40BB-9618-6721B6E8D19A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A90437B2-8291-4D4D-A10E-41C0BC349D6D}

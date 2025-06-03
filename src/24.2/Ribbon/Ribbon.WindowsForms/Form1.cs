@@ -5,7 +5,7 @@
 		public Form1()
 		{
 			InitializeComponent();
-			//this.NavigationControl = accordionControl1;
+			this.NavigationControl = accordionControl1;
 		}
 	}
 }
