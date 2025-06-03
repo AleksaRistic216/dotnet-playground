@@ -1,10 +1,9 @@
-using Common.Repository;
 using LSCore.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Mnemonic.WinForms
+namespace T1293782.WinForms
 {
 	internal static class Program
 	{
@@ -28,14 +27,12 @@ namespace Mnemonic.WinForms
 				reloadOnChange: true
 			);
 			builder.Services.AddSingleton<IConfigurationRoot>(builder.Configuration);
-			builder.Services.AddEntityFrameworkNpgsql().AddDbContext<CommonDbContext>();
 			builder.AddLSCoreDependencyInjection(
-				"Mnemonic",
-				(opt) =>
-				{
-					opt.Scan.SetShouldScanAssemblyPredicate(
-						(a) => a.FullName != null && a.FullName.StartsWith("Common")
-					);
+				"T1293782",
+				(opt) => {
+					//opt.Scan.SetShouldScanAssemblyPredicate(
+					//	(a) => a.FullName != null && a.FullName.StartsWith("Common")
+					//);
 				}
 			);
 			return builder.Build();

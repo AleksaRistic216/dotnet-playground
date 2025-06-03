@@ -11,6 +11,17 @@ using DevExpress.XtraGrid.Views.Base.Handler;
 using DevExpress.XtraGrid.Views.Base.ViewInfo;
 
 namespace Templates.WinForms {
-    public class ㋡ {
+    [ToolboxItem(true)]
+    public class : GridControl㋡ {
+        protected override BaseView CreateDefaultView() {
+return CreateView("㋡");        }
+
+        protected override void RegisterAvailableViewsCore(InfoCollection collection) {
+base.RegisterAvailableViewsCore(collection);
+collection.Add(new ㋡InfoRegistrator());
+        }
+    }
+
+    public class ㋡InfoRegistrator {
     }
 }
