@@ -1,26 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using DevExpress.XtraBars.Navigation;
 
 namespace NCSTTB.WinForms
 {
-	public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
+	public partial class AccordionForm : Form
 	{
-		public Form1()
+		public AccordionForm()
 		{
 			InitializeComponent();
 		}
 
-		private void barButtonItem1_ItemClick(
-			object sender,
-			DevExpress.XtraBars.ItemClickEventArgs e
-		)
-		{
-			using (var f = new Form2())
-				f.ShowDialog();
-		}
-
-		private void panel1_Paint(object sender, PaintEventArgs e) { }
-
-		private void Form1_Load(object sender, EventArgs e)
+		private void AccordionForm_Load(object sender, EventArgs e)
 		{
 			PopulateNavigationControl();
 		}
@@ -39,15 +37,6 @@ namespace NCSTTB.WinForms
 				item.Click += (s, e) => MessageBox.Show($"Item {i} clicked");
 				existingGroupitem.Elements.Add(item);
 			}
-		}
-
-		private void barButtonItem2_ItemClick(
-			object sender,
-			DevExpress.XtraBars.ItemClickEventArgs e
-		)
-		{
-			using var af = new AccordionForm();
-			af.ShowDialog();
 		}
 	}
 }
