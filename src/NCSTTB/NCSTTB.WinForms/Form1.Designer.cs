@@ -36,10 +36,34 @@
             ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             panel1 = new Panel();
+            layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
+            memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
+            layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ribbonControl2 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)accordionControl1).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
+            layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)memoEdit2.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)splitterItem1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ribbonControl2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlGroup1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).BeginInit();
             SuspendLayout();
             // 
             // ribbonControl1
@@ -135,12 +159,74 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(layoutControl1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(520, 308);
             panel1.Name = "panel1";
             panel1.Size = new Size(1781, 841);
             panel1.TabIndex = 5;
             panel1.Paint += panel1_Paint;
+            // 
+            // layoutControl1
+            // 
+            layoutControl1.Controls.Add(memoEdit2);
+            layoutControl1.Controls.Add(memoEdit1);
+            layoutControl1.Dock = DockStyle.Fill;
+            layoutControl1.Location = new Point(0, 0);
+            layoutControl1.Name = "layoutControl1";
+            layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new Rectangle(876, 401, 1300, 800);
+            layoutControl1.Root = Root;
+            layoutControl1.Size = new Size(1781, 841);
+            layoutControl1.TabIndex = 0;
+            layoutControl1.Text = "layoutControl1";
+            // 
+            // memoEdit2
+            // 
+            memoEdit2.Location = new Point(226, 24);
+            memoEdit2.MenuManager = ribbonControl1;
+            memoEdit2.Name = "memoEdit2";
+            memoEdit2.Size = new Size(224, 793);
+            memoEdit2.StyleController = layoutControl1;
+            memoEdit2.TabIndex = 5;
+            // 
+            // memoEdit1
+            // 
+            memoEdit1.Location = new Point(680, 24);
+            memoEdit1.MenuManager = ribbonControl1;
+            memoEdit1.Name = "memoEdit1";
+            memoEdit1.Size = new Size(1077, 793);
+            memoEdit1.StyleController = layoutControl1;
+            memoEdit1.TabIndex = 4;
+            // 
+            // Root
+            // 
+            Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { splitterItem1, layoutControlItem3, layoutControlItem4 });
+            Root.Name = "Root";
+            Root.Size = new Size(1781, 841);
+            Root.TextVisible = false;
+            // 
+            // splitterItem1
+            // 
+            splitterItem1.Location = new Point(434, 0);
+            splitterItem1.Name = "splitterItem1";
+            splitterItem1.Size = new Size(20, 801);
+            // 
+            // layoutControlItem3
+            // 
+            layoutControlItem3.Control = memoEdit1;
+            layoutControlItem3.Location = new Point(454, 0);
+            layoutControlItem3.Name = "layoutControlItem3";
+            layoutControlItem3.Size = new Size(1287, 801);
+            layoutControlItem3.TextSize = new Size(178, 25);
+            // 
+            // layoutControlItem4
+            // 
+            layoutControlItem4.Control = memoEdit2;
+            layoutControlItem4.Location = new Point(0, 0);
+            layoutControlItem4.Name = "layoutControlItem4";
+            layoutControlItem4.Size = new Size(434, 801);
+            layoutControlItem4.TextSize = new Size(178, 25);
             // 
             // ribbonControl2
             // 
@@ -151,6 +237,36 @@
             ribbonControl2.Name = "ribbonControl2";
             ribbonControl2.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage2 });
             ribbonControl2.Size = new Size(1781, 0);
+            // 
+            // layoutControlGroup1
+            // 
+            layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            layoutControlGroup1.GroupBordersVisible = false;
+            layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, emptySpaceItem1 });
+            layoutControlGroup1.Location = new Point(0, 0);
+            layoutControlGroup1.Name = "Root";
+            layoutControlGroup1.Size = new Size(797, 434);
+            layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            layoutControlItem1.Location = new Point(0, 0);
+            layoutControlItem1.Name = "layoutControlItem1";
+            layoutControlItem1.Size = new Size(757, 48);
+            layoutControlItem1.TextSize = new Size(178, 25);
+            // 
+            // layoutControlItem2
+            // 
+            layoutControlItem2.Location = new Point(0, 48);
+            layoutControlItem2.Name = "layoutControlItem2";
+            layoutControlItem2.Size = new Size(757, 48);
+            layoutControlItem2.TextSize = new Size(178, 25);
+            // 
+            // emptySpaceItem1
+            // 
+            emptySpaceItem1.Location = new Point(0, 96);
+            emptySpaceItem1.Name = "emptySpaceItem1";
+            emptySpaceItem1.Size = new Size(757, 298);
             // 
             // Form1
             // 
@@ -173,7 +289,20 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)accordionControl1).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)layoutControl1).EndInit();
+            layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)memoEdit2.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Root).EndInit();
+            ((System.ComponentModel.ISupportInitialize)splitterItem1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem4).EndInit();
             ((System.ComponentModel.ISupportInitialize)ribbonControl2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlGroup1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -194,5 +323,16 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraEditors.MemoEdit memoEdit2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.SplitterItem splitterItem1;
     }
 }
