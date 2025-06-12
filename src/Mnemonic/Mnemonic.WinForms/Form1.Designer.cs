@@ -26,8 +26,10 @@
             components = new System.ComponentModel.Container();
             barManager1 = new DevExpress.XtraBars.BarManager(components);
             bar1 = new DevExpress.XtraBars.Bar();
+            barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             bar2 = new DevExpress.XtraBars.Bar();
-            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
@@ -39,17 +41,20 @@
             barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
             barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             bar3 = new DevExpress.XtraBars.Bar();
             barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)barManager1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
@@ -62,9 +67,10 @@
             barManager1.DockControls.Add(barDockControlLeft);
             barManager1.DockControls.Add(barDockControlRight);
             barManager1.Form = this;
-            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { barButtonItem1, barButtonItem2, barSubItem1, barButtonItem3, barButtonItem4, barButtonItem5, barButtonItem6, barButtonItem7, barButtonItem8, barCheckItem1, barButtonItem9, barButtonItem10, barButtonItem11, barButtonItem12, barButtonItem13 });
+            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { barButtonItem1, barButtonItem2, barSubItem1, barButtonItem3, barButtonItem4, barButtonItem5, barButtonItem6, barButtonItem7, barButtonItem8, barCheckItem1, barButtonItem9, barButtonItem10, barButtonItem11, barButtonItem12, barButtonItem13, barEditItem1, barButtonItem14, barButtonItem15 });
             barManager1.MainMenu = bar2;
-            barManager1.MaxItemId = 15;
+            barManager1.MaxItemId = 18;
+            barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemTextEdit1 });
             barManager1.StatusBar = bar3;
             // 
             // bar1
@@ -76,22 +82,34 @@
             bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(barButtonItem11), new DevExpress.XtraBars.LinkPersistInfo(barButtonItem12), new DevExpress.XtraBars.LinkPersistInfo(barButtonItem13) });
             bar1.Text = "Tools";
             // 
+            // barButtonItem11
+            // 
+            barButtonItem11.Caption = "Second Row";
+            barButtonItem11.Id = 12;
+            barButtonItem11.Name = "barButtonItem11";
+            // 
+            // barButtonItem12
+            // 
+            barButtonItem12.Caption = "&Another One";
+            barButtonItem12.Id = 13;
+            barButtonItem12.Name = "barButtonItem12";
+            // 
+            // barButtonItem13
+            // 
+            barButtonItem13.Caption = "&And Another One";
+            barButtonItem13.Id = 14;
+            barButtonItem13.Name = "barButtonItem13";
+            // 
             // bar2
             // 
             bar2.BarName = "Main menu";
             bar2.DockCol = 0;
             bar2.DockRow = 0;
             bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(barButtonItem1), new DevExpress.XtraBars.LinkPersistInfo(barButtonItem2), new DevExpress.XtraBars.LinkPersistInfo(barSubItem1) });
+            bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(barButtonItem2), new DevExpress.XtraBars.LinkPersistInfo(barSubItem1), new DevExpress.XtraBars.LinkPersistInfo(barEditItem1), new DevExpress.XtraBars.LinkPersistInfo(barButtonItem15) });
             bar2.OptionsBar.MultiLine = true;
             bar2.OptionsBar.UseWholeRow = true;
             bar2.Text = "Main menu";
-            // 
-            // barButtonItem1
-            // 
-            barButtonItem1.Caption = "First Item";
-            barButtonItem1.Id = 0;
-            barButtonItem1.Name = "barButtonItem1";
             // 
             // barButtonItem2
             // 
@@ -164,6 +182,21 @@
             barButtonItem10.Name = "barButtonItem10";
             barButtonItem10.ItemClick += barButtonItem10_ItemClick;
             // 
+            // barEditItem1
+            // 
+            barEditItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            barEditItem1.Caption = "&Far Edit";
+            barEditItem1.Edit = repositoryItemTextEdit1;
+            barEditItem1.Id = 15;
+            barEditItem1.Name = "barEditItem1";
+            barEditItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.Caption;
+            barEditItem1.Size = new Size(200, 0);
+            // 
+            // repositoryItemTextEdit1
+            // 
+            repositoryItemTextEdit1.AutoHeight = false;
+            repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
             // bar3
             // 
             bar3.BarName = "Status bar";
@@ -182,7 +215,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(1873, 92);
+            barDockControlTop.Size = new Size(1873, 80);
             // 
             // barDockControlBottom
             // 
@@ -196,26 +229,38 @@
             // 
             barDockControlLeft.CausesValidation = false;
             barDockControlLeft.Dock = DockStyle.Left;
-            barDockControlLeft.Location = new Point(0, 92);
+            barDockControlLeft.Location = new Point(0, 80);
             barDockControlLeft.Manager = barManager1;
-            barDockControlLeft.Size = new Size(0, 748);
+            barDockControlLeft.Size = new Size(0, 760);
             // 
             // barDockControlRight
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(1873, 92);
+            barDockControlRight.Location = new Point(1873, 80);
             barDockControlRight.Manager = barManager1;
-            barDockControlRight.Size = new Size(0, 748);
+            barDockControlRight.Size = new Size(0, 760);
+            // 
+            // barButtonItem1
+            // 
+            barButtonItem1.Caption = "&First Item";
+            barButtonItem1.Id = 0;
+            barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem14
+            // 
+            barButtonItem14.Caption = "&First Fitem";
+            barButtonItem14.Id = 16;
+            barButtonItem14.Name = "barButtonItem14";
             // 
             // gridControl1
             // 
             gridControl1.Dock = DockStyle.Fill;
-            gridControl1.Location = new Point(0, 92);
+            gridControl1.Location = new Point(0, 80);
             gridControl1.MainView = gridView1;
             gridControl1.MenuManager = barManager1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(1873, 748);
+            gridControl1.Size = new Size(1873, 760);
             gridControl1.TabIndex = 4;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -224,23 +269,11 @@
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             // 
-            // barButtonItem11
+            // barButtonItem15
             // 
-            barButtonItem11.Caption = "Second Row";
-            barButtonItem11.Id = 12;
-            barButtonItem11.Name = "barButtonItem11";
-            // 
-            // barButtonItem12
-            // 
-            barButtonItem12.Caption = "&Another One";
-            barButtonItem12.Id = 13;
-            barButtonItem12.Name = "barButtonItem12";
-            // 
-            // barButtonItem13
-            // 
-            barButtonItem13.Caption = "&And Another One";
-            barButtonItem13.Id = 14;
-            barButtonItem13.Name = "barButtonItem13";
+            barButtonItem15.Caption = "&First F";
+            barButtonItem15.Id = 17;
+            barButtonItem15.Name = "barButtonItem15";
             // 
             // Form1
             // 
@@ -256,6 +289,7 @@
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)barManager1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ResumeLayout(false);
@@ -289,5 +323,9 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
+        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem14;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem15;
     }
 }

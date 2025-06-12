@@ -1,4 +1,5 @@
 using Common.Repository;
+using DevExpress.LookAndFeel;
 using LSCore.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +14,7 @@ namespace Mnemonic.WinForms
 		[STAThread]
 		static void Main()
 		{
+			UserLookAndFeel.Default.SetSkinStyle(SkinStyle.WXICompact);
 			var host = BuildHost();
 			ApplicationConfiguration.Initialize();
 			Application.Run(host.Services.GetRequiredService<Form1>());
