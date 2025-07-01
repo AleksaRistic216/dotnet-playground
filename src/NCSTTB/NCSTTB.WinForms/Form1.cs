@@ -49,5 +49,32 @@ namespace NCSTTB.WinForms
 			using var af = new AccordionForm();
 			af.ShowDialog();
 		}
+
+		private void barButtonItem3_ItemClick(
+			object sender,
+			DevExpress.XtraBars.ItemClickEventArgs e
+		)
+		{
+			using var np = new NavigationPane();
+			np.ShowDialog();
+		}
+
+		private void barButtonItem4_ItemClick(
+			object sender,
+			DevExpress.XtraBars.ItemClickEventArgs e
+		)
+		{
+			using var f = new WindowsButtonsForm();
+			f.ShowDialog();
+		}
+
+		private void barButtonItem5_ItemClick(
+			object sender,
+			DevExpress.XtraBars.ItemClickEventArgs e
+		)
+		{
+			using var f = new ToolBoxForm();
+			f.ShowDialog();
+		}
 	}
 }
