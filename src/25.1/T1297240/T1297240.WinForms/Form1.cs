@@ -1,7 +1,5 @@
 ﻿using System.Data;
 using DevExpress.LookAndFeel;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Repository;
 
 namespace T1297240.WinForms
 {
@@ -11,13 +9,12 @@ namespace T1297240.WinForms
 		{
 			InitializeComponent();
 
-			textEdit1.Text = "See what's hidden in your string… or be​hind﻿";
-			memoEdit1.Text = "See what's hidden in your string… or be​hind﻿";
+			//textEdit1.Text = "See what's hidden in your string… or be​hind﻿";
+			//memoEdit1.Text = "See what's hidden in your string… or be​hind﻿";
 
 			DataTable table = new DataTable();
 			table.Columns.Add("text");
-			table.Columns.Add("Another");
-			table.Rows.Add("See what's hidden in your string… or be​hind﻿", "");
+			table.Rows.Add("See what's hidden in your string… or be​hind﻿");
 
 			gridControl1.DataSource = table;
 		}
@@ -39,7 +36,7 @@ namespace T1297240.WinForms
 						);
 						block.Length = 1;
 						block.AllowNavigation = false;
-						block.ContentSize = new Size(100, 20);
+						block.ContentSize = new Size(100, 10);
 
 						//block.Painter = new DevHiddenCharPainter(
 						//	DXSkinColors.ForeColors.DisabledText,

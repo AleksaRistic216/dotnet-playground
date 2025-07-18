@@ -15,7 +15,9 @@ namespace T1297240.WinForms
 
 		public override bool DrawForeground(TextEdit.Block block)
 		{
-			DrawString(Draw, block.Segments[0].TextBounds, Color);
+			foreach (var segment in block.Segments)
+				if (TextArea.Contains(segment.Bounds))
+					DrawString(Draw, segment.TextBounds, Color);
 			return true;
 		}
 	}

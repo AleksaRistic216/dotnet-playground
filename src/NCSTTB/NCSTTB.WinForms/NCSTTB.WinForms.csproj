@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Design.Nuget" Version="25.1.0" />
+    <PackageReference Include="DevExpress.Design.Nuget" Version="25.2.0" />
     <PackageReference Include="LSCore.DependencyInjection" Version="9.1.4.1" />
     <PackageReference Include="LSCore.Repository" Version="9.1.4.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.4" />
