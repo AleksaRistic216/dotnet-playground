@@ -34,6 +34,7 @@
             ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -74,6 +75,7 @@
             ribbonControl1.RibbonCaptionAlignment = DevExpress.XtraBars.Ribbon.RibbonCaptionAlignment.Left;
             ribbonControl1.RightToLeft = RightToLeft.No;
             ribbonControl1.Size = new Size(809, 158);
+            ribbonControl1.StatusBar = ribbonStatusBar1;
             // 
             // barButtonItem1
             // 
@@ -144,6 +146,13 @@
             ribbonPageGroup3.Name = "ribbonPageGroup3";
             ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
+            // ribbonStatusBar1
+            // 
+            ribbonStatusBar1.Location = new Point(48, 506);
+            ribbonStatusBar1.Name = "ribbonStatusBar1";
+            ribbonStatusBar1.Ribbon = ribbonControl1;
+            ribbonStatusBar1.Size = new Size(761, 24);
+            // 
             // accordionControl1
             // 
             accordionControl1.Dock = DockStyle.Left;
@@ -181,7 +190,7 @@
             panel1.Location = new Point(48, 158);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(761, 372);
+            panel1.Size = new Size(761, 348);
             panel1.TabIndex = 5;
             panel1.Paint += panel1_Paint;
             // 
@@ -194,7 +203,7 @@
             gridControl1.Margin = new Padding(2);
             gridControl1.MenuManager = ribbonControl1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(686, 372);
+            gridControl1.Size = new Size(686, 348);
             gridControl1.TabIndex = 1;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -213,7 +222,7 @@
             sidePanel1.Location = new Point(686, 0);
             sidePanel1.Margin = new Padding(2);
             sidePanel1.Name = "sidePanel1";
-            sidePanel1.Size = new Size(75, 372);
+            sidePanel1.Size = new Size(75, 348);
             sidePanel1.TabIndex = 0;
             sidePanel1.Text = "sidePanel1";
             // 
@@ -265,6 +274,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(809, 530);
             Controls.Add(panel1);
+            Controls.Add(ribbonStatusBar1);
             Controls.Add(accordionControl1);
             Controls.Add(ribbonControl1);
             Margin = new Padding(2, 1, 2, 1);
@@ -272,6 +282,7 @@
             NavigationControl = accordionControl1;
             NavigationControlLayoutMode = DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToFormTitle;
             Ribbon = ribbonControl1;
+            StatusBar = ribbonStatusBar1;
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).EndInit();
@@ -314,5 +325,6 @@
         private DevExpress.XtraEditors.SidePanel sidePanel1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
     }
 }

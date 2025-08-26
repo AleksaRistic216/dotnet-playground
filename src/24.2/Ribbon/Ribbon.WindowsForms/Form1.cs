@@ -5,7 +5,13 @@
 		public Form1()
 		{
 			InitializeComponent();
-			this.NavigationControl = accordionControl1;
 		}
-	}
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+			this.RightToLeft = this.RightToLeft != System.Windows.Forms.RightToLeft.Yes 
+				? System.Windows.Forms.RightToLeft.Yes 
+				: System.Windows.Forms.RightToLeft.No;
+            this.RightToLeftLayout = !this.RightToLeftLayout;
+        }
+    }
 }
