@@ -42,5 +42,10 @@ namespace FW.RibbonForm.WinFormsFW {
         private void simpleButton1_Click(object sender, EventArgs e) {
             barButtonItem2_ItemClick(null, null);
         }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            var f3 = new Form3();
+            f3.Show();
+        }
     }
 }

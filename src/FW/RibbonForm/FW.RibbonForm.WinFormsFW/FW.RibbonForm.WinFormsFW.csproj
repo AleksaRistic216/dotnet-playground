@@ -64,6 +64,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
     <Compile Include="NormalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     <Compile Include="PureRibbonForm.Designer.cs">
       <DependentUpon>PureRibbonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RibbonStatusBarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RibbonStatusBarForm.Designer.cs">
+      <DependentUpon>RibbonStatusBarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="XtraUserControlCustom.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NormalForm.resx">
       <DependentUpon>NormalForm.cs</DependentUpon>
@@ -102,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="PureRibbonForm.resx">
       <DependentUpon>PureRibbonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonStatusBarForm.resx">
+      <DependentUpon>RibbonStatusBarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraUserControlCustom.resx">
       <DependentUpon>XtraUserControlCustom.cs</DependentUpon>
