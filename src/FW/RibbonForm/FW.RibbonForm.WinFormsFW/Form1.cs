@@ -47,5 +47,20 @@ namespace FW.RibbonForm.WinFormsFW {
             var f3 = new Form3();
             f3.Show();
         }
+
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            var f2 = new Form2();
+            f2.Show();
+        }
+
+        private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            var f4 = new Form4();
+            f4.Show();
+        }
+
+        private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            var f5 = new Form5();
+            f5.Show();
+        }
     }
 }
