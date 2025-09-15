@@ -15,29 +15,10 @@ namespace Charts.WinForms
 		{
 			InitializeComponent();
 			InitializeChart();
-			chartControl1.Paint += ChartControl1_Paint;
-			chartControl1.CustomPaint += ChartControl1_CustomPaint;
 		}
 
 		private void ChartControl1_CustomPaint(object sender, CustomPaintEventArgs e)
 		{
-			var pieCenter = GetChartCenter();
-			var x = pieCenter.X;
-			var y = pieCenter.Y;
-			var radius = 20;
-			x -= radius / 2;
-			y -= radius / 2;
-			e.Graphics.FillEllipse(Brushes.GreenYellow, x, y, radius, radius);
-		}
-
-		private Point GetChartCenter()
-		{
-			ISupportVisibilityControlElement legend = chartControl1.Legend;
-			var x = (chartControl1.Bounds.Width - (int)legend.Bounds.Width) / 2;
-			var y = chartControl1.Bounds.Height / 2;
-			x -= chartControl1.Padding.Right;
-			x -= chartControl1.Margin.Right;
-			return new Point(x, y);
 		}
 
 		private void ChartControl1_Paint(object? sender, PaintEventArgs e) { }

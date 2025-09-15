@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,14 +22,30 @@
     <PackageReference Include="DevExpress.Design.Nuget" Version="25.2.0" />
     <PackageReference Include="LSCore.DependencyInjection" Version="9.1.4.1" />
     <PackageReference Include="LSCore.Repository" Version="9.1.4.1" />
+    <PackageReference Include="Microsoft.Extensions.AI.Ollama" Version="9.7.0-preview.1.25356.2" />
+    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
-    <PackageReference Include="Nunit" Version="3.12.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common.Repository\Common.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DevExpress.AIIntegration.Desktop.v25.2">
+      <HintPath>..\..\..\..\..\..\..\work\2025.2\Bin\NETCore\DevExpress.AIIntegration.Desktop.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.AIIntegration.OpenAI.v25.2">
+      <HintPath>..\..\..\..\..\..\..\work\2025.2\Bin\NETCore\DevExpress.AIIntegration.OpenAI.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.AIIntegration.v25.2">
+      <HintPath>..\..\..\..\..\..\..\work\2025.2\Bin\NETCore\DevExpress.AIIntegration.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.AIIntegration.WinForms.v25.2">
+      <HintPath>..\..\..\..\..\..\..\work\2025.2\Bin\NETCore\DevExpress.AIIntegration.WinForms.v25.2.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

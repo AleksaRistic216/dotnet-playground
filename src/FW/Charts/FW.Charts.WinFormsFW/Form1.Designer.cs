@@ -29,10 +29,11 @@
             // 
             // chartControl1
             // 
-            this.chartControl1.Location = new System.Drawing.Point(70, 49);
+            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartControl1.Location = new System.Drawing.Point(0, 0);
             this.chartControl1.Name = "chartControl1";
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartControl1.Size = new System.Drawing.Size(300, 200);
+            this.chartControl1.Size = new System.Drawing.Size(800, 450);
             this.chartControl1.TabIndex = 0;
             // 
             // Form1
