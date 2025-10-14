@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentManger.WinForms", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DocumentManager", "DocumentManager", "{62A1B0C4-C53B-4968-85BF-B711C970098C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "src\Benchmarks\Benchmarks.csproj", "{EEA4DFC8-2B99-4471-ADBC-AB125958C65A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -211,6 +213,10 @@ Global
 		{77D5E2C5-9AD6-40A1-ADEA-B0A7BFDC94E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77D5E2C5-9AD6-40A1-ADEA-B0A7BFDC94E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77D5E2C5-9AD6-40A1-ADEA-B0A7BFDC94E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEA4DFC8-2B99-4471-ADBC-AB125958C65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA4DFC8-2B99-4471-ADBC-AB125958C65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA4DFC8-2B99-4471-ADBC-AB125958C65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA4DFC8-2B99-4471-ADBC-AB125958C65A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
