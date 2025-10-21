@@ -15,9 +15,17 @@ namespace RibbonForm.WinForms {
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            System.Threading.Thread.Sleep(2000); 
+            System.Threading.Thread.Sleep(2000);
             using PureRibbon p = new PureRibbon();
             p.ShowDialog();
+        }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+        }
+
+        private void barButtonItem3_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using Form2 f = new Form2();
+            f.ShowDialog();
         }
     }
 }
