@@ -16,6 +16,11 @@ namespace RibbonForm.WinForms {
             ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
+            ribbonControl1.UpdateViewInfo();
+        }
+
+        private void textEdit1_KeyDown(object sender, KeyEventArgs e) {
+            ;
         }
     }
 }
