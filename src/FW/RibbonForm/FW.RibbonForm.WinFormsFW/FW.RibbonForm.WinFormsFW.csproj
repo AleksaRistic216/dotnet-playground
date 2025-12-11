@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.Utils.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
     <Reference Include="DevExpress.XtraBars.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
     <Reference Include="DevExpress.XtraEditors.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
+    <Reference Include="DevExpress.BonusSkins.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,6 +95,12 @@
     <Compile Include="Form7.Designer.cs">
       <DependentUpon>Form7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form9.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form9.Designer.cs">
+      <DependentUpon>Form9.cs</DependentUpon>
+    </Compile>
     <Compile Include="NormalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +120,12 @@
     </Compile>
     <Compile Include="RibbonStatusBarForm.Designer.cs">
       <DependentUpon>RibbonStatusBarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleFormWithRibbonControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimpleFormWithRibbonControl.Designer.cs">
+      <DependentUpon>SimpleFormWithRibbonControl.cs</DependentUpon>
     </Compile>
     <Compile Include="XtraUserControlCustom.cs">
       <SubType>UserControl</SubType>
@@ -137,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form7.resx">
       <DependentUpon>Form7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form9.resx">
+      <DependentUpon>Form9.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NormalForm.resx">
       <DependentUpon>NormalForm.cs</DependentUpon>
@@ -175,6 +191,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ClosePaneMirrored.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckboxFill.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckboxFill1.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

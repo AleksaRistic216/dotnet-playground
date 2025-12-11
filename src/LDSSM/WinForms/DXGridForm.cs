@@ -21,6 +21,7 @@ namespace LDSSM.WinForms
 			this.userRepository = userRepository;
 			InitializeComponent();
 			this.gridView1.OptionsMenu.ShowConditionalFormattingItem = true;
+			//this.gridView1.OptionsNavigation.AllowHeaderNavigation = DevExpress.Utils.DefaultBoolean.True;
 		}
 
 		private void DXGridForm_Load(object sender, EventArgs e) { }

@@ -17,5 +17,14 @@ namespace FW.RibbonForm.WinFormsFW {
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             SidePane.Visible = !SidePane.Visible;
         }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            this.RightToLeft = RightToLeft == RightToLeft.No ? RightToLeft.Yes : RightToLeft.No;
+            this.RightToLeftLayout = true;
+        }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            this.IconOptions.ShowIcon = !this.IconOptions.ShowIcon;
+        }
     }
 }

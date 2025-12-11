@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DevExpress.Accessibility;
+using DevExpress.LookAndFeel;
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +15,7 @@ namespace FW.Random.WinFromsFW {
         /// </summary>
         [STAThread]
         static void Main() {
+            WindowsFormsSettings.UseUIAutomation = DefaultBoolean.True;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

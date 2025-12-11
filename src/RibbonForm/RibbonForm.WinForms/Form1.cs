@@ -27,5 +27,13 @@ namespace RibbonForm.WinForms {
             using Form2 f = new Form2();
             f.ShowDialog();
         }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+        }
+
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            this.IconOptions.ShowIcon = !this.IconOptions.ShowIcon;
+
+        }
     }
 }

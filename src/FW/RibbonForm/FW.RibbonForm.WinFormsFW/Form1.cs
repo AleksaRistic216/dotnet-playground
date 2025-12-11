@@ -12,6 +12,12 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm {
         public Form1() {
             InitializeComponent();
+            this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2007;
+            this.SidePane.SizeChanged += SidePanel_SizeChanged;
+        }
+
+        private void SidePanel_SizeChanged(object sender, EventArgs e) {
+            labelControl1.Text = $"Side Panel Width: {this.SidePane.Width}";
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -61,6 +67,19 @@ namespace FW.RibbonForm.WinFormsFW {
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             var f5 = new Form5();
             f5.Show();
+        }
+
+        private void accordionControlElement5_Click(object sender, EventArgs e) {
+            this.IconOptions.ShowIcon = !this.IconOptions.ShowIcon;
+        }
+
+        private void navigationPage1_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using(Form9 form = new Form9())
+                form.ShowDialog();
         }
     }
 }

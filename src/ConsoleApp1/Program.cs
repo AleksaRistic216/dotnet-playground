@@ -1,4 +1,13 @@
-﻿Int64 max = Int64.MaxValue;
-Console.WriteLine(max);
-int a = (int)max;
-Console.WriteLine(a);
+﻿Console.WriteLine("Start");
+
+SomeType? obj = null;
+if(obj?.Value == true && obj?.OtherValue == 42) {
+    Console.WriteLine("Input is true");
+}
+
+Console.WriteLine("End");
+
+class SomeType {
+    public bool Value = true;
+    public int OtherValue = 42;
+}
