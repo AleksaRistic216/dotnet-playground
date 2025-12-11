@@ -83,6 +83,36 @@ namespace RibbonForm.WinForms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage CheckboxFill10 {
+            get {
+                object obj = ResourceManager.GetObject("CheckboxFill10", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage CheckboxFill101 {
+            get {
+                object obj = ResourceManager.GetObject("CheckboxFill101", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage CheckboxFill102 {
+            get {
+                object obj = ResourceManager.GetObject("CheckboxFill102", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage CheckboxFill2 {
             get {
                 object obj = ResourceManager.GetObject("CheckboxFill2", resourceCulture);
@@ -126,6 +156,36 @@ namespace RibbonForm.WinForms.Properties {
         internal static DevExpress.Utils.Svg.SvgImage CheckboxFill6 {
             get {
                 object obj = ResourceManager.GetObject("CheckboxFill6", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage CheckboxFill7 {
+            get {
+                object obj = ResourceManager.GetObject("CheckboxFill7", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage CheckboxFill8 {
+            get {
+                object obj = ResourceManager.GetObject("CheckboxFill8", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage CheckboxFill9 {
+            get {
+                object obj = ResourceManager.GetObject("CheckboxFill9", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

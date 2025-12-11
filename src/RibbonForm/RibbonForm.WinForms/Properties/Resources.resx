@@ -139,4 +139,22 @@
   <data name="CheckboxFill6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CheckboxFill6.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
   </data>
+  <data name="CheckboxFill7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckboxFill7.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
+  </data>
+  <data name="CheckboxFill8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckboxFill8.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
+  </data>
+  <data name="CheckboxFill9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckboxFill9.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
+  </data>
+  <data name="CheckboxFill10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckboxFill10.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
+  </data>
+  <data name="CheckboxFill101" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckboxFill11.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
+  </data>
+  <data name="CheckboxFill102" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckboxFill12.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
+  </data>
 </root>
