@@ -1,5 +1,5 @@
 ﻿namespace FW.RibbonForm.WinFormsFW {
-    partial class Form9 {
+    partial class NestedRibbonWithinRibbonForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>

@@ -1,20 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DevExpress.XtraBars.Ribbon;
+using System;
 using System.Windows.Forms;
 
 namespace FW.RibbonForm.WinFormsFW {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm {
         public Form1() {
             InitializeComponent();
-            foreach(var e in Enum.GetValues(typeof(DevExpress.XtraBars.Ribbon.RibbonControlStyle)))
-                repositoryItemComboBox1.Items.Add(e);
+            InitializeRibbonStyleCmb();
             this.SidePane.SizeChanged += SidePanel_SizeChanged;
+            InitializeShowPageHeadersModeCmb();
+            InitializeRibbonToolbarLocationCmb();
+        }
+
+        private void InitializeRibbonStyleCmb() {
+            foreach(var style in Enum.GetValues(typeof(DevExpress.XtraBars.Ribbon.RibbonControlStyle)))
+                repositoryItemComboBox1.Items.Add(style);
+            cmb_RibbonStyle.EditValue = this.Ribbon.RibbonStyle;
+        }
+
+        private void InitializeShowPageHeadersModeCmb() {
+            foreach(var mode in Enum.GetValues(typeof(ShowPageHeadersMode)))
+                repositoryItemComboBox2.Items.Add(mode);
+            ribbonHeaderMode_cmb.EditValue = this.Ribbon.ShowPageHeadersMode;
+        }
+
+        private void InitializeRibbonToolbarLocationCmb() {
+            foreach(var location in Enum.GetValues(typeof(RibbonQuickAccessToolbarLocation))) 
+                repositoryItemComboBox3.Items.Add(location);
+            ribbonToolbarLocation_cmb.EditValue = this.Ribbon.ToolbarLocation;
         }
 
         private void SidePanel_SizeChanged(object sender, EventArgs e) {
@@ -50,11 +63,6 @@ namespace FW.RibbonForm.WinFormsFW {
             barButtonItem2_ItemClick(null, null);
         }
 
-        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            var f3 = new Form3();
-            f3.Show();
-        }
-
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             var f2 = new Form2();
             f2.Show();
@@ -79,8 +87,6 @@ namespace FW.RibbonForm.WinFormsFW {
         }
 
         private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            using(Form9 form = new Form9())
-                form.ShowDialog();
         }
 
         private void cmb_RibbonStyle_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -89,6 +95,55 @@ namespace FW.RibbonForm.WinFormsFW {
         private void cmb_RibbonStyle_EditValueChanged(object sender, EventArgs e) {
             var style = (DevExpress.XtraBars.Ribbon.RibbonControlStyle)cmb_RibbonStyle.EditValue;
             ribbonControl1.RibbonStyle = style;
+        }
+
+        private void ribbonHeaderMode_cmb_EditValueChanged(object sender, EventArgs e) {
+            var mode = (ShowPageHeadersMode)ribbonHeaderMode_cmb.EditValue;
+            this.Ribbon.ShowPageHeadersMode = mode;
+        }
+
+        private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using(NestedRibbonWithinRibbonForm form = new NestedRibbonWithinRibbonForm())
+                form.ShowDialog();
+        }
+
+        private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+
+        }
+
+        private void barButtonItem10_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using (SimpleFormWithRibbonControl form = new SimpleFormWithRibbonControl())
+                form.ShowDialog();
+        }
+
+        private void barButtonItem11_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using(Form5 form = new Form5())
+                form.ShowDialog();
+        }
+
+        private void barButtonItem9_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using (Form4 form = new Form4())
+                form.ShowDialog();
+        }
+
+        private void barButtonItem8_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using (Form2 form = new Form2())
+                form.ShowDialog();
+        }
+
+        private void barButtonItem6_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using (PureRibbonForm form = new PureRibbonForm())
+                form.ShowDialog();
+        }
+
+        private void barButtonItem5_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            using (NormalForm form = new NormalForm())
+                form.ShowDialog();
+        }
+
+        private void ribbonToolbarLocation_cmb_EditValueChanged(object sender, EventArgs e) {
+            var location = (RibbonQuickAccessToolbarLocation)ribbonToolbarLocation_cmb.EditValue;
+            this.Ribbon.ToolbarLocation = location;
         }
     }
 }

@@ -63,6 +63,16 @@ namespace FW.RibbonForm.WinFormsFW.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_window {
+            get {
+                object obj = ResourceManager.GetObject("actions_window", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage CheckboxFill {
             get {
                 object obj = ResourceManager.GetObject("CheckboxFill", resourceCulture);

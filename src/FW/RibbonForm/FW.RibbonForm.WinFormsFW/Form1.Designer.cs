@@ -25,31 +25,34 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
             this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
-            this.skinPaletteDropDownButtonItem2 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.skinDropDownButtonItem2 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.cmb_RibbonStyle = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.ribbonHeaderMode_cmb = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonToolbarLocation_cmb = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
+            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.skinPaletteDropDownButtonItem2 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -71,6 +74,8 @@
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -86,26 +91,25 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
-            this.barButtonItem1,
-            this.skinPaletteRibbonGalleryBarItem1,
             this.skinPaletteDropDownButtonItem1,
             this.barButtonItem2,
             this.barButtonItem4,
-            this.skinRibbonGalleryBarItem1,
-            this.skinPaletteDropDownButtonItem2,
             this.barButtonItem3,
-            this.barButtonItem5,
-            this.barButtonItem6,
-            this.barButtonItem7,
-            this.barButtonItem8,
-            this.barButtonItem9,
+            this.skinDropDownButtonItem2,
+            this.cmb_RibbonStyle,
+            this.ribbonHeaderMode_cmb,
+            this.barSubItem1,
+            this.barButtonItem12,
             this.barButtonItem10,
             this.barButtonItem11,
-            this.skinDropDownButtonItem2,
-            this.cmb_RibbonStyle});
+            this.barButtonItem9,
+            this.barButtonItem8,
+            this.barButtonItem6,
+            this.barButtonItem5,
+            this.ribbonToolbarLocation_cmb});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 21;
+            this.ribbonControl1.MaxItemId = 31;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 495;
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
@@ -114,23 +118,13 @@
             this.ribbonPage1});
             this.ribbonControl1.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem1);
             this.ribbonControl1.QuickToolbarItemLinks.Add(this.skinDropDownButtonItem2);
+            this.ribbonControl1.QuickToolbarItemLinks.Add(this.barSubItem1);
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemComboBox1});
+            this.repositoryItemComboBox1,
+            this.repositoryItemComboBox2,
+            this.repositoryItemComboBox3});
             this.ribbonControl1.Size = new System.Drawing.Size(1176, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Other form";
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
-            // 
-            // skinPaletteRibbonGalleryBarItem1
-            // 
-            this.skinPaletteRibbonGalleryBarItem1.Caption = "skinPaletteRibbonGalleryBarItem1";
-            this.skinPaletteRibbonGalleryBarItem1.Id = 2;
-            this.skinPaletteRibbonGalleryBarItem1.Name = "skinPaletteRibbonGalleryBarItem1";
             // 
             // skinPaletteDropDownButtonItem1
             // 
@@ -151,71 +145,12 @@
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
-            // skinRibbonGalleryBarItem1
-            // 
-            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
-            this.skinRibbonGalleryBarItem1.Id = 7;
-            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
-            // 
-            // skinPaletteDropDownButtonItem2
-            // 
-            this.skinPaletteDropDownButtonItem2.Id = 8;
-            this.skinPaletteDropDownButtonItem2.Name = "skinPaletteDropDownButtonItem2";
-            // 
             // barButtonItem3
             // 
             this.barButtonItem3.Caption = "Change Navigation Mode";
             this.barButtonItem3.Id = 10;
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "Pure Ribbon Form";
-            this.barButtonItem5.Id = 11;
-            this.barButtonItem5.Name = "barButtonItem5";
-            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "Another Form";
-            this.barButtonItem6.Id = 12;
-            this.barButtonItem6.Name = "barButtonItem6";
-            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "barButtonItem7";
-            this.barButtonItem7.Id = 13;
-            this.barButtonItem7.Name = "barButtonItem7";
-            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "barButtonItem8";
-            this.barButtonItem8.Id = 15;
-            this.barButtonItem8.Name = "barButtonItem8";
-            this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "barButtonItem9";
-            this.barButtonItem9.Id = 16;
-            this.barButtonItem9.Name = "barButtonItem9";
-            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Caption = "Nested Ribbon Within Form";
-            this.barButtonItem10.Id = 17;
-            this.barButtonItem10.Name = "barButtonItem10";
-            this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
-            // 
-            // barButtonItem11
-            // 
-            this.barButtonItem11.Caption = "Simple Form With Ribbon Control";
-            this.barButtonItem11.Id = 18;
-            this.barButtonItem11.Name = "barButtonItem11";
             // 
             // skinDropDownButtonItem2
             // 
@@ -224,7 +159,9 @@
             // 
             // cmb_RibbonStyle
             // 
+            this.cmb_RibbonStyle.Caption = "Ribbon Style";
             this.cmb_RibbonStyle.Edit = this.repositoryItemComboBox1;
+            this.cmb_RibbonStyle.EditWidth = 150;
             this.cmb_RibbonStyle.Id = 20;
             this.cmb_RibbonStyle.Name = "cmb_RibbonStyle";
             this.cmb_RibbonStyle.EditValueChanged += new System.EventHandler(this.cmb_RibbonStyle_EditValueChanged);
@@ -236,6 +173,102 @@
             this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // ribbonHeaderMode_cmb
+            // 
+            this.ribbonHeaderMode_cmb.Caption = "Ribbon Show Page Header Mode";
+            this.ribbonHeaderMode_cmb.Edit = this.repositoryItemComboBox2;
+            this.ribbonHeaderMode_cmb.EditWidth = 150;
+            this.ribbonHeaderMode_cmb.Id = 21;
+            this.ribbonHeaderMode_cmb.Name = "ribbonHeaderMode_cmb";
+            this.ribbonHeaderMode_cmb.EditValueChanged += new System.EventHandler(this.ribbonHeaderMode_cmb_EditValueChanged);
+            // 
+            // repositoryItemComboBox2
+            // 
+            this.repositoryItemComboBox2.AutoHeight = false;
+            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "barSubItem1";
+            this.barSubItem1.Id = 22;
+            this.barSubItem1.ImageOptions.SvgImage = global::FW.RibbonForm.WinFormsFW.Properties.Resources.actions_window;
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem12),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem10),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5)});
+            this.barSubItem1.Name = "barSubItem1";
+            // 
+            // barButtonItem12
+            // 
+            this.barButtonItem12.Caption = "Nested Ribbon Within Form";
+            this.barButtonItem12.Id = 23;
+            this.barButtonItem12.Name = "barButtonItem12";
+            this.barButtonItem12.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem12_ItemClick);
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "Simple Form With Ribbon Control";
+            this.barButtonItem10.Id = 24;
+            this.barButtonItem10.Name = "barButtonItem10";
+            this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick_1);
+            // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "Ribon Form With Navigation Control";
+            this.barButtonItem11.Id = 25;
+            this.barButtonItem11.Name = "barButtonItem11";
+            this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick_1);
+            // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "Ribbon Form With Navigation Control";
+            this.barButtonItem9.Id = 26;
+            this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick_1);
+            // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "Ribon Form With Side Pane";
+            this.barButtonItem8.Id = 27;
+            this.barButtonItem8.Name = "barButtonItem8";
+            this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick_1);
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Pure Ribbon Form";
+            this.barButtonItem6.Id = 28;
+            this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick_1);
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "Normal Form";
+            this.barButtonItem5.Id = 29;
+            this.barButtonItem5.Name = "barButtonItem5";
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick_1);
+            // 
+            // ribbonToolbarLocation_cmb
+            // 
+            this.ribbonToolbarLocation_cmb.Caption = "Ribbon QAT Location";
+            this.ribbonToolbarLocation_cmb.Edit = this.repositoryItemComboBox3;
+            this.ribbonToolbarLocation_cmb.EditWidth = 150;
+            this.ribbonToolbarLocation_cmb.Id = 30;
+            this.ribbonToolbarLocation_cmb.Name = "ribbonToolbarLocation_cmb";
+            this.ribbonToolbarLocation_cmb.EditValueChanged += new System.EventHandler(this.ribbonToolbarLocation_cmb_EditValueChanged);
+            // 
+            // repositoryItemComboBox3
+            // 
+            this.repositoryItemComboBox3.AutoHeight = false;
+            this.repositoryItemComboBox3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox3.Name = "repositoryItemComboBox3";
             // 
             // ribbonPageCategory1
             // 
@@ -259,23 +292,9 @@
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
             this.ribbonPageGroup3});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "ribbonPage1";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem5);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem6);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem7);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem8);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem9);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem10);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem11);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
             // ribbonPageGroup3
             // 
@@ -283,6 +302,8 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem4);
             this.ribbonPageGroup3.ItemLinks.Add(this.cmb_RibbonStyle);
+            this.ribbonPageGroup3.ItemLinks.Add(this.ribbonHeaderMode_cmb);
+            this.ribbonPageGroup3.ItemLinks.Add(this.ribbonToolbarLocation_cmb);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
@@ -293,6 +314,23 @@
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(1176, 24);
+            // 
+            // skinPaletteRibbonGalleryBarItem1
+            // 
+            this.skinPaletteRibbonGalleryBarItem1.Caption = "skinPaletteRibbonGalleryBarItem1";
+            this.skinPaletteRibbonGalleryBarItem1.Id = 2;
+            this.skinPaletteRibbonGalleryBarItem1.Name = "skinPaletteRibbonGalleryBarItem1";
+            // 
+            // skinRibbonGalleryBarItem1
+            // 
+            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
+            this.skinRibbonGalleryBarItem1.Id = 7;
+            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
+            // skinPaletteDropDownButtonItem2
+            // 
+            this.skinPaletteDropDownButtonItem2.Id = 8;
+            this.skinPaletteDropDownButtonItem2.Name = "skinPaletteDropDownButtonItem2";
             // 
             // accordionControl1
             // 
@@ -487,6 +525,8 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -500,13 +540,10 @@
 
         }
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem1;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
@@ -533,19 +570,25 @@
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarEditItem cmb_RibbonStyle;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraBars.BarEditItem ribbonHeaderMode_cmb;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem12;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarEditItem ribbonToolbarLocation_cmb;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox3;
     }
 }
 

@@ -29,16 +29,16 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -97,6 +97,21 @@
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
+            // barEditItem1
+            // 
+            this.barEditItem1.Caption = "barEditItem1";
+            this.barEditItem1.Edit = this.repositoryItemComboBox1;
+            this.barEditItem1.Id = 6;
+            this.barEditItem1.Name = "barEditItem1";
+            this.barEditItem1.EditValueChanged += new System.EventHandler(this.barEditItem1_EditValueChanged);
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -137,21 +152,6 @@
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "Element1";
             // 
-            // barEditItem1
-            // 
-            this.barEditItem1.Caption = "barEditItem1";
-            this.barEditItem1.Edit = this.repositoryItemComboBox1;
-            this.barEditItem1.Id = 6;
-            this.barEditItem1.Name = "barEditItem1";
-            this.barEditItem1.EditValueChanged += new System.EventHandler(this.barEditItem1_EditValueChanged);
-            // 
-            // repositoryItemComboBox1
-            // 
-            this.repositoryItemComboBox1.AutoHeight = false;
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,8 +164,8 @@
             this.SidePane = this.accordionControl1;
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

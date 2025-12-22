@@ -133,4 +133,7 @@
   <data name="CheckboxFill1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CheckboxFill1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
   </data>
+  <data name="actions_window" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_window.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
+  </data>
 </root>

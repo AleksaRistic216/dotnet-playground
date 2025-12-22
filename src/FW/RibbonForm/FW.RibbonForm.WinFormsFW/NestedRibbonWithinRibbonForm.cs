@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FW.RibbonForm.WinFormsFW {
-    public partial class Form9 : DevExpress.XtraBars.Ribbon.RibbonForm {
-        public Form9() {
+    public partial class NestedRibbonWithinRibbonForm : DevExpress.XtraBars.Ribbon.RibbonForm {
+        public NestedRibbonWithinRibbonForm() {
             InitializeComponent();
         }
     }
