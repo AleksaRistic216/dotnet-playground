@@ -10,6 +10,7 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm {
         public Form1() {
             InitializeComponent();
+            RibbonHelpers.InitializeQuickAccessToolbarSkinSelectors(ribbonControl1);
             RibbonHelpers.InitializeCommonRibbonCommands(this, ribbonPage1);
             this.SidePane.SizeChanged += SidePanel_SizeChanged;
         }

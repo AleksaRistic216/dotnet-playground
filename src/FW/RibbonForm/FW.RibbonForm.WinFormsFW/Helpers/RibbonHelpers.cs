@@ -7,6 +7,22 @@ using System.Windows.Forms;
 
 namespace FW.RibbonForm.WinFormsFW.Helpers {
     internal static class RibbonHelpers {
+        internal static void InitializeQuickAccessToolbarSkinSelectors(RibbonControl ribbonControl) {
+            var skinPaletteDropDownButtonItem = new SkinPaletteDropDownButtonItem();
+            skinPaletteDropDownButtonItem.Name = "skinPaletteDropDownButtonItem";
+
+            var skinDropDownButtonItem = new SkinDropDownButtonItem();
+            skinDropDownButtonItem.Name = "skinDropDownButtonItem";
+
+            ribbonControl.Items.AddRange(new BarItem[] {
+                skinPaletteDropDownButtonItem,
+                skinDropDownButtonItem
+            });
+
+            ribbonControl.QuickToolbarItemLinks.Add(skinPaletteDropDownButtonItem);
+            ribbonControl.QuickToolbarItemLinks.Add(skinDropDownButtonItem);
+        }
+
         internal static void InitializeCommonRibbonCommands(DevExpress.XtraBars.Ribbon.RibbonForm form, RibbonPage ribbonPage) {
             var ribbonControl = ribbonPage.Ribbon;
 

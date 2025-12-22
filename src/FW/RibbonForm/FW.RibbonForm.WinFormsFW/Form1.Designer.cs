@@ -25,8 +25,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
-            this.skinDropDownButtonItem2 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
@@ -78,8 +76,6 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
-            this.skinPaletteDropDownButtonItem1,
-            this.skinDropDownButtonItem2,
             this.barSubItem1,
             this.barButtonItem12,
             this.barButtonItem10,
@@ -97,22 +93,10 @@
             this.ribbonPageCategory1});
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem1);
-            this.ribbonControl1.QuickToolbarItemLinks.Add(this.skinDropDownButtonItem2);
             this.ribbonControl1.QuickToolbarItemLinks.Add(this.barSubItem1);
             this.ribbonControl1.Size = new System.Drawing.Size(1176, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
-            // 
-            // skinPaletteDropDownButtonItem1
-            // 
-            this.skinPaletteDropDownButtonItem1.Id = 3;
-            this.skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
-            // 
-            // skinDropDownButtonItem2
-            // 
-            this.skinDropDownButtonItem2.Id = 19;
-            this.skinDropDownButtonItem2.Name = "skinDropDownButtonItem2";
-            // 
+            //
             // barSubItem1
             // 
             this.barSubItem1.Caption = "barSubItem1";
@@ -430,13 +414,11 @@
             this.PerformLayout();
 
         }
-        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem2;
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem1;
-        private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl2;

@@ -13,6 +13,7 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class NestedRibbonWithinRibbonForm : DevExpress.XtraBars.Ribbon.RibbonForm {
         public NestedRibbonWithinRibbonForm() {
             InitializeComponent();
+            RibbonHelpers.InitializeQuickAccessToolbarSkinSelectors(ribbonControl1);
             RibbonHelpers.InitializeCommonRibbonCommands(this, ribbonPage1);
             RibbonHelpers.InitializeCommonRibbonCommands(null, ribbonPage2);
         }
