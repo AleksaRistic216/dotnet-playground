@@ -36,9 +36,11 @@
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -138,17 +140,28 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(288, 164);
+            this.textEdit1.EditValue = "Hello motherfucker";
+            this.textEdit1.Location = new System.Drawing.Point(288, 221);
             this.textEdit1.MenuManager = this.ribbonControl1;
             this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.ReadOnly = true;
             this.textEdit1.Size = new System.Drawing.Size(182, 20);
             this.textEdit1.TabIndex = 3;
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(288, 247);
+            this.textEdit2.MenuManager = this.ribbonControl1;
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(182, 20);
+            this.textEdit2.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 579);
+            this.Controls.Add(this.textEdit2);
             this.Controls.Add(this.textEdit1);
             this.Controls.Add(this.accordionControl1);
             this.Controls.Add(this.ribbonControl1);
@@ -160,6 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,6 +194,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
     }
 }
 

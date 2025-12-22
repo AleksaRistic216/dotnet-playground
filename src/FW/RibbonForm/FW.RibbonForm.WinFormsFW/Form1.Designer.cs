@@ -32,7 +32,6 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.skinPaletteDropDownButtonItem2 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
-            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
@@ -40,13 +39,16 @@
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.skinDropDownButtonItem2 = new DevExpress.XtraBars.SkinDropDownButtonItem();
+            this.cmb_RibbonStyle = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -62,23 +64,17 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.skinDropDownButtonItem2 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
             this.sidePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
@@ -89,29 +85,37 @@
             this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(45);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-                this.ribbonControl1.ExpandCollapseItem, this.barButtonItem1,
-                this.skinPaletteRibbonGalleryBarItem1, this.skinPaletteDropDownButtonItem1,
-                this.barButtonItem2, this.barButtonItem4,
-                this.skinRibbonGalleryBarItem1, this.skinPaletteDropDownButtonItem2,
-                this.skinDropDownButtonItem1, this.barButtonItem3,
-                this.barButtonItem5, this.barButtonItem6,
-                this.barButtonItem7, this.barButtonItem8,
-                this.barButtonItem9, this.barButtonItem10,
-                this.barButtonItem11, this.skinDropDownButtonItem2
-            });
+            this.ribbonControl1.ExpandCollapseItem,
+            this.barButtonItem1,
+            this.skinPaletteRibbonGalleryBarItem1,
+            this.skinPaletteDropDownButtonItem1,
+            this.barButtonItem2,
+            this.barButtonItem4,
+            this.skinRibbonGalleryBarItem1,
+            this.skinPaletteDropDownButtonItem2,
+            this.barButtonItem3,
+            this.barButtonItem5,
+            this.barButtonItem6,
+            this.barButtonItem7,
+            this.barButtonItem8,
+            this.barButtonItem9,
+            this.barButtonItem10,
+            this.barButtonItem11,
+            this.skinDropDownButtonItem2,
+            this.cmb_RibbonStyle});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 20;
+            this.ribbonControl1.MaxItemId = 21;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 495;
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
-                this.ribbonPageCategory1
-            });
+            this.ribbonPageCategory1});
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-                this.ribbonPage1
-            });
+            this.ribbonPage1});
             this.ribbonControl1.QuickToolbarItemLinks.Add(this.skinPaletteDropDownButtonItem1);
             this.ribbonControl1.QuickToolbarItemLinks.Add(this.skinDropDownButtonItem2);
+            this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemComboBox1});
             this.ribbonControl1.Size = new System.Drawing.Size(1176, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
@@ -130,8 +134,6 @@
             // 
             // skinPaletteDropDownButtonItem1
             // 
-            this.skinPaletteDropDownButtonItem1.ActAsDropDown = true;
-            this.skinPaletteDropDownButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.skinPaletteDropDownButtonItem1.Id = 3;
             this.skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
             // 
@@ -157,15 +159,8 @@
             // 
             // skinPaletteDropDownButtonItem2
             // 
-            this.skinPaletteDropDownButtonItem2.ActAsDropDown = true;
-            this.skinPaletteDropDownButtonItem2.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.skinPaletteDropDownButtonItem2.Id = 8;
             this.skinPaletteDropDownButtonItem2.Name = "skinPaletteDropDownButtonItem2";
-            // 
-            // skinDropDownButtonItem1
-            // 
-            this.skinDropDownButtonItem1.Id = 9;
-            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
             // 
             // barButtonItem3
             // 
@@ -216,19 +211,43 @@
             this.barButtonItem10.Name = "barButtonItem10";
             this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
             // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "Simple Form With Ribbon Control";
+            this.barButtonItem11.Id = 18;
+            this.barButtonItem11.Name = "barButtonItem11";
+            // 
+            // skinDropDownButtonItem2
+            // 
+            this.skinDropDownButtonItem2.Id = 19;
+            this.skinDropDownButtonItem2.Name = "skinDropDownButtonItem2";
+            // 
+            // cmb_RibbonStyle
+            // 
+            this.cmb_RibbonStyle.Edit = this.repositoryItemComboBox1;
+            this.cmb_RibbonStyle.Id = 20;
+            this.cmb_RibbonStyle.Name = "cmb_RibbonStyle";
+            this.cmb_RibbonStyle.EditValueChanged += new System.EventHandler(this.cmb_RibbonStyle_EditValueChanged);
+            this.cmb_RibbonStyle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmb_RibbonStyle_ItemClick);
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
             // ribbonPageCategory1
             // 
             this.ribbonPageCategory1.Name = "ribbonPageCategory1";
             this.ribbonPageCategory1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-                this.ribbonPage2
-            });
+            this.ribbonPage2});
             this.ribbonPageCategory1.Text = "ribbonPageCategory1";
             // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-                this.ribbonPageGroup5
-            });
+            this.ribbonPageGroup5});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
             // 
@@ -240,9 +259,8 @@
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-                this.ribbonPageGroup1, this.ribbonPageGroup3,
-                this.ribbonPageGroup4
-            });
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup3});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "ribbonPage1";
             // 
@@ -264,17 +282,9 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup3.ItemLinks.Add(this.cmb_RibbonStyle);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
-            // 
-            // ribbonPageGroup4
-            // 
-            this.ribbonPageGroup4.Alignment = DevExpress.XtraBars.Ribbon.RibbonPageGroupAlignment.Far;
-            this.ribbonPageGroup4.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
-            this.ribbonPageGroup4.ItemLinks.Add(this.skinPaletteDropDownButtonItem2);
-            this.ribbonPageGroup4.ItemLinks.Add(this.skinDropDownButtonItem1);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
             // ribbonStatusBar1
             // 
@@ -290,9 +300,9 @@
             this.accordionControl1.Appearance.AccordionControl.Options.UseBackColor = true;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-                this.accordionControlElement1, this.accordionControlElement3,
-                this.accordionControlElement4
-            });
+            this.accordionControlElement1,
+            this.accordionControlElement3,
+            this.accordionControlElement4});
             this.accordionControl1.Location = new System.Drawing.Point(280, 158);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(4);
             this.accordionControl1.Name = "accordionControl1";
@@ -323,10 +333,12 @@
             this.accordionControl2.Appearance.AccordionControl.Options.UseBackColor = true;
             this.accordionControl2.Dock = System.Windows.Forms.DockStyle.Right;
             this.accordionControl2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-                this.accordionControlElement2, this.accordionControlElement5,
-                this.accordionControlElement6, this.accordionControlElement7,
-                this.accordionControlElement8, this.accordionControlElement9
-            });
+            this.accordionControlElement2,
+            this.accordionControlElement5,
+            this.accordionControlElement6,
+            this.accordionControlElement7,
+            this.accordionControlElement8,
+            this.accordionControlElement9});
             this.accordionControl2.Location = new System.Drawing.Point(976, 32);
             this.accordionControl2.Margin = new System.Windows.Forms.Padding(4);
             this.accordionControl2.MinimumSize = new System.Drawing.Size(0, 560);
@@ -384,7 +396,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(53, 174);
+            this.labelControl1.Location = new System.Drawing.Point(7, 50);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(63, 13);
@@ -393,42 +405,13 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(120, 74);
+            this.simpleButton1.Location = new System.Drawing.Point(7, 8);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(4);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(112, 34);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "simpleButton1";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(74, 166);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(112, 34);
-            this.simpleButton2.TabIndex = 20;
-            this.simpleButton2.Text = "simpleButton2";
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.simpleButton3);
-            this.groupControl1.Controls.Add(this.simpleButton2);
-            this.groupControl1.Location = new System.Drawing.Point(588, 524);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(252, 274);
-            this.groupControl1.TabIndex = 21;
-            this.groupControl1.Text = "groupControl1";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Location = new System.Drawing.Point(22, 70);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(112, 34);
-            this.simpleButton3.TabIndex = 21;
-            this.simpleButton3.Text = "simpleButton3";
             // 
             // sidePanel1
             // 
@@ -442,7 +425,7 @@
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(80, 30);
+            this.simpleButton4.Location = new System.Drawing.Point(4, 7);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(75, 23);
             this.simpleButton4.TabIndex = 1;
@@ -458,8 +441,8 @@
             this.navigationPane1.MinimumSize = new System.Drawing.Size(0, 560);
             this.navigationPane1.Name = "navigationPane1";
             this.navigationPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-                this.navigationPage1, this.navigationPage2
-            });
+            this.navigationPage1,
+            this.navigationPage2});
             this.navigationPane1.RegularSize = new System.Drawing.Size(280, 560);
             this.navigationPane1.SelectedPage = this.navigationPage1;
             this.navigationPane1.Size = new System.Drawing.Size(280, 560);
@@ -481,23 +464,11 @@
             this.navigationPage2.Name = "navigationPage2";
             this.navigationPage2.Size = new System.Drawing.Size(112, 34);
             // 
-            // barButtonItem11
-            // 
-            this.barButtonItem11.Caption = "Simple Form With Ribbon Control";
-            this.barButtonItem11.Id = 18;
-            this.barButtonItem11.Name = "barButtonItem11";
-            // 
-            // skinDropDownButtonItem2
-            // 
-            this.skinDropDownButtonItem2.Id = 19;
-            this.skinDropDownButtonItem2.Name = "skinDropDownButtonItem2";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1176, 616);
-            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.sidePanel1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.accordionControl1);
@@ -515,18 +486,18 @@
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
             this.sidePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
@@ -548,21 +519,16 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SidePanel sidePanel1;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
-        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
         private DevExpress.XtraBars.Navigation.NavigationPane navigationPane1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
@@ -578,6 +544,8 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarEditItem cmb_RibbonStyle;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
     }
 }
 

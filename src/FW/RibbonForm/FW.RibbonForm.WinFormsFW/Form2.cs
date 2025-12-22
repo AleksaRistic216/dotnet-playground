@@ -12,6 +12,8 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class Form2 : DevExpress.XtraBars.Ribbon.RibbonForm {
         public Form2() {
             InitializeComponent();
+            foreach(var e in Enum.GetValues(typeof(DevExpress.XtraBars.Ribbon.RibbonControlStyle)))
+                repositoryItemComboBox1.Items.Add(e);
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -25,6 +27,11 @@ namespace FW.RibbonForm.WinFormsFW {
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             this.IconOptions.ShowIcon = !this.IconOptions.ShowIcon;
+        }
+
+        private void barEditItem1_EditValueChanged(object sender, EventArgs e) {
+            var style = (DevExpress.XtraBars.Ribbon.RibbonControlStyle)barEditItem1.EditValue;
+            ribbonControl1.RibbonStyle = style;
         }
     }
 }

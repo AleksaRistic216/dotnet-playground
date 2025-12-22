@@ -20,5 +20,9 @@ namespace FW.Mnemonics.Winforms {
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
 
         }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            MessageBox.Show("Hello");
+        }
     }
 }

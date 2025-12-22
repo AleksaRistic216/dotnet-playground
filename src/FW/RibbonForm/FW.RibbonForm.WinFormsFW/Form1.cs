@@ -12,7 +12,8 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm {
         public Form1() {
             InitializeComponent();
-            this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2007;
+            foreach(var e in Enum.GetValues(typeof(DevExpress.XtraBars.Ribbon.RibbonControlStyle)))
+                repositoryItemComboBox1.Items.Add(e);
             this.SidePane.SizeChanged += SidePanel_SizeChanged;
         }
 
@@ -80,6 +81,14 @@ namespace FW.RibbonForm.WinFormsFW {
         private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             using(Form9 form = new Form9())
                 form.ShowDialog();
+        }
+
+        private void cmb_RibbonStyle_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+        }
+
+        private void cmb_RibbonStyle_EditValueChanged(object sender, EventArgs e) {
+            var style = (DevExpress.XtraBars.Ribbon.RibbonControlStyle)cmb_RibbonStyle.EditValue;
+            ribbonControl1.RibbonStyle = style;
         }
     }
 }
