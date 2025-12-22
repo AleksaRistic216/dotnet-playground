@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FW.RibbonForm.WinFormsFW.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class NestedRibbonWithinRibbonForm : DevExpress.XtraBars.Ribbon.RibbonForm {
         public NestedRibbonWithinRibbonForm() {
             InitializeComponent();
+            RibbonHelpers.InitializeCommonRibbonCommands(this, ribbonPage1);
+            RibbonHelpers.InitializeCommonRibbonCommands(null, ribbonPage2);
         }
     }
 }

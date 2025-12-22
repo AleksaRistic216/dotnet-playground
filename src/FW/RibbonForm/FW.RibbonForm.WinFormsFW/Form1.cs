@@ -1,4 +1,8 @@
-﻿using DevExpress.XtraBars.Ribbon;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
+using FW.RibbonForm.WinFormsFW.Helpers;
 using System;
 using System.Windows.Forms;
 
@@ -6,29 +10,11 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm {
         public Form1() {
             InitializeComponent();
-            InitializeRibbonStyleCmb();
+            RibbonHelpers.InitializeCommonRibbonCommands(this, ribbonPage1);
             this.SidePane.SizeChanged += SidePanel_SizeChanged;
-            InitializeShowPageHeadersModeCmb();
-            InitializeRibbonToolbarLocationCmb();
         }
 
-        private void InitializeRibbonStyleCmb() {
-            foreach(var style in Enum.GetValues(typeof(DevExpress.XtraBars.Ribbon.RibbonControlStyle)))
-                repositoryItemComboBox1.Items.Add(style);
-            cmb_RibbonStyle.EditValue = this.Ribbon.RibbonStyle;
-        }
-
-        private void InitializeShowPageHeadersModeCmb() {
-            foreach(var mode in Enum.GetValues(typeof(ShowPageHeadersMode)))
-                repositoryItemComboBox2.Items.Add(mode);
-            ribbonHeaderMode_cmb.EditValue = this.Ribbon.ShowPageHeadersMode;
-        }
-
-        private void InitializeRibbonToolbarLocationCmb() {
-            foreach(var location in Enum.GetValues(typeof(RibbonQuickAccessToolbarLocation))) 
-                repositoryItemComboBox3.Items.Add(location);
-            ribbonToolbarLocation_cmb.EditValue = this.Ribbon.ToolbarLocation;
-        }
+        
 
         private void SidePanel_SizeChanged(object sender, EventArgs e) {
             labelControl1.Text = $"Side Panel Width: {this.SidePane.Width}";
@@ -39,28 +25,14 @@ namespace FW.RibbonForm.WinFormsFW {
                 form.ShowDialog();
         }
 
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            this.RightToLeft = this.RightToLeft != RightToLeft.Yes ? RightToLeft.Yes : RightToLeft.No;
-            this.RightToLeftLayout = !this.RightToLeftLayout;
-        }
-
-        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            this.SidePane.Visible = !this.SidePane.Visible;
-        }
-
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            NavigationControlLayoutMode = NavigationControlLayoutMode == DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToFormTitle
-                ? DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToTop
-                : DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToFormTitle;
-        }
-
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             var pf = new PureRibbonForm();
             pf.Show();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e) {
-            barButtonItem2_ItemClick(null, null);
+            this.RightToLeft = this.RightToLeft != RightToLeft.Yes ? RightToLeft.Yes : RightToLeft.No;
+            this.RightToLeftLayout = !this.RightToLeftLayout;
         }
 
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -87,19 +59,6 @@ namespace FW.RibbonForm.WinFormsFW {
         }
 
         private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-        }
-
-        private void cmb_RibbonStyle_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-        }
-
-        private void cmb_RibbonStyle_EditValueChanged(object sender, EventArgs e) {
-            var style = (DevExpress.XtraBars.Ribbon.RibbonControlStyle)cmb_RibbonStyle.EditValue;
-            ribbonControl1.RibbonStyle = style;
-        }
-
-        private void ribbonHeaderMode_cmb_EditValueChanged(object sender, EventArgs e) {
-            var mode = (ShowPageHeadersMode)ribbonHeaderMode_cmb.EditValue;
-            this.Ribbon.ShowPageHeadersMode = mode;
         }
 
         private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -139,11 +98,6 @@ namespace FW.RibbonForm.WinFormsFW {
         private void barButtonItem5_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             using (NormalForm form = new NormalForm())
                 form.ShowDialog();
-        }
-
-        private void ribbonToolbarLocation_cmb_EditValueChanged(object sender, EventArgs e) {
-            var location = (RibbonQuickAccessToolbarLocation)ribbonToolbarLocation_cmb.EditValue;
-            this.Ribbon.ToolbarLocation = location;
         }
     }
 }
