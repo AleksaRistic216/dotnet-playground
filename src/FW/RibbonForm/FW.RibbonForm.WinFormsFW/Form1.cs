@@ -100,5 +100,10 @@ namespace FW.RibbonForm.WinFormsFW {
             using (NormalForm form = new NormalForm())
                 form.ShowDialog();
         }
+
+        private void barButtonItem1_ItemClick_1(object sender, ItemClickEventArgs e) {
+            using(RibbonFormWithNavigationPaneAsNavigationControlForm form = new RibbonFormWithNavigationPaneAsNavigationControlForm())
+                form.ShowDialog();
+        }
     }
 }

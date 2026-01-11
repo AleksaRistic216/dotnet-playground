@@ -22,7 +22,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
@@ -60,6 +59,7 @@
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl2)).BeginInit();
@@ -83,10 +83,11 @@
             this.barButtonItem9,
             this.barButtonItem8,
             this.barButtonItem6,
-            this.barButtonItem5});
+            this.barButtonItem5,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 31;
+            this.ribbonControl1.MaxItemId = 32;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 495;
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
@@ -96,7 +97,7 @@
             this.ribbonControl1.QuickToolbarItemLinks.Add(this.barSubItem1);
             this.ribbonControl1.Size = new System.Drawing.Size(1176, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
-            //
+            // 
             // barSubItem1
             // 
             this.barSubItem1.Caption = "barSubItem1";
@@ -109,7 +110,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
             this.barSubItem1.Name = "barSubItem1";
             // 
             // barButtonItem12
@@ -380,6 +382,13 @@
             this.navigationPage2.Name = "navigationPage2";
             this.navigationPage2.Size = new System.Drawing.Size(112, 34);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Ribbon Form With Navigation Pane as NC";
+            this.barButtonItem1.Id = 31;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,6 +461,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
 

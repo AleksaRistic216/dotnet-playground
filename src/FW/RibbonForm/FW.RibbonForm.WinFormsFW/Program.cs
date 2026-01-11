@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.LookAndFeel;
+using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ namespace FW.RibbonForm.WinFormsFW {
         [STAThread]
         static void Main() {
             DevExpress.UserSkins.BonusSkins.Register();
+            WindowsFormsSettings.SetPerMonitorDpiAware();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
