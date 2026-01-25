@@ -1,5 +1,5 @@
 ﻿namespace FW.RibbonForm.WinFormsFW {
-    partial class Form6 {
+    partial class FormWithSidePanelAsSidePane {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,14 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -46,13 +43,6 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.Size = new System.Drawing.Size(800, 158);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // ribbonPage1
             // 
@@ -63,49 +53,40 @@
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
-            // ribbonStatusBar1
+            // sidePanel1
             // 
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 426);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(800, 24);
+            this.sidePanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.sidePanel1.Location = new System.Drawing.Point(678, 32);
+            this.sidePanel1.MinimumSize = new System.Drawing.Size(0, 419);
+            this.sidePanel1.Name = "sidePanel1";
+            this.sidePanel1.Size = new System.Drawing.Size(122, 419);
+            this.sidePanel1.TabIndex = 1;
+            this.sidePanel1.Text = "sidePanel1";
+            this.sidePanel1.Visible = false;
             // 
-            // accordionControl1
+            // barButtonItem1
             // 
-            this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement1});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 32);
-            this.accordionControl1.MinimumSize = new System.Drawing.Size(0, 394);
-            this.accordionControl1.Name = "accordionControl1";
-            this.accordionControl1.Size = new System.Drawing.Size(260, 394);
-            this.accordionControl1.TabIndex = 1;
+            this.barButtonItem1.Caption = "Trigger Side Pane Visibility";
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
-            // accordionControlElement1
-            // 
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Text = "Element1";
-            // 
-            // Form6
+            // FormWithSidePanelAsSidePane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.accordionControl1);
-            this.Controls.Add(this.ribbonStatusBar1);
+            this.Controls.Add(this.sidePanel1);
             this.Controls.Add(this.ribbonControl1);
-            this.Name = "Form6";
-            this.NavigationControl = this.accordionControl1;
-            this.NavigationControlLayoutMode = DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToFormTitle;
+            this.Name = "FormWithSidePanelAsSidePane";
             this.Ribbon = this.ribbonControl1;
-            this.StatusBar = this.ribbonStatusBar1;
-            this.Text = "Form6";
+            this.SidePane = this.sidePanel1;
+            this.Text = "FormWithSidePanelAsSidePane";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,9 +97,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private DevExpress.XtraEditors.SidePanel sidePanel1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

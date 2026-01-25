@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Large Data Set - Server Mode", "Large Data Set - Server Mode", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -122,6 +122,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainWinformsApp", "src\PlainWinformsApp\PlainWinformsApp.csproj", "{410907B6-AC06-4BCF-AA9D-7B87BE39D367}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFormRibbonControl", "src\SimpleFormRibbonControl\SimpleFormRibbonControl.csproj", "{7B5539B3-58D1-4EB2-98AC-E37B1A3F34B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RTL", "RTL", "{3735672B-E2F7-4C47-8F27-E94A1901AD41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FW.RTL.WinForms", "src\FW\FW.RTL.WinForms\FW.RTL.WinForms.csproj", "{CA9BCF92-EC9D-471D-9FE8-D9C7F8C1A280}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -257,6 +261,10 @@ Global
 		{7B5539B3-58D1-4EB2-98AC-E37B1A3F34B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B5539B3-58D1-4EB2-98AC-E37B1A3F34B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B5539B3-58D1-4EB2-98AC-E37B1A3F34B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9BCF92-EC9D-471D-9FE8-D9C7F8C1A280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9BCF92-EC9D-471D-9FE8-D9C7F8C1A280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9BCF92-EC9D-471D-9FE8-D9C7F8C1A280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9BCF92-EC9D-471D-9FE8-D9C7F8C1A280}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -313,6 +321,8 @@ Global
 		{5E21BD9F-9721-4539-9B4C-5638F3A278DF} = {C7AA8EA2-57CA-4395-BA80-7A1A733AB23B}
 		{410907B6-AC06-4BCF-AA9D-7B87BE39D367} = {5E21BD9F-9721-4539-9B4C-5638F3A278DF}
 		{7B5539B3-58D1-4EB2-98AC-E37B1A3F34B8} = {D178C0B1-2B1C-460E-A08A-D1FF3A86B8DB}
+		{3735672B-E2F7-4C47-8F27-E94A1901AD41} = {3B2A3594-F887-47FA-9AD3-8D65C83147C6}
+		{CA9BCF92-EC9D-471D-9FE8-D9C7F8C1A280} = {3735672B-E2F7-4C47-8F27-E94A1901AD41}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A90437B2-8291-4D4D-A10E-41C0BC349D6D}

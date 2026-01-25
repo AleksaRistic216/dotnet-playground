@@ -13,6 +13,7 @@ namespace FW.RibbonForm.WinFormsFW {
             RibbonHelpers.InitializeQuickAccessToolbarSkinSelectors(ribbonControl1);
             RibbonHelpers.InitializeCommonRibbonCommands(this, ribbonPage1);
             this.SidePane.SizeChanged += SidePanel_SizeChanged;
+            SidePane.Visible = false;
         }
 
         
@@ -104,6 +105,15 @@ namespace FW.RibbonForm.WinFormsFW {
         private void barButtonItem1_ItemClick_1(object sender, ItemClickEventArgs e) {
             using(RibbonFormWithNavigationPaneAsNavigationControlForm form = new RibbonFormWithNavigationPaneAsNavigationControlForm())
                 form.ShowDialog();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e) {
+            SidePane.Visible = !SidePane.Visible;
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e) {
+            using(var f = new FormWithSidePanelAsSidePane())
+                f.ShowDialog();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace FW.RibbonForm.WinFormsFW {
             InitializeComponent();
             foreach(var e in Enum.GetValues(typeof(DevExpress.XtraBars.Ribbon.RibbonControlStyle)))
                 repositoryItemComboBox1.Items.Add(e);
+            SidePane.Visible = false;
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {

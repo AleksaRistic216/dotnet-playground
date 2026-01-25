@@ -89,6 +89,12 @@
     <Compile Include="Form7.Designer.cs">
       <DependentUpon>Form7.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormWithSidePanelAsSidePane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWithSidePanelAsSidePane.Designer.cs">
+      <DependentUpon>FormWithSidePanelAsSidePane.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\RibbonHelpers.cs" />
     <Compile Include="NestedRibbonWithinRibbonForm.cs">
       <SubType>Form</SubType>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form7.resx">
       <DependentUpon>Form7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWithSidePanelAsSidePane.resx">
+      <DependentUpon>FormWithSidePanelAsSidePane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NestedRibbonWithinRibbonForm.resx">
       <DependentUpon>NestedRibbonWithinRibbonForm.cs</DependentUpon>
