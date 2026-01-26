@@ -117,8 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="actions_window" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_window.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4</value>
-  </data>
 </root>

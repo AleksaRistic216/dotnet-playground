@@ -1,5 +1,5 @@
 ﻿namespace FW.RTL.WinForms {
-    partial class Form1 {
+    partial class FormWithVerticalGrid {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,48 +24,24 @@
         /// </summary>
         private void InitializeComponent() {
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.vGridControl1 = new DevExpress.XtraVerticalGrid.VGridControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vGridControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem,
-            this.barSubItem1,
-            this.barButtonItem1,
-            this.barButtonItem2});
+            this.ribbonControl1.ExpandCollapseItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.QuickToolbarItemLinks.Add(this.barSubItem1);
             this.ribbonControl1.Size = new System.Drawing.Size(800, 158);
-            // 
-            // barSubItem1
-            // 
-            this.barSubItem1.Caption = "barSubItem1";
-            this.barSubItem1.Id = 2;
-            this.barSubItem1.ImageOptions.SvgImage = global::FW.RTL.WinForms.Properties.Resources.actions_window;
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
-            this.barSubItem1.Name = "barSubItem1";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Form With Grid";
-            this.barButtonItem1.Id = 3;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -79,33 +55,27 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
-            // textEdit1
+            // vGridControl1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(12, 164);
-            this.textEdit1.MenuManager = this.ribbonControl1;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(100, 20);
-            this.textEdit1.TabIndex = 1;
+            this.vGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vGridControl1.Location = new System.Drawing.Point(0, 158);
+            this.vGridControl1.MenuManager = this.ribbonControl1;
+            this.vGridControl1.Name = "vGridControl1";
+            this.vGridControl1.Size = new System.Drawing.Size(800, 292);
+            this.vGridControl1.TabIndex = 1;
             // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Form With Vertical Grid";
-            this.barButtonItem2.Id = 4;
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
-            // 
-            // Form1
+            // FormWithVerticalGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.vGridControl1);
             this.Controls.Add(this.ribbonControl1);
-            this.Name = "Form1";
+            this.Name = "FormWithVerticalGrid";
             this.Ribbon = this.ribbonControl1;
-            this.Text = "Form1";
+            this.Text = "FormWithVerticalGrid";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vGridControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,10 +86,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraBars.BarSubItem barSubItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraVerticalGrid.VGridControl vGridControl1;
     }
 }
-
