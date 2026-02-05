@@ -43,9 +43,11 @@
     <Reference Include="DevExpress.Utils.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.XtraBars.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.XtraEditors.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraNavBar.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.XtraGrid.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
     <Reference Include="DevExpress.XtraLayout.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
     <Reference Include="DevExpress.XtraPrinting.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
+    <Reference Include="DevExpress.XtraTreeList.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
     <Reference Include="DevExpress.XtraVerticalGrid.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -61,37 +63,304 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <!-- Main Form -->
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHelpers.cs" />
-    <Compile Include="FormWithGrid.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormWithGrid.Designer.cs">
-      <DependentUpon>FormWithGrid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormWithVerticalGrid.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormWithVerticalGrid.Designer.cs">
-      <DependentUpon>FormWithVerticalGrid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GridHelpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VerticalGridHelpers.cs" />
+    <!-- Infrastructure -->
+    <Compile Include="FormHelpers.cs" />
+    <Compile Include="TestFormAttribute.cs" />
+    <Compile Include="FormRegistry.cs" />
+    <Compile Include="SampleDataGenerator.cs" />
+    <!-- TestForms/Grids -->
+    <Compile Include="TestForms\Grids\FormWithGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithGridView.Designer.cs">
+      <DependentUpon>FormWithGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithVerticalGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithVerticalGrid.Designer.cs">
+      <DependentUpon>FormWithVerticalGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithBandedGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithBandedGridView.Designer.cs">
+      <DependentUpon>FormWithBandedGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithCardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithCardView.Designer.cs">
+      <DependentUpon>FormWithCardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithLayoutView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithLayoutView.Designer.cs">
+      <DependentUpon>FormWithLayoutView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithTileView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithTileView.Designer.cs">
+      <DependentUpon>FormWithTileView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithWinExplorerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Grids\FormWithWinExplorerView.Designer.cs">
+      <DependentUpon>FormWithWinExplorerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Grids\GridViewHelpers.cs" />
+    <Compile Include="TestForms\Grids\VerticalGridHelpers.cs" />
+    <!-- TestForms/Editors -->
+    <Compile Include="TestForms\Editors\FormWithTextEditors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithTextEditors.Designer.cs">
+      <DependentUpon>FormWithTextEditors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithButtonEditors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithButtonEditors.Designer.cs">
+      <DependentUpon>FormWithButtonEditors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithDateEditors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithDateEditors.Designer.cs">
+      <DependentUpon>FormWithDateEditors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithNumericEditors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithNumericEditors.Designer.cs">
+      <DependentUpon>FormWithNumericEditors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithCheckEditors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithCheckEditors.Designer.cs">
+      <DependentUpon>FormWithCheckEditors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithColorEditors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithColorEditors.Designer.cs">
+      <DependentUpon>FormWithColorEditors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithImageEditors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithImageEditors.Designer.cs">
+      <DependentUpon>FormWithImageEditors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithListEditors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Editors\FormWithListEditors.Designer.cs">
+      <DependentUpon>FormWithListEditors.cs</DependentUpon>
+    </Compile>
+    <!-- TestForms/Layout -->
+    <Compile Include="TestForms\Layout\FormWithLayoutControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Layout\FormWithLayoutControl.Designer.cs">
+      <DependentUpon>FormWithLayoutControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Layout\FormWithTabbedLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Layout\FormWithTabbedLayout.Designer.cs">
+      <DependentUpon>FormWithTabbedLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Layout\FormWithSplitLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Layout\FormWithSplitLayout.Designer.cs">
+      <DependentUpon>FormWithSplitLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Layout\FormWithDataLayoutControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Layout\FormWithDataLayoutControl.Designer.cs">
+      <DependentUpon>FormWithDataLayoutControl.cs</DependentUpon>
+    </Compile>
+    <!-- TestForms/Navigation -->
+    <Compile Include="TestForms\Navigation\FormWithTabControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Navigation\FormWithTabControl.Designer.cs">
+      <DependentUpon>FormWithTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Navigation\FormWithAccordionControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Navigation\FormWithAccordionControl.Designer.cs">
+      <DependentUpon>FormWithAccordionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Navigation\FormWithNavBarControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Navigation\FormWithNavBarControl.Designer.cs">
+      <DependentUpon>FormWithNavBarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Navigation\FormWithSidePanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Navigation\FormWithSidePanel.Designer.cs">
+      <DependentUpon>FormWithSidePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Navigation\FormWithBreadCrumbEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Navigation\FormWithBreadCrumbEdit.Designer.cs">
+      <DependentUpon>FormWithBreadCrumbEdit.cs</DependentUpon>
+    </Compile>
+    <!-- TestForms/Containers -->
+    <Compile Include="TestForms\Containers\FormWithGroupControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Containers\FormWithGroupControl.Designer.cs">
+      <DependentUpon>FormWithGroupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Containers\FormWithPanelControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Containers\FormWithPanelControl.Designer.cs">
+      <DependentUpon>FormWithPanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Containers\FormWithSplitContainerControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Containers\FormWithSplitContainerControl.Designer.cs">
+      <DependentUpon>FormWithSplitContainerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Containers\FormWithXtraScrollableControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Containers\FormWithXtraScrollableControl.Designer.cs">
+      <DependentUpon>FormWithXtraScrollableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Containers\FormWithCollapsibleSplitter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Containers\FormWithCollapsibleSplitter.Designer.cs">
+      <DependentUpon>FormWithCollapsibleSplitter.cs</DependentUpon>
+    </Compile>
+    <!-- TestForms/Bars -->
+    <Compile Include="TestForms\Bars\FormWithStandaloneBarDockControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Bars\FormWithStandaloneBarDockControl.Designer.cs">
+      <DependentUpon>FormWithStandaloneBarDockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Bars\FormWithPopupMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Bars\FormWithPopupMenu.Designer.cs">
+      <DependentUpon>FormWithPopupMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Bars\FormWithRibbonGallery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Bars\FormWithRibbonGallery.Designer.cs">
+      <DependentUpon>FormWithRibbonGallery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Bars\FormWithRibbonStatusBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Bars\FormWithRibbonStatusBar.Designer.cs">
+      <DependentUpon>FormWithRibbonStatusBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Bars\FormWithRadialMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Bars\FormWithRadialMenu.Designer.cs">
+      <DependentUpon>FormWithRadialMenu.cs</DependentUpon>
+    </Compile>
+    <!-- TestForms/Progress -->
+    <Compile Include="TestForms\Progress\FormWithProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Progress\FormWithProgressBar.Designer.cs">
+      <DependentUpon>FormWithProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Progress\FormWithMarqueeProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Progress\FormWithMarqueeProgressBar.Designer.cs">
+      <DependentUpon>FormWithMarqueeProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Progress\FormWithRatingControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Progress\FormWithRatingControl.Designer.cs">
+      <DependentUpon>FormWithRatingControl.cs</DependentUpon>
+    </Compile>
+    <!-- TestForms/Trees -->
+    <Compile Include="TestForms\Trees\FormWithTreeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Trees\FormWithTreeList.Designer.cs">
+      <DependentUpon>FormWithTreeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Trees\FormWithTreeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Trees\FormWithTreeView.Designer.cs">
+      <DependentUpon>FormWithTreeView.cs</DependentUpon>
+    </Compile>
+    <!-- TestForms/Misc -->
+    <Compile Include="TestForms\Misc\FormWithAlertControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithAlertControl.Designer.cs">
+      <DependentUpon>FormWithAlertControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithFlyoutPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithFlyoutPanel.Designer.cs">
+      <DependentUpon>FormWithFlyoutPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithTooltipController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithTooltipController.Designer.cs">
+      <DependentUpon>FormWithTooltipController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithFilterControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithFilterControl.Designer.cs">
+      <DependentUpon>FormWithFilterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithHtmlContentControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithHtmlContentControl.Designer.cs">
+      <DependentUpon>FormWithHtmlContentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithSvgImageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForms\Misc\FormWithSvgImageBox.Designer.cs">
+      <DependentUpon>FormWithSvgImageBox.cs</DependentUpon>
+    </Compile>
+    <!-- Resources -->
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormWithGrid.resx">
-      <DependentUpon>FormWithGrid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormWithVerticalGrid.resx">
-      <DependentUpon>FormWithVerticalGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

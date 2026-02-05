@@ -1,22 +1,15 @@
-﻿using Bogus;
-using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraVerticalGrid;
 using DevExpress.XtraVerticalGrid.Rows;
 using System;
-using System.Collections.Generic;
 
-namespace FW.RTL.WinForms {
+namespace FW.RTL.WinForms.TestForms.Grids {
     internal static class VerticalGridHelpers {
         private static readonly Random _random = new Random();
 
         internal static void FillSampleData(VGridControl vGridControl) {
-            // Generate sample data using Bogus
-            var data = GenerateSampleData(10);
-
-            // Clear existing rows
+            var data = SampleDataGenerator.GenerateProducts(10);
             vGridControl.Rows.Clear();
 
-            // Choose a random layout configuration
             int layoutType = _random.Next(4);
 
             switch (layoutType) {
@@ -34,45 +27,10 @@ namespace FW.RTL.WinForms {
                     break;
             }
 
-            // Bind data
             vGridControl.DataSource = data;
         }
 
-        private static List<SampleProduct> GenerateSampleData(int count) {
-            var faker = new Faker<SampleProduct>()
-                .RuleFor(p => p.ProductId, f => f.IndexFaker + 1)
-                .RuleFor(p => p.ProductName, f => f.Commerce.ProductName())
-                .RuleFor(p => p.Category, f => f.Commerce.Categories(1)[0])
-                .RuleFor(p => p.Brand, f => f.Company.CompanyName())
-                .RuleFor(p => p.SKU, f => f.Commerce.Ean13())
-                .RuleFor(p => p.Price, f => f.Finance.Amount(10, 500))
-                .RuleFor(p => p.Cost, f => f.Finance.Amount(5, 200))
-                .RuleFor(p => p.Discount, f => f.Random.Decimal(0, 30))
-                .RuleFor(p => p.StockQuantity, f => f.Random.Int(0, 1000))
-                .RuleFor(p => p.ReorderLevel, f => f.Random.Int(10, 100))
-                .RuleFor(p => p.Supplier, f => f.Company.CompanyName())
-                .RuleFor(p => p.SupplierContact, f => f.Phone.PhoneNumber())
-                .RuleFor(p => p.SupplierEmail, f => f.Internet.Email())
-                .RuleFor(p => p.Warehouse, f => f.Address.City())
-                .RuleFor(p => p.ShelfLocation, f => $"{f.Random.Char('A', 'Z')}-{f.Random.Int(1, 50)}")
-                .RuleFor(p => p.Weight, f => f.Random.Decimal(0.1m, 50m))
-                .RuleFor(p => p.Width, f => f.Random.Decimal(1, 100))
-                .RuleFor(p => p.Height, f => f.Random.Decimal(1, 100))
-                .RuleFor(p => p.Depth, f => f.Random.Decimal(1, 100))
-                .RuleFor(p => p.IsActive, f => f.Random.Bool(0.9f))
-                .RuleFor(p => p.IsFeatured, f => f.Random.Bool(0.2f))
-                .RuleFor(p => p.CreatedDate, f => f.Date.Past(2))
-                .RuleFor(p => p.ModifiedDate, f => f.Date.Recent(30))
-                .RuleFor(p => p.Rating, f => f.Random.Decimal(1, 5))
-                .RuleFor(p => p.ReviewCount, f => f.Random.Int(0, 500))
-                .RuleFor(p => p.Description, f => f.Lorem.Paragraph());
-
-            return faker.Generate(count);
-        }
-
-        // Layout 1: Categorized with multi-editor rows
         private static void CreateLayout_CategorizedWithMultiEditors(VGridControl vGrid) {
-            // Basic Info Category
             var catBasic = new CategoryRow("Basic Information");
             vGrid.Rows.Add(catBasic);
 
@@ -87,7 +45,6 @@ namespace FW.RTL.WinForms {
             catBasic.ChildRows.Add(CreateEditorRow("SKU", "SKU"));
             catBasic.ChildRows.Add(CreateEditorRow("Description", "Description"));
 
-            // Pricing Category
             var catPricing = new CategoryRow("Pricing");
             vGrid.Rows.Add(catPricing);
 
@@ -97,7 +54,6 @@ namespace FW.RTL.WinForms {
                 ("Discount", "Discount %"));
             catPricing.ChildRows.Add(multiPrices);
 
-            // Inventory Category
             var catInventory = new CategoryRow("Inventory");
             vGrid.Rows.Add(catInventory);
 
@@ -111,7 +67,6 @@ namespace FW.RTL.WinForms {
                 ("ShelfLocation", "Shelf"));
             catInventory.ChildRows.Add(multiLocation);
 
-            // Supplier Category
             var catSupplier = new CategoryRow("Supplier");
             vGrid.Rows.Add(catSupplier);
 
@@ -122,7 +77,6 @@ namespace FW.RTL.WinForms {
                 ("SupplierEmail", "Email"));
             catSupplier.ChildRows.Add(multiSupplierContact);
 
-            // Dimensions Category
             var catDimensions = new CategoryRow("Dimensions");
             vGrid.Rows.Add(catDimensions);
 
@@ -134,7 +88,6 @@ namespace FW.RTL.WinForms {
 
             catDimensions.ChildRows.Add(CreateEditorRow("Weight", "Weight (kg)"));
 
-            // Status Category
             var catStatus = new CategoryRow("Status");
             vGrid.Rows.Add(catStatus);
 
@@ -154,7 +107,6 @@ namespace FW.RTL.WinForms {
             catStatus.ChildRows.Add(multiDates);
         }
 
-        // Layout 2: Flat layout with mixed single and multi-editor rows
         private static void CreateLayout_FlatWithMixedRows(VGridControl vGrid) {
             vGrid.Rows.Add(CreateEditorRow("ProductId", "ID"));
 
@@ -216,13 +168,10 @@ namespace FW.RTL.WinForms {
             vGrid.Rows.Add(CreateEditorRow("Description", "Description"));
         }
 
-        // Layout 3: Nested categories with subcategories
         private static void CreateLayout_NestedCategories(VGridControl vGrid) {
-            // Product Category
             var catProduct = new CategoryRow("Product");
             vGrid.Rows.Add(catProduct);
 
-            // Identity subcategory
             var catIdentity = new CategoryRow("Identity");
             catProduct.ChildRows.Add(catIdentity);
 
@@ -230,7 +179,6 @@ namespace FW.RTL.WinForms {
             catIdentity.ChildRows.Add(CreateEditorRow("ProductName", "Name"));
             catIdentity.ChildRows.Add(CreateEditorRow("SKU", "SKU"));
 
-            // Classification subcategory
             var catClassification = new CategoryRow("Classification");
             catProduct.ChildRows.Add(catClassification);
 
@@ -239,11 +187,9 @@ namespace FW.RTL.WinForms {
 
             catProduct.ChildRows.Add(CreateEditorRow("Description", "Description"));
 
-            // Commercial Category
             var catCommercial = new CategoryRow("Commercial");
             vGrid.Rows.Add(catCommercial);
 
-            // Pricing subcategory
             var catPricing = new CategoryRow("Pricing");
             catCommercial.ChildRows.Add(catPricing);
 
@@ -251,7 +197,6 @@ namespace FW.RTL.WinForms {
             catPricing.ChildRows.Add(CreateEditorRow("Cost", "Unit Cost"));
             catPricing.ChildRows.Add(CreateEditorRow("Discount", "Discount %"));
 
-            // Reviews subcategory
             var catReviews = new CategoryRow("Reviews");
             catCommercial.ChildRows.Add(catReviews);
 
@@ -260,11 +205,9 @@ namespace FW.RTL.WinForms {
                 ("ReviewCount", "Count"));
             catReviews.ChildRows.Add(multiRating);
 
-            // Logistics Category
             var catLogistics = new CategoryRow("Logistics");
             vGrid.Rows.Add(catLogistics);
 
-            // Inventory subcategory
             var catInventory = new CategoryRow("Inventory");
             catLogistics.ChildRows.Add(catInventory);
 
@@ -273,14 +216,12 @@ namespace FW.RTL.WinForms {
                 ("ReorderLevel", "Reorder"));
             catInventory.ChildRows.Add(multiStock);
 
-            // Location subcategory
             var catLocation = new CategoryRow("Storage Location");
             catLogistics.ChildRows.Add(catLocation);
 
             catLocation.ChildRows.Add(CreateEditorRow("Warehouse", "Warehouse"));
             catLocation.ChildRows.Add(CreateEditorRow("ShelfLocation", "Shelf"));
 
-            // Physical subcategory
             var catPhysical = new CategoryRow("Physical");
             catLogistics.ChildRows.Add(catPhysical);
 
@@ -292,7 +233,6 @@ namespace FW.RTL.WinForms {
                 ("Depth", "D"));
             catPhysical.ChildRows.Add(multiDims);
 
-            // Supply Chain Category
             var catSupplyChain = new CategoryRow("Supply Chain");
             vGrid.Rows.Add(catSupplyChain);
 
@@ -300,7 +240,6 @@ namespace FW.RTL.WinForms {
             catSupplyChain.ChildRows.Add(CreateEditorRow("SupplierContact", "Phone"));
             catSupplyChain.ChildRows.Add(CreateEditorRow("SupplierEmail", "Email"));
 
-            // Metadata Category
             var catMetadata = new CategoryRow("Metadata");
             vGrid.Rows.Add(catMetadata);
 
@@ -315,10 +254,7 @@ namespace FW.RTL.WinForms {
             catMetadata.ChildRows.Add(multiDates);
         }
 
-        // Layout 4: Compact layout using mostly multi-editor rows
         private static void CreateLayout_CompactMultiEditorOnly(VGridControl vGrid) {
-            // Maximize density with multi-editor rows
-
             var multiId = CreateMultiEditorRow("id",
                 ("ProductId", "ID"),
                 ("SKU", "SKU"),
@@ -394,34 +330,5 @@ namespace FW.RTL.WinForms {
 
             return row;
         }
-    }
-
-    internal class SampleProduct {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public string Category { get; set; }
-        public string Brand { get; set; }
-        public string SKU { get; set; }
-        public decimal Price { get; set; }
-        public decimal Cost { get; set; }
-        public decimal Discount { get; set; }
-        public int StockQuantity { get; set; }
-        public int ReorderLevel { get; set; }
-        public string Supplier { get; set; }
-        public string SupplierContact { get; set; }
-        public string SupplierEmail { get; set; }
-        public string Warehouse { get; set; }
-        public string ShelfLocation { get; set; }
-        public decimal Weight { get; set; }
-        public decimal Width { get; set; }
-        public decimal Height { get; set; }
-        public decimal Depth { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsFeatured { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
-        public decimal Rating { get; set; }
-        public int ReviewCount { get; set; }
-        public string Description { get; set; }
     }
 }

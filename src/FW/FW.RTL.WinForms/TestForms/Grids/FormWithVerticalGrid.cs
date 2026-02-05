@@ -1,4 +1,5 @@
-﻿namespace FW.RTL.WinForms {
+namespace FW.RTL.WinForms.TestForms.Grids {
+    [TestForm("Grids", "Vertical Grid")]
     public partial class FormWithVerticalGrid : DevExpress.XtraBars.Ribbon.RibbonForm {
         public FormWithVerticalGrid() {
             InitializeComponent();
