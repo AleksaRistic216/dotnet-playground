@@ -115,5 +115,10 @@ namespace FW.RibbonForm.WinFormsFW {
             using(var f = new FormWithSidePanelAsSidePane())
                 f.ShowDialog();
         }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e) {
+            using(var gf = new GridForm())
+                gf.ShowDialog();
+        }
     }
 }

@@ -33,7 +33,12 @@
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barToggleSwitchItem1 = new DevExpress.XtraBars.BarToggleSwitchItem();
+            this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
+            this.barToggleSwitchItem2 = new DevExpress.XtraBars.BarToggleSwitchItem();
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -58,23 +63,40 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barToggleSwitchItem3 = new DevExpress.XtraBars.BarToggleSwitchItem();
+            this.barToggleSwitchItem4 = new DevExpress.XtraBars.BarToggleSwitchItem();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.toggleSwitch2 = new DevExpress.XtraEditors.ToggleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.sidePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
             // 
+            this.ribbonControl1.CaptionBarItemLinks.Add(this.barToggleSwitchItem3);
             this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(45);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -89,10 +111,16 @@
             this.barButtonItem5,
             this.barButtonItem1,
             this.barButtonItem2,
-            this.barButtonItem3});
+            this.barButtonItem3,
+            this.barToggleSwitchItem1,
+            this.barSubItem2,
+            this.barToggleSwitchItem2,
+            this.barButtonItem4,
+            this.barToggleSwitchItem3,
+            this.barToggleSwitchItem4});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 34;
+            this.ribbonControl1.MaxItemId = 40;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 495;
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
@@ -100,6 +128,8 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.QuickToolbarItemLinks.Add(this.barSubItem1);
+            this.ribbonControl1.QuickToolbarItemLinks.Add(this.barToggleSwitchItem1);
+            this.ribbonControl1.QuickToolbarItemLinks.Add(this.barSubItem2);
             this.ribbonControl1.Size = new System.Drawing.Size(1176, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
@@ -117,7 +147,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
             this.barSubItem1.Name = "barSubItem1";
             // 
             // barButtonItem12
@@ -176,12 +207,46 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick_1);
             // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "RibbonForm With SidePanel as Side Pane";
+            this.barButtonItem3.Id = 33;
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "GridForm";
+            this.barButtonItem4.Id = 37;
+            this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+            // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "trigger side panel";
             this.barButtonItem2.Id = 32;
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            // 
+            // barToggleSwitchItem1
+            // 
+            this.barToggleSwitchItem1.Caption = "barToggleSwitchItem1";
+            this.barToggleSwitchItem1.Id = 34;
+            this.barToggleSwitchItem1.Name = "barToggleSwitchItem1";
+            // 
+            // barSubItem2
+            // 
+            this.barSubItem2.Caption = "barSubItem2";
+            this.barSubItem2.Id = 35;
+            this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barToggleSwitchItem2)});
+            this.barSubItem2.Name = "barSubItem2";
+            // 
+            // barToggleSwitchItem2
+            // 
+            this.barToggleSwitchItem2.Caption = "barToggleSwitchItem2";
+            this.barToggleSwitchItem2.Id = 36;
+            this.barToggleSwitchItem2.Name = "barToggleSwitchItem2";
             // 
             // ribbonPageCategory1
             // 
@@ -205,13 +270,15 @@
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "ribbonPage1";
             // 
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barToggleSwitchItem4);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
@@ -331,6 +398,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.toggleSwitch2);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -361,7 +429,7 @@
             // 
             // sidePanel1
             // 
-            this.sidePanel1.Controls.Add(this.simpleButton4);
+            this.sidePanel1.Controls.Add(this.layoutControl1);
             this.sidePanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.sidePanel1.Location = new System.Drawing.Point(432, 158);
             this.sidePanel1.Name = "sidePanel1";
@@ -369,13 +437,65 @@
             this.sidePanel1.TabIndex = 24;
             this.sidePanel1.Text = "sidePanel1";
             // 
-            // simpleButton4
+            // layoutControl1
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(4, 7);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton4.TabIndex = 1;
-            this.simpleButton4.Text = "simpleButton4";
+            this.layoutControl1.Controls.Add(this.toggleSwitch1);
+            this.layoutControl1.Controls.Add(this.checkEdit1);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(1, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(259, 434);
+            this.layoutControl1.TabIndex = 4;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // toggleSwitch1
+            // 
+            this.toggleSwitch1.Location = new System.Drawing.Point(12, 36);
+            this.toggleSwitch1.MenuManager = this.ribbonControl1;
+            this.toggleSwitch1.Name = "toggleSwitch1";
+            this.toggleSwitch1.Properties.OffText = "Off";
+            this.toggleSwitch1.Properties.OnText = "On";
+            this.toggleSwitch1.Size = new System.Drawing.Size(235, 18);
+            this.toggleSwitch1.StyleController = this.layoutControl1;
+            this.toggleSwitch1.TabIndex = 5;
+            // 
+            // checkEdit1
+            // 
+            this.checkEdit1.Location = new System.Drawing.Point(12, 12);
+            this.checkEdit1.MenuManager = this.ribbonControl1;
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "checkEdit1";
+            this.checkEdit1.Size = new System.Drawing.Size(235, 20);
+            this.checkEdit1.StyleController = this.layoutControl1;
+            this.checkEdit1.TabIndex = 4;
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(259, 434);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.checkEdit1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(239, 24);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.toggleSwitch1;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(239, 390);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // navigationPane1
             // 
@@ -410,12 +530,32 @@
             this.navigationPage2.Name = "navigationPage2";
             this.navigationPage2.Size = new System.Drawing.Size(112, 34);
             // 
-            // barButtonItem3
+            // barToggleSwitchItem3
             // 
-            this.barButtonItem3.Caption = "RibbonForm With SidePanel as Side Pane";
-            this.barButtonItem3.Id = 33;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            this.barToggleSwitchItem3.Caption = "barToggleSwitchItem3";
+            this.barToggleSwitchItem3.Id = 38;
+            this.barToggleSwitchItem3.Name = "barToggleSwitchItem3";
+            // 
+            // barToggleSwitchItem4
+            // 
+            this.barToggleSwitchItem4.Caption = "barToggleSwitchItem4";
+            this.barToggleSwitchItem4.Id = 39;
+            this.barToggleSwitchItem4.Name = "barToggleSwitchItem4";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            // 
+            // toggleSwitch2
+            // 
+            this.toggleSwitch2.Location = new System.Drawing.Point(7, 79);
+            this.toggleSwitch2.MenuManager = this.ribbonControl1;
+            this.toggleSwitch2.Name = "toggleSwitch2";
+            this.toggleSwitch2.Properties.OffText = "Off";
+            this.toggleSwitch2.Properties.OnText = "On";
+            this.toggleSwitch2.Size = new System.Drawing.Size(95, 18);
+            this.toggleSwitch2.TabIndex = 2;
             // 
             // Form1
             // 
@@ -445,8 +585,16 @@
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             this.sidePanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).EndInit();
             this.navigationPane1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,7 +618,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
         private DevExpress.XtraEditors.SidePanel sidePanel1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem2;
         private DevExpress.XtraBars.Navigation.NavigationPane navigationPane1;
@@ -493,6 +640,20 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraBars.BarToggleSwitchItem barToggleSwitchItem1;
+        private DevExpress.XtraBars.BarSubItem barSubItem2;
+        private DevExpress.XtraBars.BarToggleSwitchItem barToggleSwitchItem2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarToggleSwitchItem barToggleSwitchItem3;
+        private DevExpress.XtraBars.BarToggleSwitchItem barToggleSwitchItem4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch2;
     }
 }
 
