@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace T1326747 {
+namespace TempOne {
     internal static class Program {
         /// <summary>
         /// The main entry point for the application.
