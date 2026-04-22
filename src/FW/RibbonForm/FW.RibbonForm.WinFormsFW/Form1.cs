@@ -122,5 +122,10 @@ namespace FW.RibbonForm.WinFormsFW {
             using(var gf = new GridForm())
                 gf.ShowDialog();
         }
+
+        private void barButtonItem7_ItemClick_1(object sender, ItemClickEventArgs e) {
+            using(var icf = new IconsForm())
+                icf.ShowDialog();
+        }
     }
 }
