@@ -111,6 +111,12 @@
       <DependentUpon>GridForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\RibbonHelpers.cs" />
+    <Compile Include="IconsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconsForm.Designer.cs">
+      <DependentUpon>IconsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NestedRibbonWithinRibbonForm.cs">
       <SubType>Form</SubType>
     </Compile>
