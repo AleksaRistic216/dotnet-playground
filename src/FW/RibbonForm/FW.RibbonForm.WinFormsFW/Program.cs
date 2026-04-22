@@ -1,4 +1,5 @@
-﻿using DevExpress.LookAndFeel;
+﻿using DevExpress.Images;
+using DevExpress.LookAndFeel;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace FW.RibbonForm.WinFormsFW {
             DevExpress.UserSkins.BonusSkins.Register();
             WindowsFormsSettings.SetPerMonitorDpiAware();
             Application.EnableVisualStyles();
+            ImageResourceCache.ActiveIconSet = IconSet.Fluent;
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }

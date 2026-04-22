@@ -36,6 +36,7 @@
     <Reference Include="DevExpress.Data.Desktop.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.Data.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.Drawing.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.Images.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v26.1.Core, Version=26.1.0.0" />
     <Reference Include="DevExpress.Utils.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.XtraBars.v26.1, Version=26.1.0.0" />
@@ -229,6 +230,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\actions_window.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_addcircled.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,9 +14,11 @@ namespace FW.RibbonForm.WinFormsFW {
             RibbonHelpers.InitializeCommonRibbonCommands(this, ribbonPage1);
             this.SidePane.SizeChanged += SidePanel_SizeChanged;
             SidePane.Visible = false;
+
+            this.simpleButton1.ImageOptions.ImageUri = "edit";
         }
 
-        
+
 
         private void SidePanel_SizeChanged(object sender, EventArgs e) {
             labelControl1.Text = $"Side Panel Width: {this.SidePane.Width}";

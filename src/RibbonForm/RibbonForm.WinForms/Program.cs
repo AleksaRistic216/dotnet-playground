@@ -1,3 +1,5 @@
+using DevExpress.Images;
+
 namespace RibbonForm.WinForms {
     internal static class Program {
         /// <summary>
