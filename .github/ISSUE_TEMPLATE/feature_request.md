@@ -6,15 +6,28 @@ labels: enhancement
 assignees: ''
 ---
 
-## Problem Statement
-A clear and concise description of the problem or limitation this feature would address.
-e.g. "I'm frustrated when [...]"
+## Description
+A clear and concise description of the feature.
 
-## Proposed Solution
-A clear and concise description of what you want to happen.
+## Sub-issues
 
-## Alternatives Considered
-A clear and concise description of any alternative solutions or features you've considered.
+### Planning process (PM)
+- [ ] Write description (PM)
+- [ ] Assign labels (PM)
 
-## Additional Context
-Add any other context, mockups, or examples about the feature request here.
+### Pre-Implement process
+- [ ] Analyze requirements (Dev)
+  - [ ] Create internal cards with estimations (Dev)
+- [ ] Write Specification (Dev)
+- [ ] Sync with PM with cost and value estimates
+
+### Implement feature (Dev)
+- [ ] Implementation complete
+
+### Testing process
+- [ ] Testing by Developers (Dev)
+- [ ] Testing by Testers (SC)
+
+### Finalizing process
+- [ ] Write what's new (TW)
+- [ ] Update docs (TW)
