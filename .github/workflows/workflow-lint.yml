@@ -7,6 +7,7 @@ on:
 permissions:
   checks: write
   contents: read
+  actions: write
 
 jobs:
   lint-workflows:
@@ -60,8 +61,16 @@ jobs:
                 },
               });
               core.info('Check run marked as neutral.');
-              process.exit(0);
             }
+
+            await github.rest.actions.cancelWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.runId,
+            });
+
+            // Keep the step alive until cancellation takes effect
+            await new Promise(resolve => setTimeout(resolve, 30000));
 
       - name: Download actionlint and shellcheck
         if: steps.changes.outputs.workflows_changed == 'true'
