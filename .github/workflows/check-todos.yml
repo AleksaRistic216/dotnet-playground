@@ -1,0 +1,21 @@
+name: Check for TODOs in workflows
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - '.github/workflows/**'
+
+jobs:
+  check-todos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for TODO comments in workflow files
+        run: |
+          if grep -r '//TODO' .github/workflows/; then
+            echo "::error::Found '//TODO' comments in workflow files. Please resolve them before merging."
+            exit 1
+          fi
+          echo "No '//TODO' comments found in workflow files."
