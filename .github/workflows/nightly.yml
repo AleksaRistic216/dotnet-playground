@@ -1,0 +1,19 @@
+name: Nightly
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0"
+
+      - name: Full test suite
+        run: dotnet test --blame --verbosity normal
