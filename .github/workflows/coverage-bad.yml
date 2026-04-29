@@ -1,0 +1,21 @@
+name: Coverage Bad
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  coverage:
+    runs-on: windows-super-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run coverage
+        run: dotnet test --collect:"XPlat Code Coverage"
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: not-valid
