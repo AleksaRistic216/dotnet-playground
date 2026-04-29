@@ -4,12 +4,24 @@ on:
   pull_request:
     branches: [master]
 
-permissions:
-  checks: write
-  contents: read
-
 jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      workflows: ${{ steps.filter.outputs.workflows }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            workflows:
+              - '.github/workflows/**'
+
   lint-workflows:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.workflows == 'true'
     runs-on: ubuntu-latest
     env:
       ACTIONLINT_VERSION: 1.7.12
@@ -18,105 +30,25 @@ jobs:
       SHELLCHECK_SHA256: B7AF85E41CC99489DCC21D66C6D5F3685138F06D34651E6D34B42EC6D54FE6F6
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Detect workflow changes
-        id: changes
-        run: |
-          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- '.github/workflows/**')
-          if [ -z "$CHANGED" ]; then
-            echo "workflows_changed=false" >> "$GITHUB_OUTPUT"
-            echo "No workflow files changed — skipping lint."
-          else
-            echo "workflows_changed=true" >> "$GITHUB_OUTPUT"
-            echo "Changed workflow files:"
-            echo "$CHANGED"
-          fi
-
-      - name: Report neutral (no changes)
-        if: steps.changes.outputs.workflows_changed == 'false'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.checks.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              head_sha: context.sha,
-              name: 'workflow-lint',
-              status: 'completed',
-              conclusion: 'neutral',
-              output: {
-                title: 'Skipped — no workflow changes',
-                summary: 'No files changed under `.github/workflows/`. Lint was not required.',
-              },
-            });
-
-      - name: Report in progress
-        if: steps.changes.outputs.workflows_changed == 'true'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { data: check } = await github.rest.checks.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              head_sha: context.sha,
-              name: 'workflow-lint',
-              status: 'in_progress',
-            });
-            core.exportVariable('CHECK_RUN_ID', check.id);
-
-      - name: Download actionlint and shellcheck
-        if: steps.changes.outputs.workflows_changed == 'true'
+      - name: Download actionlint
         shell: bash
         run: |
-          curl -sL "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz" -o actionlint.tar.gz &
-          curl -sL "https://github.com/koalaman/shellcheck/releases/download/v${SHELLCHECK_VERSION}/shellcheck-v${SHELLCHECK_VERSION}.linux.x86_64.tar.xz" -o shellcheck.tar.xz &
-          wait
-
+          curl -sL "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz" -o actionlint.tar.gz
           echo "${ACTIONLINT_SHA256}  actionlint.tar.gz" | sha256sum -c -
           tar xzf actionlint.tar.gz actionlint
           chmod +x actionlint
 
+      - name: Download shellcheck
+        shell: bash
+        run: |
+          curl -sL "https://github.com/koalaman/shellcheck/releases/download/v${SHELLCHECK_VERSION}/shellcheck-v${SHELLCHECK_VERSION}.linux.x86_64.tar.xz" -o shellcheck.tar.xz
           tar xJf shellcheck.tar.xz "shellcheck-v${SHELLCHECK_VERSION}/shellcheck"
           mv "shellcheck-v${SHELLCHECK_VERSION}/shellcheck" ./shellcheck
           chmod +x shellcheck
 
+      - name: Verify shellcheck
+        run: ./shellcheck --version
+
       - name: Run actionlint
-        if: steps.changes.outputs.workflows_changed == 'true'
         run: ./actionlint -shellcheck ./shellcheck
-
-      - name: Report success
-        if: steps.changes.outputs.workflows_changed == 'true' && success()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.checks.update({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              check_run_id: process.env.CHECK_RUN_ID,
-              status: 'completed',
-              conclusion: 'success',
-              output: {
-                title: 'Lint passed',
-                summary: 'All workflow files passed actionlint validation.',
-              },
-            });
-
-      - name: Report failure
-        if: steps.changes.outputs.workflows_changed == 'true' && failure()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.checks.update({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              check_run_id: process.env.CHECK_RUN_ID,
-              status: 'completed',
-              conclusion: 'failure',
-              output: {
-                title: 'Lint failed',
-                summary: 'Workflow files have actionlint errors. Check the logs for details.',
-              },
-            });
-
