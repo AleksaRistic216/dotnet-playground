@@ -3,25 +3,11 @@ name: Workflow Lint
 on:
   pull_request:
     branches: [master]
+    paths:
+      - '.github/workflows/**'
 
 jobs:
-  detect-changes:
-    runs-on: ubuntu-latest
-    outputs:
-      workflows: ${{ steps.filter.outputs.workflows }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          filters: |
-            workflows:
-              - '.github/workflows/**'
-
   lint-workflows:
-    needs: detect-changes
-    if: needs.detect-changes.outputs.workflows == 'true'
     runs-on: ubuntu-latest
     env:
       ACTIONLINT_VERSION: 1.7.12
