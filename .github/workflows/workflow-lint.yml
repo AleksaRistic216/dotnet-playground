@@ -7,7 +7,6 @@ on:
 permissions:
   checks: write
   contents: read
-  actions: write
 
 jobs:
   lint-workflows:
@@ -35,42 +34,37 @@ jobs:
             echo "$CHANGED"
           fi
 
-      - name: Mark as neutral and exit
+      - name: Report neutral (no changes)
         if: steps.changes.outputs.workflows_changed == 'false'
         uses: actions/github-script@v7
         with:
           script: |
-            const { data: checkRuns } = await github.rest.checks.listForRef({
+            await github.rest.checks.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: context.sha,
-              check_name: 'lint-workflows',
+              head_sha: context.sha,
+              name: 'workflow-lint',
+              status: 'completed',
+              conclusion: 'neutral',
+              output: {
+                title: 'Skipped — no workflow changes',
+                summary: 'No files changed under `.github/workflows/`. Lint was not required.',
+              },
             });
 
-            const run = checkRuns.check_runs[0];
-            if (run) {
-              await github.rest.checks.update({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                check_run_id: run.id,
-                status: 'completed',
-                conclusion: 'neutral',
-                output: {
-                  title: 'Skipped — no workflow changes',
-                  summary: 'No files changed under `.github/workflows/`. Lint was not required.',
-                },
-              });
-              core.info('Check run marked as neutral.');
-            }
-
-            await github.rest.actions.cancelWorkflowRun({
+      - name: Report in progress
+        if: steps.changes.outputs.workflows_changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: check } = await github.rest.checks.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              run_id: context.runId,
+              head_sha: context.sha,
+              name: 'workflow-lint',
+              status: 'in_progress',
             });
-
-            // Keep the step alive until cancellation takes effect
-            await new Promise(resolve => setTimeout(resolve, 30000));
+            core.exportVariable('CHECK_RUN_ID', check.id);
 
       - name: Download actionlint and shellcheck
         if: steps.changes.outputs.workflows_changed == 'true'
@@ -91,3 +85,38 @@ jobs:
       - name: Run actionlint
         if: steps.changes.outputs.workflows_changed == 'true'
         run: ./actionlint -shellcheck ./shellcheck
+
+      - name: Report success
+        if: steps.changes.outputs.workflows_changed == 'true' && success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.checks.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: process.env.CHECK_RUN_ID,
+              status: 'completed',
+              conclusion: 'success',
+              output: {
+                title: 'Lint passed',
+                summary: 'All workflow files passed actionlint validation.',
+              },
+            });
+
+      - name: Report failure
+        if: steps.changes.outputs.workflows_changed == 'true' && failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.checks.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              check_run_id: process.env.CHECK_RUN_ID,
+              status: 'completed',
+              conclusion: 'failure',
+              output: {
+                title: 'Lint failed',
+                summary: 'Workflow files have actionlint errors. Check the logs for details.',
+              },
+            });
+
