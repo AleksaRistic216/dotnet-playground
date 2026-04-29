@@ -1,21 +1,54 @@
-name: Check for TODOs in workflows
+name: Workflow Lint
 
 on:
   pull_request:
     branches: [master]
-    paths:
-      - '.github/workflows/**'
 
 jobs:
-  check-todos:
+  detect-changes:
     runs-on: ubuntu-latest
+    outputs:
+      workflows: ${{ steps.filter.outputs.workflows }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check for TODO comments in workflow files
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            workflows:
+              - '.github/workflows/**'
+
+  lint-workflows:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.workflows == 'true'
+    runs-on: ubuntu-latest
+    env:
+      ACTIONLINT_VERSION: 1.7.12
+      ACTIONLINT_SHA256: 8ACA8DB96F1B94770F1B0D72B6DDDCB1EBB8123CB3712530B08CC387B349A3D8
+      SHELLCHECK_VERSION: 0.11.0
+      SHELLCHECK_SHA256: B7AF85E41CC99489DCC21D66C6D5F3685138F06D34651E6D34B42EC6D54FE6F6
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download actionlint
+        shell: bash
         run: |
-          if grep -r '//TODO' .github/workflows/; then
-            echo "::error::Found '//TODO' comments in workflow files. Please resolve them before merging."
-            exit 1
-          fi
-          echo "No '//TODO' comments found in workflow files."
+          curl -sL "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz" -o actionlint.tar.gz
+          echo "${ACTIONLINT_SHA256}  actionlint.tar.gz" | sha256sum -c -
+          tar xzf actionlint.tar.gz actionlint
+          chmod +x actionlint
+
+      - name: Download shellcheck
+        shell: bash
+        run: |
+          curl -sL "https://github.com/koalaman/shellcheck/releases/download/v${SHELLCHECK_VERSION}/shellcheck-v${SHELLCHECK_VERSION}.linux.x86_64.tar.xz" -o shellcheck.tar.xz
+          tar xJf shellcheck.tar.xz "shellcheck-v${SHELLCHECK_VERSION}/shellcheck"
+          mv "shellcheck-v${SHELLCHECK_VERSION}/shellcheck" ./shellcheck
+          chmod +x shellcheck
+
+      - name: Verify shellcheck
+        run: ./shellcheck --version
+
+      - name: Run actionlint
+        run: ./actionlint -shellcheck ./shellcheck
