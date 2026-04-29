@@ -1,9 +1,8 @@
 name: Lint Broken
 
 on:
-  pull_request:
+  push:
     branches: [master]
-    types: [opened, synchronize, fake_type]
 
 jobs:
   lint:
