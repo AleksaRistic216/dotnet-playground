@@ -29,8 +29,8 @@ namespace FW.RibbonForm.WinFormsFW {
 
         // Resources WITHOUT fluent mappings — should always show classic
         static readonly ResourceEntry[] unmappedResources = {
-            new ResourceEntry("DevExpress.Data.Desktop.Images.SVG.AI.AI.svg", "AI", () => dataDesktopAsm),
-            new ResourceEntry("DevExpress.Data.Desktop.Images.SVG.AI.AISparkle.svg", "AISparkle", () => dataDesktopAsm),
+            new ResourceEntry("DevExpress.Data.Images.SVG.AI.AI.svg", "AI", () => dataDesktopAsm),
+            new ResourceEntry("DevExpress.Data.Images.SVG.AI.AISparkle.svg", "AISparkle", () => dataDesktopAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.ApplicationButton2007.svg", "AppBtn07", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.RibbonApplication.svg", "RibbonApp", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.AddPage.svg", "AddPage", () => barsAsm),
