@@ -103,8 +103,9 @@ namespace FW.RibbonForm.WinFormsFW {
 
             layout.AutoScroll = false;
             layout.Dock = DockStyle.None;
-            var fullSize = layout.GetPreferredSize(new Size(layout.Width, 0));
-            fullSize.Width = Math.Max(fullSize.Width, layout.Width);
+            int captureWidth = originalSize.Width;
+            var fullSize = layout.GetPreferredSize(new Size(captureWidth, 0));
+            fullSize.Width = captureWidth;
             layout.Size = fullSize;
 
             using(var bmp = new Bitmap(fullSize.Width, fullSize.Height)) {
@@ -512,7 +513,7 @@ namespace FW.RibbonForm.WinFormsFW {
             var lbl = new LabelControl {
                 Text = text,
                 AutoSizeMode = LabelAutoSizeMode.None,
-                Width = 10000,
+                Width = 1350,
                 Height = 30,
                 Appearance = { Font = new Font("Segoe UI", 11, FontStyle.Bold) }
             };
@@ -524,7 +525,7 @@ namespace FW.RibbonForm.WinFormsFW {
             var lbl = new LabelControl {
                 Text = text,
                 AutoSizeMode = LabelAutoSizeMode.None,
-                Width = 10000,
+                Width = 1350,
                 Height = 22,
                 Appearance = { ForeColor = Color.Gray, Font = new Font("Segoe UI", 9, FontStyle.Italic) }
             };
@@ -533,7 +534,7 @@ namespace FW.RibbonForm.WinFormsFW {
         }
 
         void AddSeparator(FlowLayoutPanel layout) {
-            var sep = new PanelControl { Width = 10000, Height = 2, BackColor = Color.LightGray };
+            var sep = new PanelControl { Width = 1350, Height = 2, BackColor = Color.LightGray };
             sep.Margin = new Padding(0, 5, 0, 5);
             layout.Controls.Add(sep);
             layout.SetFlowBreak(sep, true);
