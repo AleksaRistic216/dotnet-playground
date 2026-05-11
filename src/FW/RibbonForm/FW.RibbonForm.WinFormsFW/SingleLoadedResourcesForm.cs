@@ -75,11 +75,51 @@ namespace FW.RibbonForm.WinFormsFW {
             }
             page.Groups.Add(groupUri);
 
+            var groupActions = new RibbonPageGroup("Actions");
+            var screenshotItem = new BarButtonItem { Caption = "Screenshot All" };
+            screenshotItem.ImageOptions.ImageUri.Uri = "print";
+            screenshotItem.ItemClick += (s, e) => CaptureFullScreenshot();
+            ribbon.Items.Add(screenshotItem);
+            groupActions.ItemLinks.Add(screenshotItem);
+            page.Groups.Add(groupActions);
+
             scrollPanelRef = new PanelControl { Dock = DockStyle.Fill, AutoScroll = true };
             Controls.Add(scrollPanelRef);
             scrollPanelRef.BringToFront();
 
             RebuildContent(ribbon);
+        }
+
+        void CaptureFullScreenshot() {
+            if(scrollPanelRef.Controls.Count == 0) return;
+            var layout = scrollPanelRef.Controls[0] as FlowLayoutPanel;
+            if(layout == null) return;
+
+            // Temporarily expand layout to full preferred size to render all content
+            var originalDock = layout.Dock;
+            var originalAutoScroll = layout.AutoScroll;
+            var originalSize = layout.Size;
+
+            layout.AutoScroll = false;
+            layout.Dock = DockStyle.None;
+            var fullSize = layout.GetPreferredSize(new Size(layout.Width, 0));
+            fullSize.Width = Math.Max(fullSize.Width, layout.Width);
+            layout.Size = fullSize;
+
+            using(var bmp = new Bitmap(fullSize.Width, fullSize.Height)) {
+                layout.DrawToBitmap(bmp, new Rectangle(Point.Empty, fullSize));
+
+                // Restore layout
+                layout.Dock = originalDock;
+                layout.AutoScroll = originalAutoScroll;
+                layout.Size = originalSize;
+
+                var path = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                    $"SingleLoadedResources_{WindowsFormsSettings.ActiveIconSet}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
+                bmp.Save(path, System.Drawing.Imaging.ImageFormat.Png);
+                MessageBox.Show($"Screenshot saved to:\n{path}", "Screenshot", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         void RebuildContent(RibbonControl ribbon) {
