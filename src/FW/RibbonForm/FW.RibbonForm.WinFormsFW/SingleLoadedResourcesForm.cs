@@ -19,6 +19,7 @@ namespace FW.RibbonForm.WinFormsFW {
         static readonly Assembly utilsAsm = typeof(ResourceImageHelper).Assembly;
         static readonly Assembly barsAsm = typeof(RibbonControl).Assembly;
         static readonly Assembly editorsAsm = typeof(SimpleButton).Assembly;
+        static readonly Assembly dataDesktopAsm = typeof(DevExpress.Data.Images.AIImageResources).Assembly;
 
         // Resources with known fluent mappings (Search→search, Settings→settings-gear)
         static readonly ResourceEntry[] mappedResources = {
@@ -28,13 +29,13 @@ namespace FW.RibbonForm.WinFormsFW {
 
         // Resources WITHOUT fluent mappings — should always show classic
         static readonly ResourceEntry[] unmappedResources = {
+            new ResourceEntry("DevExpress.Data.Desktop.Images.SVG.AI.AI.svg", "AI", () => dataDesktopAsm),
+            new ResourceEntry("DevExpress.Data.Desktop.Images.SVG.AI.AISparkle.svg", "AISparkle", () => dataDesktopAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.ApplicationButton2007.svg", "AppBtn07", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.RibbonApplication.svg", "RibbonApp", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.AddPage.svg", "AddPage", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.AddPageGroup.svg", "AddGroup", () => barsAsm),
-            new ResourceEntry("DevExpress.XtraBars.Images.AddItem.svg", "AddItem", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Ribbon.Images.FullScreen.svg", "FullScreen", () => barsAsm),
-            new ResourceEntry("DevExpress.XtraBars.Ribbon.Images.TouchMode.svg", "TouchMode", () => barsAsm),
             new ResourceEntry("DevExpress.XtraEditors.Images.SVG.SecurityNotice.svg", "Security", () => editorsAsm),
         };
 
@@ -440,7 +441,7 @@ namespace FW.RibbonForm.WinFormsFW {
 
         // ========== 8. ImageResourceCache ==========
         void AddImageCacheSection(FlowLayoutPanel layout) {
-            string[] imageIds = { "save", "edit", "delete", "copy", "print", "filter", "search", "settings-gear", "calendar", "link" };
+            string[] imageIds = { "save", "edit", "delete", "copy", "print", "filter", "search", "settings-gear", "find", "undo" };
             foreach(var id in imageIds) {
                 var btn = CreateButton("Cache:" + id, 140);
                 SvgImage svg = DxImageAssemblyUtil.ImageProvider.GetSvgImage(id);
