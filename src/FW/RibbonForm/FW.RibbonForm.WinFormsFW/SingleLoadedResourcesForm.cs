@@ -16,7 +16,6 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class SingleLoadedResourcesForm : DevExpress.XtraBars.Ribbon.RibbonForm {
         PanelControl scrollPanelRef;
 
-        static readonly Assembly dataAsm = typeof(SvgImage).Assembly;
         static readonly Assembly utilsAsm = typeof(ResourceImageHelper).Assembly;
         static readonly Assembly barsAsm = typeof(RibbonControl).Assembly;
         static readonly Assembly editorsAsm = typeof(SimpleButton).Assembly;
@@ -29,13 +28,14 @@ namespace FW.RibbonForm.WinFormsFW {
 
         // Resources WITHOUT fluent mappings — should always show classic
         static readonly ResourceEntry[] unmappedResources = {
-            new ResourceEntry("DevExpress.Data.Images.SVG.AI.AI.svg", "AI", () => dataAsm),
-            new ResourceEntry("DevExpress.Data.Images.SVG.AI.AISparkle.svg", "AISparkle", () => dataAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.ApplicationButton2007.svg", "AppBtn07", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.RibbonApplication.svg", "RibbonApp", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.AddPage.svg", "AddPage", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.AddPageGroup.svg", "AddGroup", () => barsAsm),
-            new ResourceEntry("DevExpress.XtraEditors.Images.SVG.Magnifier.svg", "Magnifier", () => editorsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Images.AddItem.svg", "AddItem", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Ribbon.Images.FullScreen.svg", "FullScreen", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Ribbon.Images.TouchMode.svg", "TouchMode", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraEditors.Images.SVG.SecurityNotice.svg", "Security", () => editorsAsm),
         };
 
         // All resources combined
