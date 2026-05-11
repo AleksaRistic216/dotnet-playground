@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
@@ -35,6 +36,8 @@
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
+            skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -42,8 +45,10 @@
             ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
-            skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
+            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             SuspendLayout();
@@ -53,9 +58,9 @@
             ribbonControl1.CaptionBarItemLinks.Add(barButtonItem4);
             ribbonControl1.EmptyAreaImageOptions.ImagePadding = new Padding(26);
             ribbonControl1.ExpandCollapseItem.Id = 0;
-            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, skinRibbonGalleryBarItem1, barButtonItem1, skinDropDownButtonItem3, skinPaletteDropDownButtonItem3, skinRibbonGalleryBarItem2, skinPaletteRibbonGalleryBarItem1, barButtonItem3, barButtonItem5, barButtonItem7, skinDropDownButtonItem1, skinPaletteDropDownButtonItem1 });
+            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { barButtonItem4, ribbonControl1.ExpandCollapseItem, skinRibbonGalleryBarItem1, barButtonItem1, skinDropDownButtonItem3, skinPaletteDropDownButtonItem3, skinRibbonGalleryBarItem2, skinPaletteRibbonGalleryBarItem1, barButtonItem3, barButtonItem5, barButtonItem7, skinDropDownButtonItem1, skinPaletteDropDownButtonItem1, barButtonItem2, barButtonItem6 });
             ribbonControl1.Location = new Point(0, 0);
-            ribbonControl1.MaxItemId = 27;
+            ribbonControl1.MaxItemId = 29;
             ribbonControl1.Name = "ribbonControl1";
             ribbonControl1.OptionsMenuMinWidth = 283;
             ribbonControl1.PageHeaderItemLinks.Add(skinDropDownButtonItem3);
@@ -131,12 +136,25 @@
             // 
             barButtonItem7.Caption = "Toggle Icon";
             barButtonItem7.Id = 24;
+            barButtonItem7.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem7.ImageOptions.SvgImage");
             barButtonItem7.Name = "barButtonItem7";
             barButtonItem7.ItemClick += barButtonItem7_ItemClick;
             // 
+            // skinDropDownButtonItem1
+            // 
+            skinDropDownButtonItem1.Id = 25;
+            skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
+            // 
+            // skinPaletteDropDownButtonItem1
+            // 
+            skinPaletteDropDownButtonItem1.ActAsDropDown = true;
+            skinPaletteDropDownButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            skinPaletteDropDownButtonItem1.Id = 26;
+            skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
+            // 
             // ribbonPage1
             // 
-            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup3 });
+            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup3, ribbonPageGroup2 });
             ribbonPage1.Name = "ribbonPage1";
             ribbonPage1.Text = "ribbonPage1";
             // 
@@ -150,6 +168,8 @@
             // ribbonPageGroup3
             // 
             ribbonPageGroup3.ItemLinks.Add(barButtonItem7);
+            ribbonPageGroup3.ItemLinks.Add(barButtonItem2);
+            ribbonPageGroup3.ItemLinks.Add(barButtonItem6);
             ribbonPageGroup3.Name = "ribbonPageGroup3";
             ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
@@ -180,23 +200,38 @@
             textEdit1.Size = new Size(295, 20);
             textEdit1.TabIndex = 2;
             // 
-            // skinDropDownButtonItem1
+            // simpleButton1
             // 
-            skinDropDownButtonItem1.Id = 25;
-            skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
+            simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
+            simpleButton1.Location = new Point(156, 264);
+            simpleButton1.Name = "simpleButton1";
+            simpleButton1.Size = new Size(145, 32);
+            simpleButton1.TabIndex = 5;
+            simpleButton1.Text = "simpleButton1";
             // 
-            // skinPaletteDropDownButtonItem1
+            // barButtonItem2
             // 
-            skinPaletteDropDownButtonItem1.ActAsDropDown = true;
-            skinPaletteDropDownButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            skinPaletteDropDownButtonItem1.Id = 26;
-            skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
+            barButtonItem2.Caption = "barButtonItem2";
+            barButtonItem2.Id = 27;
+            barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem6
+            // 
+            barButtonItem6.Caption = "barButtonItem6";
+            barButtonItem6.Id = 28;
+            barButtonItem6.Name = "barButtonItem6";
+            // 
+            // ribbonPageGroup2
+            // 
+            ribbonPageGroup2.Name = "ribbonPageGroup2";
+            ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(686, 390);
+            Controls.Add(simpleButton1);
             Controls.Add(textEdit1);
             Controls.Add(ribbonControl1);
             Controls.Add(ribbonStatusBar1);
@@ -233,5 +268,9 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }

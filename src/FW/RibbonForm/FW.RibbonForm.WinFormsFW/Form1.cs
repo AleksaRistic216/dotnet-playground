@@ -127,5 +127,10 @@ namespace FW.RibbonForm.WinFormsFW {
             using(var icf = new IconsForm())
                 icf.ShowDialog();
         }
+
+        private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e) {
+            using(var srf = new SingleLoadedResourcesForm())
+                srf.ShowDialog();
+        }
     }
 }

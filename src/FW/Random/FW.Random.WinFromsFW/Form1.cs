@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace FW.Random.WinFromsFW {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm {
         public Form1() {
             InitializeComponent();
+            var sb = new SimpleButton();
             //textEdit1.AccessibilityObject.Name = "First";
             //textEdit1.AccessibilityObject.Value = "Hello Accessibility";
         }

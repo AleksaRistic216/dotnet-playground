@@ -117,6 +117,12 @@
     <Compile Include="IconsForm.Designer.cs">
       <DependentUpon>IconsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SingleLoadedResourcesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SingleLoadedResourcesForm.Designer.cs">
+      <DependentUpon>SingleLoadedResourcesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NestedRibbonWithinRibbonForm.cs">
       <SubType>Form</SubType>
     </Compile>
