@@ -51,45 +51,45 @@ namespace FW.RibbonForm.WinFormsFW {
 
         public SingleLoadedResourcesForm() {
             InitializeComponent();
-            BuildUI();
+            //BuildUI();
         }
 
-        void BuildUI() {
-            Text = "Single-Loaded Resources Test — " + WindowsFormsSettings.ActiveIconSet;
-            ClientSize = new Size(1400, 900);
+        //void BuildUI() {
+        //    Text = "Single-Loaded Resources Test — " + WindowsFormsSettings.ActiveIconSet;
+        //    ClientSize = new Size(1400, 900);
 
-            var ribbon = new RibbonControl();
-            ribbon.ShowApplicationButton = DefaultBoolean.False;
-            Controls.Add(ribbon);
-            Ribbon = ribbon;
+        //    var ribbon = new RibbonControl();
+        //    ribbon.ShowApplicationButton = DefaultBoolean.False;
+        //    Controls.Add(ribbon);
+        //    Ribbon = ribbon;
 
-            var page = new RibbonPage("Loading Approaches");
-            ribbon.Pages.Add(page);
+        //    var page = new RibbonPage("Loading Approaches");
+        //    ribbon.Pages.Add(page);
 
-            var groupUri = new RibbonPageGroup("DxImageUri (baseline)");
-            string[] uriIcons = { "save", "edit", "delete", "copy", "print", "filter" };
-            foreach(var name in uriIcons) {
-                var item = new BarButtonItem { Caption = "Uri:" + name };
-                item.ImageOptions.ImageUri.Uri = name;
-                ribbon.Items.Add(item);
-                groupUri.ItemLinks.Add(item);
-            }
-            page.Groups.Add(groupUri);
+        //    var groupUri = new RibbonPageGroup("DxImageUri (baseline)");
+        //    string[] uriIcons = { "save", "edit", "delete", "copy", "print", "filter" };
+        //    foreach(var name in uriIcons) {
+        //        var item = new BarButtonItem { Caption = "Uri:" + name };
+        //        item.ImageOptions.ImageUri.Uri = name;
+        //        ribbon.Items.Add(item);
+        //        groupUri.ItemLinks.Add(item);
+        //    }
+        //    page.Groups.Add(groupUri);
 
-            var groupActions = new RibbonPageGroup("Actions");
-            var screenshotItem = new BarButtonItem { Caption = "Screenshot All" };
-            screenshotItem.ImageOptions.ImageUri.Uri = "print";
-            screenshotItem.ItemClick += (s, e) => CaptureFullScreenshot();
-            ribbon.Items.Add(screenshotItem);
-            groupActions.ItemLinks.Add(screenshotItem);
-            page.Groups.Add(groupActions);
+        //    var groupActions = new RibbonPageGroup("Actions");
+        //    var screenshotItem = new BarButtonItem { Caption = "Screenshot All" };
+        //    screenshotItem.ImageOptions.ImageUri.Uri = "print";
+        //    screenshotItem.ItemClick += (s, e) => CaptureFullScreenshot();
+        //    ribbon.Items.Add(screenshotItem);
+        //    groupActions.ItemLinks.Add(screenshotItem);
+        //    page.Groups.Add(groupActions);
 
-            scrollPanelRef = new PanelControl { Dock = DockStyle.Fill, AutoScroll = true };
-            Controls.Add(scrollPanelRef);
-            scrollPanelRef.BringToFront();
+        //    scrollPanelRef = new PanelControl { Dock = DockStyle.Fill, AutoScroll = true };
+        //    Controls.Add(scrollPanelRef);
+        //    scrollPanelRef.BringToFront();
 
-            RebuildContent(ribbon);
-        }
+        //    RebuildContent(ribbon);
+        //}
 
         void CaptureFullScreenshot() {
             if(scrollPanelRef.Controls.Count == 0) return;
@@ -118,7 +118,9 @@ namespace FW.RibbonForm.WinFormsFW {
 
                 var path = Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-                    $"SingleLoadedResources_{WindowsFormsSettings.ActiveIconSet}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
+                    "SingleLoadedResources_{DateTime.Now:yyyyMMdd_HHmmss}.png"
+                    //$"SingleLoadedResources_{WindowsFormsSettings.ActiveIconSet}_{DateTime.Now:yyyyMMdd_HHmmss}.png"
+                    );
                 bmp.Save(path, System.Drawing.Imaging.ImageFormat.Png);
                 MessageBox.Show($"Screenshot saved to:\n{path}", "Screenshot", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -129,7 +131,7 @@ namespace FW.RibbonForm.WinFormsFW {
             var layout = new FlowLayoutPanel { Dock = DockStyle.Fill, AutoScroll = true, Padding = new Padding(10) };
             scrollPanelRef.Controls.Add(layout);
 
-            AddSettingsControls(layout, ribbon);
+            //AddSettingsControls(layout, ribbon);
             AddSeparator(layout);
 
             // === SECTION 1: DxImageUri ===
@@ -459,45 +461,45 @@ namespace FW.RibbonForm.WinFormsFW {
         }
 
         // ========== Settings controls ==========
-        void AddSettingsControls(FlowLayoutPanel layout, RibbonControl ribbon) {
-            AddSectionLabel(layout, "Runtime Settings");
+        //void AddSettingsControls(FlowLayoutPanel layout, RibbonControl ribbon) {
+        //    AddSectionLabel(layout, "Runtime Settings");
 
-            var toggleBtn = new SimpleButton {
-                Text = "IconSet: " + WindowsFormsSettings.ActiveIconSet,
-                Width = 200, Height = 40
-            };
-            toggleBtn.Click += (s, e) => {
-                var values = (IconSet[])Enum.GetValues(typeof(IconSet));
-                int idx = Array.IndexOf(values, WindowsFormsSettings.ActiveIconSet);
-                WindowsFormsSettings.ActiveIconSet = values[(idx + 1) % values.Length];
-                toggleBtn.Text = "IconSet: " + WindowsFormsSettings.ActiveIconSet;
-                Text = "Single-Loaded Resources Test — " + WindowsFormsSettings.ActiveIconSet
-                    + " / " + WindowsFormsSettings.IconStyle;
-                RefreshAllIcons(ribbon);
-            };
-            layout.Controls.Add(toggleBtn);
+        //    var toggleBtn = new SimpleButton {
+        //        Text = "IconSet: " + WindowsFormsSettings.ActiveIconSet,
+        //        Width = 200, Height = 40
+        //    };
+        //    toggleBtn.Click += (s, e) => {
+        //        var values = (IconSet[])Enum.GetValues(typeof(IconSet));
+        //        int idx = Array.IndexOf(values, WindowsFormsSettings.ActiveIconSet);
+        //        WindowsFormsSettings.ActiveIconSet = values[(idx + 1) % values.Length];
+        //        toggleBtn.Text = "IconSet: " + WindowsFormsSettings.ActiveIconSet;
+        //        Text = "Single-Loaded Resources Test — " + WindowsFormsSettings.ActiveIconSet
+        //            + " / " + WindowsFormsSettings.IconStyle;
+        //        RefreshAllIcons(ribbon);
+        //    };
+        //    layout.Controls.Add(toggleBtn);
 
-            var styleBtn = new SimpleButton {
-                Text = "Style: " + WindowsFormsSettings.IconStyle,
-                Width = 200, Height = 40
-            };
-            styleBtn.Click += (s, e) => {
-                WindowsFormsSettings.IconStyle =
-                    WindowsFormsSettings.IconStyle == "regular" ? "filled" : "regular";
-                styleBtn.Text = "Style: " + WindowsFormsSettings.IconStyle;
-                RefreshAllIcons(ribbon);
-            };
-            layout.Controls.Add(styleBtn);
+        //    var styleBtn = new SimpleButton {
+        //        Text = "Style: " + WindowsFormsSettings.IconStyle,
+        //        Width = 200, Height = 40
+        //    };
+        //    styleBtn.Click += (s, e) => {
+        //        WindowsFormsSettings.IconStyle =
+        //            WindowsFormsSettings.IconStyle == "regular" ? "filled" : "regular";
+        //        styleBtn.Text = "Style: " + WindowsFormsSettings.IconStyle;
+        //        RefreshAllIcons(ribbon);
+        //    };
+        //    layout.Controls.Add(styleBtn);
 
-            var reloadBtn = new SimpleButton {
-                Text = "Reload Form (full rebuild)",
-                Width = 250, Height = 40
-            };
-            reloadBtn.Click += (s, e) => {
-                RebuildContent(ribbon);
-            };
-            layout.Controls.Add(reloadBtn);
-        }
+        //    var reloadBtn = new SimpleButton {
+        //        Text = "Reload Form (full rebuild)",
+        //        Width = 250, Height = 40
+        //    };
+        //    reloadBtn.Click += (s, e) => {
+        //        RebuildContent(ribbon);
+        //    };
+        //    layout.Controls.Add(reloadBtn);
+        //}
 
         // ========== Helpers ==========
         SimpleButton CreateButton(string text, int width) {
@@ -541,21 +543,21 @@ namespace FW.RibbonForm.WinFormsFW {
         }
 
         void RefreshAllIcons(RibbonControl ribbon) {
-            foreach(BarItem item in ribbon.Items) {
-                if(!string.IsNullOrEmpty(item.ImageOptions.ImageUri.Uri))
-                    item.ImageOptions.ImageUri.Refresh();
-            }
-            RefreshControlIcons(this);
-            Refresh();
+            //foreach(BarItem item in ribbon.Items) {
+            //    if(!string.IsNullOrEmpty(item.ImageOptions.ImageUri.Uri))
+            //        item.ImageOptions.ImageUri.Refresh();
+            //}
+            //RefreshControlIcons(this);
+            //Refresh();
         }
 
         void RefreshControlIcons(Control parent) {
             foreach(Control c in parent.Controls) {
-                var btn = c as SimpleButton;
-                if(btn != null && !string.IsNullOrEmpty(btn.ImageOptions.ImageUri.Uri))
-                    btn.ImageOptions.ImageUri.Refresh();
-                if(c.HasChildren)
-                    RefreshControlIcons(c);
+                //var btn = c as SimpleButton;
+                //if(btn != null && !string.IsNullOrEmpty(btn.ImageOptions.ImageUri.Uri))
+                //    btn.ImageOptions.ImageUri.Refresh();
+                //if(c.HasChildren)
+                //    RefreshControlIcons(c);
             }
         }
     }
