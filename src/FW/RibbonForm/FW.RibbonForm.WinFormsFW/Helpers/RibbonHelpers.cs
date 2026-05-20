@@ -154,5 +154,23 @@ namespace FW.RibbonForm.WinFormsFW.Helpers {
                 repositoryItemComboBox3.Items.Add(location);
             ribbonToolbarLocation_cmb.EditValue = ribbonControl.ToolbarLocation;
         }
+        internal static void InitializePopulateAccordionButton(RibbonPageGroup ribbonPageGroup, params DevExpress.XtraBars.Navigation.AccordionControl[] accordions) {
+            var ribbonControl = ribbonPageGroup.Page.Ribbon;
+            var button = new BarButtonItem(ribbonControl.Manager, "Populate Accordion");
+            button.ItemClick += (s, e) => {
+                foreach(var accordion in accordions) {
+                    accordion.BeginUpdate();
+                    for(int i = 0; i < 10; i++) {
+                        var element = new DevExpress.XtraBars.Navigation.AccordionControlElement {
+                            Text = $"Mock Element {accordion.Elements.Count + 1}",
+                            Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+                        };
+                        accordion.Elements.Add(element);
+                    }
+                    accordion.EndUpdate();
+                }
+            };
+            ribbonPageGroup.ItemLinks.Add(button);
+        }
     }
 }

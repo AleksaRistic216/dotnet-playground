@@ -15,6 +15,7 @@ namespace FW.RibbonForm.WinFormsFW {
             InitializeComponent();
             Helpers.RibbonHelpers.InitializeCommonRibbonCommands(this, ribbonPage1);
             Helpers.RibbonHelpers.InitializeQuickAccessToolbarSkinSelectors(ribbonControl1);
+            Helpers.RibbonHelpers.InitializePopulateAccordionButton(ribbonPageGroup1, accordionControl1, accordionControl2, accordionControl3, accordionControl4);
         }
     }
 }

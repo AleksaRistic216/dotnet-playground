@@ -12,6 +12,7 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class Form6 : DevExpress.XtraBars.Ribbon.RibbonForm {
         public Form6() {
             InitializeComponent();
+            Helpers.RibbonHelpers.InitializePopulateAccordionButton(ribbonPageGroup1, accordionControl1);
         }
     }
 }

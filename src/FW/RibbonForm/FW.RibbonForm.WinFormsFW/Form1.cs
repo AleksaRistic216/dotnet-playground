@@ -12,6 +12,7 @@ namespace FW.RibbonForm.WinFormsFW {
             InitializeComponent();
             RibbonHelpers.InitializeQuickAccessToolbarSkinSelectors(ribbonControl1);
             RibbonHelpers.InitializeCommonRibbonCommands(this, ribbonPage1);
+            RibbonHelpers.InitializePopulateAccordionButton(ribbonPageGroup1, accordionControl1, accordionControl2);
             this.SidePane.SizeChanged += SidePanel_SizeChanged;
             SidePane.Visible = false;
 

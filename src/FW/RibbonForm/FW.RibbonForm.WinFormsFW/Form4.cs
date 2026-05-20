@@ -12,6 +12,7 @@ namespace FW.RibbonForm.WinFormsFW {
     public partial class Form4 : DevExpress.XtraBars.Ribbon.RibbonForm {
         public Form4() {
             InitializeComponent();
+            Helpers.RibbonHelpers.InitializePopulateAccordionButton(ribbonPageGroup1, accordionControl1);
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
