@@ -39,40 +39,41 @@
             navigationAccordion = new DevExpress.XtraBars.Navigation.AccordionControl();
             navigationAccordionViewsGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             dataGridViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            dataGridViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             editFormViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            editFormViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             altEditFormViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            altEditFormViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             treeListViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            treeListViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             schedulerViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            schedulerViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             richEditorViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            richEditorViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             spreadsheetViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            spreadsheetViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             pdfViewerViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            pdfViewerViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             pieChartViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            pieChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             donutChartViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            donutChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             barChartViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            barChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             stackedBarChartViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            stackedBarChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             areaChartViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            areaChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             areaStackedChartViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            areaStackedChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             diagramControlViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            diagramControlViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             ganttViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            ganttViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             dashboardViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            dashboardViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             reportViewAccordionElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            dataGridViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            editFormViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            altEditFormViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            treeListViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            schedulerViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            richEditorViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            spreadsheetViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            pdfViewerViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            pieChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            donutChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            barChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            stackedBarChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            areaChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            areaStackedChartViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            diagramControlViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            ganttViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            dashboardViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             reportViewPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             viewNavigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).BeginInit();
@@ -90,13 +91,12 @@
             ribbonControl1.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             ribbonControl1.Name = "ribbonControl1";
             ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPageAppearance });
-            ribbonControl1.Size = new Size(998, 201);
             ribbonControl1.ShowToolbarCustomizeItem = false;
+            ribbonControl1.Size = new Size(998, 201);
+            ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // skinDropDownButtonItem1
             // 
-            skinDropDownButtonItem1.ActAsDropDown = true;
-            skinDropDownButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             skinDropDownButtonItem1.Id = 1;
             skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
             // 
@@ -173,39 +173,25 @@
             // navigationAccordion
             // 
             navigationAccordion.AllowItemSelection = true;
-            navigationAccordion.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Hidden;
-            navigationAccordion.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { navigationAccordionViewsGroup });
+            navigationAccordion.Appearance.AccordionControl.BackColor = Color.FromArgb(128, 255, 255);
+            navigationAccordion.Appearance.AccordionControl.Options.UseBackColor = true;
             navigationAccordion.Dock = DockStyle.Left;
+            navigationAccordion.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { navigationAccordionViewsGroup });
             navigationAccordion.Location = new Point(0, 49);
             navigationAccordion.Margin = new Padding(2);
+            navigationAccordion.MinimumSize = new Size(0, 751);
             navigationAccordion.Name = "navigationAccordion";
+            navigationAccordion.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Hidden;
             navigationAccordion.Size = new Size(255, 751);
             navigationAccordion.TabIndex = 2;
             navigationAccordion.SelectedElementChanged += OnSelectedAccordionElementChanged;
             // 
             // navigationAccordionViewsGroup
             // 
+            navigationAccordionViewsGroup.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { dataGridViewAccordionElement, editFormViewAccordionElement, altEditFormViewAccordionElement, treeListViewAccordionElement, schedulerViewAccordionElement, richEditorViewAccordionElement, spreadsheetViewAccordionElement, pdfViewerViewAccordionElement, pieChartViewAccordionElement, donutChartViewAccordionElement, barChartViewAccordionElement, stackedBarChartViewAccordionElement, areaChartViewAccordionElement, areaStackedChartViewAccordionElement, diagramControlViewAccordionElement, ganttViewAccordionElement, dashboardViewAccordionElement, reportViewAccordionElement, accordionControlElement1 });
             navigationAccordionViewsGroup.Expanded = true;
             navigationAccordionViewsGroup.Name = "navigationAccordionViewsGroup";
             navigationAccordionViewsGroup.Text = "Views";
-            navigationAccordionViewsGroup.Elements.Add(dataGridViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(editFormViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(altEditFormViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(treeListViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(schedulerViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(richEditorViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(spreadsheetViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(pdfViewerViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(pieChartViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(donutChartViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(barChartViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(stackedBarChartViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(areaChartViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(areaStackedChartViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(diagramControlViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(ganttViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(dashboardViewAccordionElement);
-            navigationAccordionViewsGroup.Elements.Add(reportViewAccordionElement);
             // 
             // dataGridViewAccordionElement
             // 
@@ -315,59 +301,11 @@
             reportViewAccordionElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             reportViewAccordionElement.Text = "Report";
             // 
-            // navigationAccordionViewsGroup
+            // accordionControlElement1
             // 
-            navigationAccordionViewsGroup.Expanded = true;
-            navigationAccordionViewsGroup.Name = "navigationAccordionViewsGroup";
-            navigationAccordionViewsGroup.Text = "Views";
-            // 
-            // viewNavigationFrame
-            //
-            viewNavigationFrame.Controls.Add(dataGridViewPage);
-            viewNavigationFrame.Controls.Add(editFormViewPage);
-            viewNavigationFrame.Controls.Add(altEditFormViewPage);
-            viewNavigationFrame.Controls.Add(treeListViewPage);
-            viewNavigationFrame.Controls.Add(schedulerViewPage);
-            viewNavigationFrame.Controls.Add(richEditorViewPage);
-            viewNavigationFrame.Controls.Add(spreadsheetViewPage);
-            viewNavigationFrame.Controls.Add(pdfViewerViewPage);
-            viewNavigationFrame.Controls.Add(pieChartViewPage);
-            viewNavigationFrame.Controls.Add(donutChartViewPage);
-            viewNavigationFrame.Controls.Add(barChartViewPage);
-            viewNavigationFrame.Controls.Add(stackedBarChartViewPage);
-            viewNavigationFrame.Controls.Add(areaChartViewPage);
-            viewNavigationFrame.Controls.Add(areaStackedChartViewPage);
-            viewNavigationFrame.Controls.Add(diagramControlViewPage);
-            viewNavigationFrame.Controls.Add(ganttViewPage);
-            viewNavigationFrame.Controls.Add(dashboardViewPage);
-            viewNavigationFrame.Controls.Add(reportViewPage);
-            viewNavigationFrame.Dock = DockStyle.Fill;
-            viewNavigationFrame.Location = new Point(255, 201);
-            viewNavigationFrame.Name = "viewNavigationFrame";
-            viewNavigationFrame.Pages.Add(dataGridViewPage);
-            viewNavigationFrame.Pages.Add(editFormViewPage);
-            viewNavigationFrame.Pages.Add(altEditFormViewPage);
-            viewNavigationFrame.Pages.Add(treeListViewPage);
-            viewNavigationFrame.Pages.Add(schedulerViewPage);
-            viewNavigationFrame.Pages.Add(richEditorViewPage);
-            viewNavigationFrame.Pages.Add(spreadsheetViewPage);
-            viewNavigationFrame.Pages.Add(pdfViewerViewPage);
-            viewNavigationFrame.Pages.Add(pieChartViewPage);
-            viewNavigationFrame.Pages.Add(donutChartViewPage);
-            viewNavigationFrame.Pages.Add(barChartViewPage);
-            viewNavigationFrame.Pages.Add(stackedBarChartViewPage);
-            viewNavigationFrame.Pages.Add(areaChartViewPage);
-            viewNavigationFrame.Pages.Add(areaStackedChartViewPage);
-            viewNavigationFrame.Pages.Add(diagramControlViewPage);
-            viewNavigationFrame.Pages.Add(ganttViewPage);
-            viewNavigationFrame.Pages.Add(dashboardViewPage);
-            viewNavigationFrame.Pages.Add(reportViewPage);
-            viewNavigationFrame.RibbonAndBarsMergeStyle = DevExpress.XtraBars.Docking2010.Views.RibbonAndBarsMergeStyle.Always;
-            viewNavigationFrame.SelectedPage = dataGridViewPage;
-            viewNavigationFrame.Size = new Size(743, 598);
-            viewNavigationFrame.TabIndex = 4;
-            viewNavigationFrame.Text = "navigationFrame1";
-            viewNavigationFrame.QueryControl += OnNavigationFrameQueryControl;
+            accordionControlElement1.Name = "accordionControlElement1";
+            accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            accordionControlElement1.Text = "Element1";
             // 
             // dataGridViewPage
             // 
@@ -477,7 +415,38 @@
             reportViewPage.Name = "reportViewPage";
             reportViewPage.Size = new Size(743, 598);
             // 
-            // ShellForm_Accordion
+            // viewNavigationFrame
+            // 
+            viewNavigationFrame.Controls.Add(dataGridViewPage);
+            viewNavigationFrame.Controls.Add(editFormViewPage);
+            viewNavigationFrame.Controls.Add(altEditFormViewPage);
+            viewNavigationFrame.Controls.Add(treeListViewPage);
+            viewNavigationFrame.Controls.Add(schedulerViewPage);
+            viewNavigationFrame.Controls.Add(richEditorViewPage);
+            viewNavigationFrame.Controls.Add(spreadsheetViewPage);
+            viewNavigationFrame.Controls.Add(pdfViewerViewPage);
+            viewNavigationFrame.Controls.Add(pieChartViewPage);
+            viewNavigationFrame.Controls.Add(donutChartViewPage);
+            viewNavigationFrame.Controls.Add(barChartViewPage);
+            viewNavigationFrame.Controls.Add(stackedBarChartViewPage);
+            viewNavigationFrame.Controls.Add(areaChartViewPage);
+            viewNavigationFrame.Controls.Add(areaStackedChartViewPage);
+            viewNavigationFrame.Controls.Add(diagramControlViewPage);
+            viewNavigationFrame.Controls.Add(ganttViewPage);
+            viewNavigationFrame.Controls.Add(dashboardViewPage);
+            viewNavigationFrame.Controls.Add(reportViewPage);
+            viewNavigationFrame.Dock = DockStyle.Fill;
+            viewNavigationFrame.Location = new Point(255, 201);
+            viewNavigationFrame.Name = "viewNavigationFrame";
+            viewNavigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { dataGridViewPage, editFormViewPage, altEditFormViewPage, treeListViewPage, schedulerViewPage, richEditorViewPage, spreadsheetViewPage, pdfViewerViewPage, pieChartViewPage, donutChartViewPage, barChartViewPage, stackedBarChartViewPage, areaChartViewPage, areaStackedChartViewPage, diagramControlViewPage, ganttViewPage, dashboardViewPage, reportViewPage });
+            viewNavigationFrame.RibbonAndBarsMergeStyle = DevExpress.XtraBars.Docking2010.Views.RibbonAndBarsMergeStyle.Always;
+            viewNavigationFrame.SelectedPage = dataGridViewPage;
+            viewNavigationFrame.Size = new Size(743, 598);
+            viewNavigationFrame.TabIndex = 4;
+            viewNavigationFrame.Text = "navigationFrame1";
+            viewNavigationFrame.QueryControl += OnNavigationFrameQueryControl;
+            // 
+            // AccordionShellForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -485,7 +454,7 @@
             Controls.Add(viewNavigationFrame);
             Controls.Add(navigationAccordion);
             Controls.Add(ribbonControl1);
-            Name = "ShellForm_Accordion";
+            Name = "AccordionShellForm";
             NavigationControl = navigationAccordion;
             NavigationControlLayoutMode = DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToFormTitle;
             Ribbon = ribbonControl1;
@@ -550,5 +519,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage dashboardViewPage;
         private DevExpress.XtraBars.Navigation.AccordionControlElement reportViewAccordionElement;
         private DevExpress.XtraBars.Navigation.NavigationPage reportViewPage;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
     }
 }

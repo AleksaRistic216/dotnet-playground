@@ -45,7 +45,10 @@ namespace Random12512 {
 
 
         void OnSelectedAccordionElementChanged(object sender, SelectedElementChangedEventArgs e) {
-            viewNavigationFrame.SelectedPage = (NavigationPage)viewNavigationFrame.Pages.First(p => p.Tag == e.Element.Tag);
+            try {
+                viewNavigationFrame.SelectedPage = (NavigationPage)viewNavigationFrame.Pages.First(p => p.Tag == e.Element.Tag);
+            }
+            catch { }
         }
         public IServiceProvider Services { get; private set; }
 

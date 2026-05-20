@@ -21,5 +21,9 @@ namespace FW.RibbonForm.WinFormsFW {
                 ? DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToTop
                 : DevExpress.XtraBars.Ribbon.RibbonFormNavigationControlLayoutMode.StretchToFormTitle;
         }
+
+        private void accordionControlElement1_Click(object sender, EventArgs e) {
+
+        }
     }
 }
