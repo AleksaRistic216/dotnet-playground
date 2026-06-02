@@ -39,6 +39,11 @@
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnIconSizeBarItems = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnIconSizeAccordion = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnIconSizeNavBar = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnIconSizeTile = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnIconSizeDocking = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barToggleSwitchItem1 = new DevExpress.XtraBars.BarToggleSwitchItem();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
@@ -125,7 +130,12 @@
             this.barToggleSwitchItem4,
             this.barButtonItem7,
             this.barButtonItem13,
-            this.barButtonItem14});
+            this.barButtonItem14,
+            this.barBtnIconSizeBarItems,
+            this.barBtnIconSizeAccordion,
+            this.barBtnIconSizeNavBar,
+            this.barBtnIconSizeTile,
+            this.barBtnIconSizeDocking});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonControl1.MaxItemId = 43;
@@ -165,7 +175,12 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem13),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem14)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem14),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnIconSizeBarItems),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnIconSizeAccordion),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnIconSizeNavBar),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnIconSizeTile),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnIconSizeDocking)});
             this.barSubItem1.Name = "barSubItem1";
             // 
             // barButtonItem12
@@ -258,6 +273,41 @@
             this.barButtonItem14.Id = 42;
             this.barButtonItem14.Name = "barButtonItem14";
             this.barButtonItem14.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
+            // 
+            // barBtnIconSizeBarItems
+            // 
+            this.barBtnIconSizeBarItems.Caption = "IconSize: BarItems+Gallery";
+            this.barBtnIconSizeBarItems.Id = 50;
+            this.barBtnIconSizeBarItems.Name = "barBtnIconSizeBarItems";
+            this.barBtnIconSizeBarItems.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIconSizeBarItems_ItemClick);
+            // 
+            // barBtnIconSizeAccordion
+            // 
+            this.barBtnIconSizeAccordion.Caption = "IconSize: Accordion";
+            this.barBtnIconSizeAccordion.Id = 51;
+            this.barBtnIconSizeAccordion.Name = "barBtnIconSizeAccordion";
+            this.barBtnIconSizeAccordion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIconSizeAccordion_ItemClick);
+            // 
+            // barBtnIconSizeNavBar
+            // 
+            this.barBtnIconSizeNavBar.Caption = "IconSize: NavBar";
+            this.barBtnIconSizeNavBar.Id = 52;
+            this.barBtnIconSizeNavBar.Name = "barBtnIconSizeNavBar";
+            this.barBtnIconSizeNavBar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIconSizeNavBar_ItemClick);
+            // 
+            // barBtnIconSizeTile
+            // 
+            this.barBtnIconSizeTile.Caption = "IconSize: TileControl";
+            this.barBtnIconSizeTile.Id = 53;
+            this.barBtnIconSizeTile.Name = "barBtnIconSizeTile";
+            this.barBtnIconSizeTile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIconSizeTile_ItemClick);
+            // 
+            // barBtnIconSizeDocking
+            // 
+            this.barBtnIconSizeDocking.Caption = "IconSize: Docking+Docs";
+            this.barBtnIconSizeDocking.Id = 54;
+            this.barBtnIconSizeDocking.Name = "barBtnIconSizeDocking";
+            this.barBtnIconSizeDocking.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIconSizeDocking_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -701,6 +751,11 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private DevExpress.XtraBars.BarButtonItem barButtonItem14;
+        private DevExpress.XtraBars.BarButtonItem barBtnIconSizeBarItems;
+        private DevExpress.XtraBars.BarButtonItem barBtnIconSizeAccordion;
+        private DevExpress.XtraBars.BarButtonItem barBtnIconSizeNavBar;
+        private DevExpress.XtraBars.BarButtonItem barBtnIconSizeTile;
+        private DevExpress.XtraBars.BarButtonItem barBtnIconSizeDocking;
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
     }
 }

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A2B3C4D-5E6F-7A8B-9C0D-1E2F3A4B5C6D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FW.FluentIcons.WinFormsFW</RootNamespace>
+    <AssemblyName>FW.FluentIcons.WinFormsFW</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.Data.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.Drawing.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.Images.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v26.1.Core, Version=26.1.0.0" />
+    <Reference Include="DevExpress.Utils.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraBars.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraBars.Docking.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraBars.Docking2010.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraEditors.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraNavBar.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.BonusSkins.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraGrid.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraLayout.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraPrinting.v26.1, Version=26.1.0.0" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconBrowserForm.Designer.cs">
+      <DependentUpon>IconBrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconSettingsForm.Designer.cs">
+      <DependentUpon>IconSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconComparisonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconComparisonForm.Designer.cs">
+      <DependentUpon>IconComparisonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconLoadingApproachesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconLoadingApproachesForm.Designer.cs">
+      <DependentUpon>IconLoadingApproachesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

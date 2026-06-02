@@ -138,5 +138,30 @@ namespace FW.RibbonForm.WinFormsFW {
             using(var af = new AccordionsForm())
                 af.ShowDialog();
         }
+
+        private void barBtnIconSizeBarItems_ItemClick(object sender, ItemClickEventArgs e) {
+            using(var f = new IconSizeBarItemsForm())
+                f.ShowDialog();
+        }
+
+        private void barBtnIconSizeAccordion_ItemClick(object sender, ItemClickEventArgs e) {
+            using(var f = new IconSizeAccordionForm())
+                f.ShowDialog();
+        }
+
+        private void barBtnIconSizeNavBar_ItemClick(object sender, ItemClickEventArgs e) {
+            using(var f = new IconSizeNavBarForm())
+                f.ShowDialog();
+        }
+
+        private void barBtnIconSizeTile_ItemClick(object sender, ItemClickEventArgs e) {
+            using(var f = new IconSizeTileForm())
+                f.ShowDialog();
+        }
+
+        private void barBtnIconSizeDocking_ItemClick(object sender, ItemClickEventArgs e) {
+            using(var f = new IconSizeDockingForm())
+                f.ShowDialog();
+        }
     }
 }

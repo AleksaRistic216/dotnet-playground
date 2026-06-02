@@ -42,7 +42,10 @@
     <Reference Include="DevExpress.Printing.v26.1.Core, Version=26.1.0.0" />
     <Reference Include="DevExpress.Utils.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.XtraBars.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraBars.Docking.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraBars.Docking2010.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.XtraEditors.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.XtraNavBar.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.BonusSkins.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.XtraGrid.v26.1, Version=26.1.0.0" />
     <Reference Include="DevExpress.XtraLayout.v26.1, Version=26.1.0.0" />
@@ -181,6 +184,36 @@
     </Compile>
     <Compile Include="Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconSizeBarItemsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconSizeBarItemsForm.Designer.cs">
+      <DependentUpon>IconSizeBarItemsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconSizeAccordionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconSizeAccordionForm.Designer.cs">
+      <DependentUpon>IconSizeAccordionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconSizeNavBarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconSizeNavBarForm.Designer.cs">
+      <DependentUpon>IconSizeNavBarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconSizeTileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconSizeTileForm.Designer.cs">
+      <DependentUpon>IconSizeTileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconSizeDockingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconSizeDockingForm.Designer.cs">
+      <DependentUpon>IconSizeDockingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form6.cs">
       <SubType>Form</SubType>

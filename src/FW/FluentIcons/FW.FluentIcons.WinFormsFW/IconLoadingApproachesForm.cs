@@ -12,8 +12,8 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 
-namespace FW.RibbonForm.WinFormsFW {
-    public partial class SingleLoadedResourcesForm : DevExpress.XtraBars.Ribbon.RibbonForm {
+namespace FW.FluentIcons.WinFormsFW {
+    public partial class IconLoadingApproachesForm : RibbonForm {
         PanelControl scrollPanelRef;
 
         static readonly Assembly utilsAsm = typeof(ResourceImageHelper).Assembly;
@@ -21,13 +21,30 @@ namespace FW.RibbonForm.WinFormsFW {
         static readonly Assembly editorsAsm = typeof(SimpleButton).Assembly;
         static readonly Assembly dataDesktopAsm = typeof(DevExpress.Data.Images.AIImageResources).Assembly;
 
-        // Resources with known fluent mappings (Search→search, Settings→settings-gear)
         static readonly ResourceEntry[] mappedResources = {
+            // XtraBars mapped icons
             new ResourceEntry("DevExpress.XtraBars.Images.SkinSearch.svg", "Search", () => barsAsm),
             new ResourceEntry("DevExpress.XtraBars.Images.Settings.svg", "Settings", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Images.CaptureWorkspace.svg", "CaptureWS", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Images.SvgIcons.AddCategory.svg", "AddCategory", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Images.SvgIcons.DeleteCommand.svg", "DeleteCmd", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Images.SvgIcons.MoveDown.svg", "MoveDown", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Images.SvgIcons.MoveUp.svg", "MoveUp", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Images.SvgIcons.RenameCategory.svg", "Rename", () => barsAsm),
+            new ResourceEntry("DevExpress.XtraBars.Images.SvgIcons.ClearCommand.svg", "Clear", () => barsAsm),
+            // Utils mapped icons
+            new ResourceEntry("DevExpress.Utils.Images.CloseButton.svg", "Close", () => utilsAsm),
+            new ResourceEntry("DevExpress.Utils.Images.Error.svg", "Error", () => utilsAsm),
+            new ResourceEntry("DevExpress.Utils.Images.Information.svg", "Info", () => utilsAsm),
+            new ResourceEntry("DevExpress.Utils.Images.Question.svg", "Question", () => utilsAsm),
+            new ResourceEntry("DevExpress.Utils.Images.Warning.svg", "Warning", () => utilsAsm),
+            // XtraEditors mapped icons (filter editor)
+            new ResourceEntry("DevExpress.XtraEditors.FilterEditor.Images.ClauseSvgImages.Equals.svg", "Equals", () => editorsAsm),
+            new ResourceEntry("DevExpress.XtraEditors.FilterEditor.Images.ClauseSvgImages.Contains.svg", "Contains", () => editorsAsm),
+            new ResourceEntry("DevExpress.XtraEditors.FilterEditor.Images.ClauseSvgImages.Greater.svg", "Greater", () => editorsAsm),
+            new ResourceEntry("DevExpress.XtraEditors.FilterEditor.Images.AIInputSvgImages.Submit.svg", "Submit", () => editorsAsm),
         };
 
-        // Resources WITHOUT fluent mappings — should always show classic
         static readonly ResourceEntry[] unmappedResources = {
             new ResourceEntry("DevExpress.Data.Images.SVG.AI.AI.svg", "AI", () => dataDesktopAsm),
             new ResourceEntry("DevExpress.Data.Images.SVG.AI.AISparkle.svg", "AISparkle", () => dataDesktopAsm),
@@ -39,7 +56,6 @@ namespace FW.RibbonForm.WinFormsFW {
             new ResourceEntry("DevExpress.XtraEditors.Images.SVG.SecurityNotice.svg", "Security", () => editorsAsm),
         };
 
-        // All resources combined
         static ResourceEntry[] AllResources {
             get {
                 var all = new ResourceEntry[mappedResources.Length + unmappedResources.Length];
@@ -49,13 +65,13 @@ namespace FW.RibbonForm.WinFormsFW {
             }
         }
 
-        public SingleLoadedResourcesForm() {
+        public IconLoadingApproachesForm() {
             InitializeComponent();
             BuildUI();
         }
 
         void BuildUI() {
-            Text = "Single-Loaded Resources Test — " + WindowsFormsSettings.ActiveIconSet;
+            Text = "Icon Loading Approaches — " + WindowsFormsSettings.ActiveIconSet;
             ClientSize = new Size(1400, 900);
 
             var ribbon = new RibbonControl();
@@ -96,7 +112,6 @@ namespace FW.RibbonForm.WinFormsFW {
             var layout = scrollPanelRef.Controls[0] as FlowLayoutPanel;
             if(layout == null) return;
 
-            // Temporarily expand layout to full preferred size to render all content
             var originalDock = layout.Dock;
             var originalAutoScroll = layout.AutoScroll;
             var originalSize = layout.Size;
@@ -111,15 +126,13 @@ namespace FW.RibbonForm.WinFormsFW {
             using(var bmp = new Bitmap(fullSize.Width, fullSize.Height)) {
                 layout.DrawToBitmap(bmp, new Rectangle(Point.Empty, fullSize));
 
-                // Restore layout
                 layout.Dock = originalDock;
                 layout.AutoScroll = originalAutoScroll;
                 layout.Size = originalSize;
 
                 var path = Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-                    $"SingleLoadedResources_{DateTime.Now:yyyyMMdd_HHmmss}.png"
-                    );
+                    $"IconLoadingApproaches_{DateTime.Now:yyyyMMdd_HHmmss}.png");
                 bmp.Save(path, System.Drawing.Imaging.ImageFormat.Png);
                 MessageBox.Show($"Screenshot saved to:\n{path}", "Screenshot", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -133,74 +146,62 @@ namespace FW.RibbonForm.WinFormsFW {
             AddSettingsControls(layout, ribbon);
             AddSeparator(layout);
 
-            // === SECTION 1: DxImageUri ===
             AddSectionLabel(layout, "1. DxImageUri — gold standard pipeline (ImageResourceCache)");
-            AddInfoLabel(layout, "OLD: fluent | NEW: fluent | No change needed.");
+            AddInfoLabel(layout, "OLD: fluent | NEW: fluent | No change needed. This is the standard way to load icons.");
             AddDxImageUriSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 2: SvgImageCollection.FromResources ===
             AddSectionLabel(layout, "2. SvgImageCollection.FromResources — bulk load from assembly prefix");
             AddInfoLabel(layout, "OLD: classic | NEW: fluent if mapped (ShouldTrackImages + LoadFromProvider)");
             AddSvgImageCollectionSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 3: SvgImage.FromResources — MAPPED icons ===
             AddSectionLabel(layout, "3a. SvgImage.FromResources — MAPPED icons (Search, Settings)");
             AddInfoLabel(layout, "OLD: classic | NEW: fluent (factory intercepts → MappedOthersSvg.cs lookup)");
             AddFromResourcesMappedSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 3b: SvgImage.FromResources — UNMAPPED icons ===
             AddSectionLabel(layout, "3b. SvgImage.FromResources — UNMAPPED icons (no fluent equivalent)");
             AddInfoLabel(layout, "OLD: classic | NEW: classic (factory returns null → fallback to raw resource)");
             AddFromResourcesUnmappedSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 4a: FromStream(ref cache, name, asm) — already intercepted ===
             AddSectionLabel(layout, "4a. FromStream(ref cache, name, asm) — 7 sites, already intercepted");
             AddInfoLabel(layout, "OLD: classic | NEW: fluent if mapped (Approach C patches this variant)");
             AddFromStreamRefCacheSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 4b: FromStream(stream) — refactored to FromResources ===
             AddSectionLabel(layout, "4b. Raw FromStream → refactored to FromResources — 12 sites");
             AddInfoLabel(layout, "OLD: classic | NEW: fluent if mapped (call sites changed to FromResources)");
             AddInfoLabel(layout, "Pattern: asm.GetManifestResourceStream(name) → FromStream(stream) BECAME FromResources(name, asm)");
             AddFromStreamRefactoredSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 4c: FromStream(stream) — still raw (un-interceptable) ===
             AddSectionLabel(layout, "4c. Raw FromStream — still un-intercepted (14 dynamic + 10 remaining)");
             AddInfoLabel(layout, "OLD: classic | NEW: classic (no name context, raw stream always bypasses factory)");
             AddFromStreamRawSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 5: new SvgImage(type, resource) ===
             AddSectionLabel(layout, "5. new SvgImage(type, resource) — 3 sites, manually fixed");
             AddInfoLabel(layout, "OLD: classic | NEW: fluent if mapped (Approach C converts to ResourceImageHelper)");
             AddDirectConstructorSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 6: ResourceImageHelper.CreateSvgImageFromResources ===
             AddSectionLabel(layout, "6. ResourceImageHelper.CreateSvgImageFromResources — factory-based");
             AddInfoLabel(layout, "OLD: classic | NEW: fluent if mapped (WindowsSvgImageFactory registered)");
             AddResourceImageHelperSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 7: SvgBitmap comparison ===
             AddSectionLabel(layout, "7. SvgBitmap — upstream-dependent rendering");
             AddInfoLabel(layout, "Renders whatever SvgImage it gets. Compare FromResources (patched) vs FromStream (raw).");
             AddSvgBitmapSection(layout);
             AddSeparator(layout);
 
-            // === SECTION 8: ImageResourceCache ===
             AddSectionLabel(layout, "8. ImageResourceCache.GetSvgImageById — packed DX.Images");
             AddInfoLabel(layout, "OLD: fluent | NEW: fluent | Same pipeline as DxImageUri.");
             AddImageCacheSection(layout);
         }
 
-        // ========== 1. DxImageUri ==========
         void AddDxImageUriSection(FlowLayoutPanel layout) {
             string[] icons = { "save", "edit", "delete", "copy", "print", "filter", "calendar", "link", "search", "settings-gear" };
             foreach(var name in icons) {
@@ -211,7 +212,6 @@ namespace FW.RibbonForm.WinFormsFW {
             }
         }
 
-        // ========== 2. SvgImageCollection.FromResources ==========
         void AddSvgImageCollectionSection(FlowLayoutPanel layout) {
             try {
                 var collection = SvgImageCollection.FromResources("DevExpress.XtraBars.Images", barsAsm);
@@ -225,13 +225,11 @@ namespace FW.RibbonForm.WinFormsFW {
                     layout.Controls.Add(btn);
                     count++;
                 }
-            }
-            catch(Exception ex) {
+            } catch(Exception ex) {
                 AddInfoLabel(layout, "ERROR: " + ex.Message);
             }
         }
 
-        // ========== 3a. FromResources — MAPPED ==========
         void AddFromResourcesMappedSection(FlowLayoutPanel layout) {
             foreach(var entry in mappedResources) {
                 var btn = CreateButton("FR:" + entry.ShortName, 150);
@@ -239,8 +237,7 @@ namespace FW.RibbonForm.WinFormsFW {
                 if(svg != null) {
                     btn.ImageOptions.SvgImage = svg;
                     btn.ImageOptions.SvgImageSize = new Size(20, 20);
-                }
-                else {
+                } else {
                     btn.Text += " ✗";
                     btn.Appearance.ForeColor = Color.Red;
                 }
@@ -249,7 +246,6 @@ namespace FW.RibbonForm.WinFormsFW {
             AddInfoLabel(layout, "↑ With new build: should show FLUENT icons (thin lines, different shape than section 4c)");
         }
 
-        // ========== 3b. FromResources — UNMAPPED ==========
         void AddFromResourcesUnmappedSection(FlowLayoutPanel layout) {
             foreach(var entry in unmappedResources) {
                 var btn = CreateButton("FR:" + entry.ShortName, 150);
@@ -257,8 +253,7 @@ namespace FW.RibbonForm.WinFormsFW {
                 if(svg != null) {
                     btn.ImageOptions.SvgImage = svg;
                     btn.ImageOptions.SvgImageSize = new Size(20, 20);
-                }
-                else {
+                } else {
                     btn.Text += " ✗";
                     btn.Appearance.ForeColor = Color.Red;
                 }
@@ -267,10 +262,7 @@ namespace FW.RibbonForm.WinFormsFW {
             AddInfoLabel(layout, "↑ Always classic — no fluent mapping exists for these icons.");
         }
 
-        // ========== 4a. FromStream(ref cache) — intercepted ==========
         void AddFromStreamRefCacheSection(FlowLayoutPanel layout) {
-            // Simulates: SvgImage.FromStream(ref svgImageCache, resourceName, assembly)
-            // This is the pattern used by DashboardCommand, PdfViewerCommand, ChartCommand, etc.
             Dictionary<string, ISvgImage> cache = null;
             foreach(var entry in mappedResources) {
                 var btn = CreateButton("RefCache:" + entry.ShortName, 180);
@@ -278,8 +270,7 @@ namespace FW.RibbonForm.WinFormsFW {
                 if(svg != null) {
                     btn.ImageOptions.SvgImage = svg as SvgImage;
                     btn.ImageOptions.SvgImageSize = new Size(20, 20);
-                }
-                else {
+                } else {
                     btn.Text += " ✗";
                     btn.Appearance.ForeColor = Color.Red;
                 }
@@ -291,8 +282,7 @@ namespace FW.RibbonForm.WinFormsFW {
                 if(svg != null) {
                     btn.ImageOptions.SvgImage = svg as SvgImage;
                     btn.ImageOptions.SvgImageSize = new Size(20, 20);
-                }
-                else {
+                } else {
                     btn.Text += " ✗";
                     btn.Appearance.ForeColor = Color.Red;
                 }
@@ -301,40 +291,30 @@ namespace FW.RibbonForm.WinFormsFW {
             AddInfoLabel(layout, "↑ With new build: mapped icons should be FLUENT (factory intercepts before stream load)");
         }
 
-        // ========== 4b. FromStream refactored (simulates the fix) ==========
         void AddFromStreamRefactoredSection(FlowLayoutPanel layout) {
-            // BEFORE: stream = asm.GetManifestResourceStream(name); svg = SvgImage.FromStream(stream);
-            // AFTER:  svg = SvgImage.FromResources(name, asm);
-            // Here we show BOTH so you can compare:
             AddInfoLabel(layout, "LEFT = old pattern (FromStream), RIGHT = new pattern (FromResources):");
             foreach(var entry in mappedResources) {
-                // OLD way
                 var btnOld = CreateButton("OLD:" + entry.ShortName, 150);
                 Stream stream = entry.Assembly.GetManifestResourceStream(entry.ResourceName);
                 if(stream != null) {
                     SvgImage svg = SvgImage.FromStream(stream);
                     btnOld.ImageOptions.SvgImage = svg;
                     btnOld.ImageOptions.SvgImageSize = new Size(20, 20);
-                }
-                else btnOld.Text += " ✗";
+                } else btnOld.Text += " ✗";
                 layout.Controls.Add(btnOld);
 
-                // NEW way
                 var btnNew = CreateButton("NEW:" + entry.ShortName, 150);
                 SvgImage svgNew = SvgImage.FromResources(entry.ResourceName, entry.Assembly);
                 if(svgNew != null) {
                     btnNew.ImageOptions.SvgImage = svgNew;
                     btnNew.ImageOptions.SvgImageSize = new Size(20, 20);
-                }
-                else btnNew.Text += " ✗";
+                } else btnNew.Text += " ✗";
                 layout.Controls.Add(btnNew);
             }
             AddInfoLabel(layout, "↑ With new build: OLD=classic, NEW=fluent (proves the refactoring works)");
         }
 
-        // ========== 4c. FromStream — still raw ==========
         void AddFromStreamRawSection(FlowLayoutPanel layout) {
-            // This pattern CANNOT be intercepted — raw stream, no name context
             foreach(var entry in AllResources) {
                 var btn = CreateButton("Raw:" + entry.ShortName, 150);
                 Stream stream = entry.Assembly.GetManifestResourceStream(entry.ResourceName);
@@ -342,8 +322,7 @@ namespace FW.RibbonForm.WinFormsFW {
                     SvgImage svg = SvgImage.FromStream(stream);
                     btn.ImageOptions.SvgImage = svg;
                     btn.ImageOptions.SvgImageSize = new Size(20, 20);
-                }
-                else {
+                } else {
                     btn.Text += " ✗";
                     btn.Appearance.ForeColor = Color.Red;
                 }
@@ -352,7 +331,6 @@ namespace FW.RibbonForm.WinFormsFW {
             AddInfoLabel(layout, "↑ ALWAYS classic — no way to intercept raw stream. Compare with 3a to see the difference.");
         }
 
-        // ========== 5. new SvgImage(type, resource) ==========
         void AddDirectConstructorSection(FlowLayoutPanel layout) {
             string[][] pairs = {
                 new[] { "Images.SkinSearch.svg", "Search" },
@@ -360,31 +338,32 @@ namespace FW.RibbonForm.WinFormsFW {
                 new[] { "Images.AddPage.svg", "AddPage" },
             };
             foreach(var pair in pairs) {
-                // OLD: new SvgImage(type, resource)
                 var btnOld = CreateButton("Ctor:" + pair[1], 150);
                 try {
                     SvgImage svg = new SvgImage(typeof(RibbonControl), pair[0]);
                     btnOld.ImageOptions.SvgImage = svg;
                     btnOld.ImageOptions.SvgImageSize = new Size(20, 20);
+                } catch {
+                    btnOld.Text += " ✗";
+                    btnOld.Appearance.ForeColor = Color.Red;
                 }
-                catch { btnOld.Text += " ✗"; btnOld.Appearance.ForeColor = Color.Red; }
                 layout.Controls.Add(btnOld);
 
-                // NEW: ResourceImageHelper (what Approach C converts these to)
                 string fullName = "DevExpress.XtraBars." + pair[0];
                 var btnNew = CreateButton("Fixed:" + pair[1], 150);
                 SvgImage svgNew = ResourceImageHelper.CreateSvgImageFromResources(fullName, barsAsm);
                 if(svgNew != null) {
                     btnNew.ImageOptions.SvgImage = svgNew;
                     btnNew.ImageOptions.SvgImageSize = new Size(20, 20);
+                } else {
+                    btnNew.Text += " ✗";
+                    btnNew.Appearance.ForeColor = Color.Red;
                 }
-                else { btnNew.Text += " ✗"; btnNew.Appearance.ForeColor = Color.Red; }
                 layout.Controls.Add(btnNew);
             }
             AddInfoLabel(layout, "↑ Ctor = always classic. Fixed = fluent if mapped (Search, Settings should differ).");
         }
 
-        // ========== 6. ResourceImageHelper ==========
         void AddResourceImageHelperSection(FlowLayoutPanel layout) {
             foreach(var entry in AllResources) {
                 var btn = CreateButton("RIH:" + entry.ShortName, 150);
@@ -392,8 +371,7 @@ namespace FW.RibbonForm.WinFormsFW {
                 if(svg != null) {
                     btn.ImageOptions.SvgImage = svg;
                     btn.ImageOptions.SvgImageSize = new Size(20, 20);
-                }
-                else {
+                } else {
                     btn.Text += " ✗";
                     btn.Appearance.ForeColor = Color.Red;
                 }
@@ -402,12 +380,9 @@ namespace FW.RibbonForm.WinFormsFW {
             AddInfoLabel(layout, "↑ Same behavior as 3a/3b — goes through WindowsSvgImageFactory.");
         }
 
-        // ========== 7. SvgBitmap comparison ==========
         void AddSvgBitmapSection(FlowLayoutPanel layout) {
-            // Compare rendered bitmaps for mapped icon (Search)
-            var entry = mappedResources[0]; // SkinSearch
-            
-            // Via FromResources (patched path)
+            var entry = mappedResources[0];
+
             SvgImage svgPatched = SvgImage.FromResources(entry.ResourceName, entry.Assembly);
             if(svgPatched != null) {
                 var bmp = new SvgBitmap(svgPatched);
@@ -417,7 +392,6 @@ namespace FW.RibbonForm.WinFormsFW {
                 layout.Controls.Add(btn);
             }
 
-            // Via raw stream (always classic)
             Stream stream = entry.Assembly.GetManifestResourceStream(entry.ResourceName);
             if(stream != null) {
                 SvgImage svgRaw = SvgImage.FromStream(stream);
@@ -428,7 +402,6 @@ namespace FW.RibbonForm.WinFormsFW {
                 layout.Controls.Add(btn);
             }
 
-            // Via DxImageUri equivalent (gold standard)
             SvgImage svgCache = DxImageAssemblyUtil.ImageProvider.GetSvgImage("search", IconSetSettings.ActiveIconSet, new Size(32, 32));
             if(svgCache != null) {
                 var bmp = new SvgBitmap(svgCache);
@@ -441,7 +414,6 @@ namespace FW.RibbonForm.WinFormsFW {
             AddInfoLabel(layout, "↑ With new build: Patched should match Cache (both fluent). Raw = classic.");
         }
 
-        // ========== 8. ImageResourceCache ==========
         void AddImageCacheSection(FlowLayoutPanel layout) {
             string[] imageIds = { "save", "edit", "delete", "copy", "print", "filter", "search", "settings-gear", "find", "undo" };
             foreach(var id in imageIds) {
@@ -450,8 +422,7 @@ namespace FW.RibbonForm.WinFormsFW {
                 if(svg != null) {
                     btn.ImageOptions.SvgImage = svg;
                     btn.ImageOptions.SvgImageSize = new Size(20, 20);
-                }
-                else {
+                } else {
                     btn.Text += " ✗";
                     btn.Appearance.ForeColor = Color.Red;
                 }
@@ -459,20 +430,20 @@ namespace FW.RibbonForm.WinFormsFW {
             }
         }
 
-        // ========== Settings controls ==========
         void AddSettingsControls(FlowLayoutPanel layout, RibbonControl ribbon) {
             AddSectionLabel(layout, "Runtime Settings");
 
             var toggleBtn = new SimpleButton {
                 Text = "IconSet: " + WindowsFormsSettings.ActiveIconSet,
-                Width = 200, Height = 40
+                Width = 200,
+                Height = 40
             };
             toggleBtn.Click += (s, e) => {
                 var values = (IconSet[])Enum.GetValues(typeof(IconSet));
                 int idx = Array.IndexOf(values, WindowsFormsSettings.ActiveIconSet);
                 WindowsFormsSettings.ActiveIconSet = values[(idx + 1) % values.Length];
                 toggleBtn.Text = "IconSet: " + WindowsFormsSettings.ActiveIconSet;
-                Text = "Single-Loaded Resources Test — " + WindowsFormsSettings.ActiveIconSet
+                Text = "Icon Loading Approaches — " + WindowsFormsSettings.ActiveIconSet
                     + " / " + WindowsFormsSettings.IconStyle
                     + " / " + WindowsFormsSettings.IconColor;
                 RebuildContent(ribbon);
@@ -481,7 +452,8 @@ namespace FW.RibbonForm.WinFormsFW {
 
             var styleBtn = new SimpleButton {
                 Text = "Style: " + WindowsFormsSettings.IconStyle,
-                Width = 200, Height = 40
+                Width = 200,
+                Height = 40
             };
             styleBtn.Click += (s, e) => {
                 string[] styles = { "regular", "light", "filled" };
@@ -495,7 +467,8 @@ namespace FW.RibbonForm.WinFormsFW {
 
             var colorBtn = new SimpleButton {
                 Text = "Color: " + WindowsFormsSettings.IconColor,
-                Width = 200, Height = 40
+                Width = 200,
+                Height = 40
             };
             colorBtn.Click += (s, e) => {
                 string[] colors = { "no_color", "monochrome", "multicolor" };
@@ -509,15 +482,13 @@ namespace FW.RibbonForm.WinFormsFW {
 
             var reloadBtn = new SimpleButton {
                 Text = "Reload Form (full rebuild)",
-                Width = 250, Height = 40
+                Width = 250,
+                Height = 40
             };
-            reloadBtn.Click += (s, e) => {
-                RebuildContent(ribbon);
-            };
+            reloadBtn.Click += (s, e) => RebuildContent(ribbon);
             layout.Controls.Add(reloadBtn);
         }
 
-        // ========== Helpers ==========
         SimpleButton CreateButton(string text, int width) {
             return new SimpleButton {
                 Text = text,
@@ -556,25 +527,6 @@ namespace FW.RibbonForm.WinFormsFW {
             sep.Margin = new Padding(0, 5, 0, 5);
             layout.Controls.Add(sep);
             layout.SetFlowBreak(sep, true);
-        }
-
-        void RefreshAllIcons(RibbonControl ribbon) {
-            //foreach(BarItem item in ribbon.Items) {
-            //    if(!string.IsNullOrEmpty(item.ImageOptions.ImageUri.Uri))
-            //        item.ImageOptions.ImageUri.Refresh();
-            //}
-            //RefreshControlIcons(this);
-            //Refresh();
-        }
-
-        void RefreshControlIcons(Control parent) {
-            foreach(Control c in parent.Controls) {
-                //var btn = c as SimpleButton;
-                //if(btn != null && !string.IsNullOrEmpty(btn.ImageOptions.ImageUri.Uri))
-                //    btn.ImageOptions.ImageUri.Refresh();
-                //if(c.HasChildren)
-                //    RefreshControlIcons(c);
-            }
         }
     }
 

@@ -19,7 +19,8 @@ namespace FW.RibbonForm.WinFormsFW {
             DevExpress.UserSkins.BonusSkins.Register();
             WindowsFormsSettings.SetPerMonitorDpiAware();
             Application.EnableVisualStyles();
-            //WindowsFormsSettings.ActiveIconSet = IconSet.Fluent;
+            WindowsFormsSettings.ActiveIconSet = IconSet.Fluent;
+            WindowsFormsSettings.IconColor = "monochrome";
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
