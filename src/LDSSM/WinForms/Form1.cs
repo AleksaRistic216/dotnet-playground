@@ -21,5 +21,35 @@ namespace LDSSM.WinForms
 			using var dxForm = (DXGridForm)serviceProvider.GetService(typeof(DXGridForm));
 			dxForm.ShowDialog();
 		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			using var chartForm = (ChartForm)serviceProvider.GetService(typeof(ChartForm))!;
+			chartForm.ShowDialog();
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			using var chart3DForm = (Chart3DForm)serviceProvider.GetService(typeof(Chart3DForm))!;
+			chart3DForm.ShowDialog();
+		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			using var form = (StackedBarChartForm)serviceProvider.GetService(typeof(StackedBarChartForm))!;
+			form.ShowDialog();
+		}
+
+		private void button5_Click(object sender, EventArgs e)
+		{
+			using var form = (DoughnutChartForm)serviceProvider.GetService(typeof(DoughnutChartForm))!;
+			form.ShowDialog();
+		}
+
+		private void button6_Click(object sender, EventArgs e)
+		{
+			using var form = (RadarChartForm)serviceProvider.GetService(typeof(RadarChartForm))!;
+			form.ShowDialog();
+		}
 	}
 }

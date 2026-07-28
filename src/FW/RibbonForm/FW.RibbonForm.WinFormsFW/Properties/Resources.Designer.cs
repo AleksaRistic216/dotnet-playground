@@ -71,12 +71,22 @@ namespace FW.RibbonForm.WinFormsFW.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static DevExpress.Utils.Svg.SvgImage actions_window {
+        internal static System.Drawing.Bitmap cancel_16x16 {
             get {
-                object obj = ResourceManager.GetObject("actions_window", resourceCulture);
-                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+                object obj = ResourceManager.GetObject("cancel_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("cancel_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -96,6 +106,16 @@ namespace FW.RibbonForm.WinFormsFW.Properties {
         internal static DevExpress.Utils.Svg.SvgImage CheckboxFill1 {
             get {
                 object obj = ResourceManager.GetObject("CheckboxFill1", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage ClearTableStyle {
+            get {
+                object obj = ResourceManager.GetObject("ClearTableStyle", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

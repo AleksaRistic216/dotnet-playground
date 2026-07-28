@@ -166,6 +166,7 @@
             this.navBarGroup1});
             this.navBarControl1.Location = new System.Drawing.Point(649, 202);
             this.navBarControl1.Name = "navBarControl1";
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 140;
             this.navBarControl1.Size = new System.Drawing.Size(140, 300);
             this.navBarControl1.TabIndex = 7;
             this.navBarControl1.Text = "navBarControl1";

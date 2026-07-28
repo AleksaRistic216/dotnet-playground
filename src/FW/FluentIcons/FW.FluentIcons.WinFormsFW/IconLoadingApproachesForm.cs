@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using DevExpress.Images;
+using DevExpress.Data.Utils.Images;
 using DevExpress.Utils;
 using DevExpress.Utils.Design;
 using DevExpress.Utils.Svg;
@@ -444,38 +445,38 @@ namespace FW.FluentIcons.WinFormsFW {
                 WindowsFormsSettings.ActiveIconSet = values[(idx + 1) % values.Length];
                 toggleBtn.Text = "IconSet: " + WindowsFormsSettings.ActiveIconSet;
                 Text = "Icon Loading Approaches — " + WindowsFormsSettings.ActiveIconSet
-                    + " / " + WindowsFormsSettings.IconStyle
-                    + " / " + WindowsFormsSettings.IconColor;
+                    + " / " + IconSetSettings.IconStyle
+                    + " / " + IconSetSettings.IconColor;
                 RebuildContent(ribbon);
             };
             layout.Controls.Add(toggleBtn);
 
             var styleBtn = new SimpleButton {
-                Text = "Style: " + WindowsFormsSettings.IconStyle,
+                Text = "Style: " + IconSetSettings.IconStyle,
                 Width = 200,
                 Height = 40
             };
             styleBtn.Click += (s, e) => {
-                string[] styles = { "regular", "light", "filled" };
-                int idx = Array.IndexOf(styles, WindowsFormsSettings.IconStyle);
+                var styles = new[] { IconStyle.Regular, IconStyle.Light, IconStyle.Filled };
+                int idx = Array.IndexOf(styles, IconSetSettings.IconStyle);
                 if(idx < 0) idx = 0;
-                WindowsFormsSettings.IconStyle = styles[(idx + 1) % styles.Length];
-                styleBtn.Text = "Style: " + WindowsFormsSettings.IconStyle;
+                IconSetSettings.IconStyle = styles[(idx + 1) % styles.Length];
+                styleBtn.Text = "Style: " + IconSetSettings.IconStyle;
                 RebuildContent(ribbon);
             };
             layout.Controls.Add(styleBtn);
 
             var colorBtn = new SimpleButton {
-                Text = "Color: " + WindowsFormsSettings.IconColor,
+                Text = "Color: " + IconSetSettings.IconColor,
                 Width = 200,
                 Height = 40
             };
             colorBtn.Click += (s, e) => {
-                string[] colors = { "no_color", "monochrome", "multicolor" };
-                int idx = Array.IndexOf(colors, WindowsFormsSettings.IconColor);
+                var colors = new[] { IconColor.Monochrome, IconColor.Multicolor };
+                int idx = Array.IndexOf(colors, IconSetSettings.IconColor);
                 if(idx < 0) idx = 0;
-                WindowsFormsSettings.IconColor = colors[(idx + 1) % colors.Length];
-                colorBtn.Text = "Color: " + WindowsFormsSettings.IconColor;
+                IconSetSettings.IconColor = colors[(idx + 1) % colors.Length];
+                colorBtn.Text = "Color: " + IconSetSettings.IconColor;
                 RebuildContent(ribbon);
             };
             layout.Controls.Add(colorBtn);

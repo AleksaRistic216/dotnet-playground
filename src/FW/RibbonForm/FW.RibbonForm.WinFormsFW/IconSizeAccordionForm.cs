@@ -1,14 +1,18 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using DevExpress.LookAndFeel;
+using DevExpress.Skins;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
 
 namespace FW.RibbonForm.WinFormsFW {
     public partial class IconSizeAccordionForm : DevExpress.XtraBars.Ribbon.RibbonForm {
         public IconSizeAccordionForm() {
+            this.LookAndFeel.SetSkinStyle(SkinStyle.WXI);
             InitializeComponent();
             SetupAccordion();
+
         }
 
         void SetupAccordion() {

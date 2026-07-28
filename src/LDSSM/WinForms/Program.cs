@@ -23,6 +23,11 @@ namespace LDSSM.WinForms
 			var builder = Host.CreateApplicationBuilder();
 			builder.Services.AddTransient<Form1>();
 			builder.Services.AddScoped<DXGridForm>();
+				builder.Services.AddScoped<ChartForm>();
+				builder.Services.AddScoped<Chart3DForm>();
+				builder.Services.AddScoped<StackedBarChartForm>();
+				builder.Services.AddScoped<DoughnutChartForm>();
+				builder.Services.AddScoped<RadarChartForm>();
 			builder.Configuration.AddJsonFile(
 				"appsettings.json",
 				optional: false,

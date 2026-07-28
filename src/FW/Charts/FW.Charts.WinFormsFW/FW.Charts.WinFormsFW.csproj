@@ -91,5 +91,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common.Contracts\Common.Contracts.csproj">
+      <Project>{f3d57754-1750-4ff7-a1bf-3cab71233a02}</Project>
+      <Name>Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common.DbMigrations\Common.DbMigrations.csproj">
+      <Project>{a44c5d70-5b0e-4ba2-8082-ac837926bc53}</Project>
+      <Name>Common.DbMigrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common.Repository\Common.Repository.csproj">
+      <Project>{732707d4-705d-4407-be25-d5d65cc4e353}</Project>
+      <Name>Common.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using DevExpress.Images;
+using DevExpress.Data.Utils.Images;
 using DevExpress.Utils;
 using DevExpress.Utils.Design;
 using DevExpress.XtraBars;
@@ -37,8 +38,8 @@ namespace FW.FluentIcons.WinFormsFW {
             btnReset.ImageOptions.ImageUri.Uri = "refresh";
             btnReset.ItemClick += (s, e) => {
                 WindowsFormsSettings.ActiveIconSet = IconSet.Fluent;
-                WindowsFormsSettings.IconStyle = "regular";
-                WindowsFormsSettings.IconColor = "monochrome";
+                IconSetSettings.IconStyle = IconStyle.Regular;
+                IconSetSettings.IconColor = IconColor.Monochrome;
                 RefreshAll();
             };
             ribbon.Items.Add(btnReset);
@@ -83,9 +84,9 @@ namespace FW.FluentIcons.WinFormsFW {
             var styleToggle = new ToggleSwitch { Width = 280 };
             styleToggle.Properties.OffText = "Regular";
             styleToggle.Properties.OnText = "Filled";
-            styleToggle.IsOn = WindowsFormsSettings.IconStyle == "filled";
+            styleToggle.IsOn = IconSetSettings.IconStyle == IconStyle.Filled;
             styleToggle.Toggled += (s, e) => {
-                WindowsFormsSettings.IconStyle = styleToggle.IsOn ? "filled" : "regular";
+                IconSetSettings.IconStyle = styleToggle.IsOn ? IconStyle.Filled : IconStyle.Regular;
                 RefreshAll();
             };
             settingsLayout.Controls.Add(styleToggle);
@@ -93,10 +94,10 @@ namespace FW.FluentIcons.WinFormsFW {
             // IconColor toggle
             settingsLayout.Controls.Add(CreateSectionLabel("Icon Color Mode"));
             var colorCombo = new ComboBoxEdit { Width = 280 };
-            colorCombo.Properties.Items.AddRange(new[] { "monochrome", "colored", "no_color" });
-            colorCombo.EditValue = WindowsFormsSettings.IconColor ?? "monochrome";
+            colorCombo.Properties.Items.AddRange(new object[] { IconColor.Monochrome, IconColor.Multicolor });
+            colorCombo.EditValue = IconSetSettings.IconColor;
             colorCombo.SelectedIndexChanged += (s, e) => {
-                WindowsFormsSettings.IconColor = colorCombo.EditValue?.ToString();
+                if(colorCombo.EditValue is IconColor c) IconSetSettings.IconColor = c;
                 RefreshAll();
             };
             settingsLayout.Controls.Add(colorCombo);
@@ -128,7 +129,7 @@ namespace FW.FluentIcons.WinFormsFW {
         }
 
         void RefreshAll() {
-            statusLabel.Text = $"IconSet: {WindowsFormsSettings.ActiveIconSet}\nStyle: {WindowsFormsSettings.IconStyle}\nColor: {WindowsFormsSettings.IconColor}";
+            statusLabel.Text = $"IconSet: {WindowsFormsSettings.ActiveIconSet}\nStyle: {IconSetSettings.IconStyle}\nColor: {IconSetSettings.IconColor}";
             RebuildPreview();
 
             if (Ribbon != null) {

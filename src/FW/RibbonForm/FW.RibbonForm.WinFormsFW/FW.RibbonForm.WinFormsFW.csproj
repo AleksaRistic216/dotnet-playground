@@ -14,6 +14,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <DXBin>C:\work\2026.2\Bin\Framework4</DXBin>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,21 +36,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.Desktop.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.Data.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.Drawing.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.Images.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v26.1.Core, Version=26.1.0.0" />
-    <Reference Include="DevExpress.Utils.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraBars.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraBars.Docking.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraBars.Docking2010.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraEditors.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraNavBar.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.BonusSkins.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraGrid.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraLayout.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraPrinting.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.Data.Desktop.v26.2">
+      <HintPath>$(DXBin)\DevExpress.Data.Desktop.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v26.2">
+      <HintPath>$(DXBin)\DevExpress.Data.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v26.2">
+      <HintPath>$(DXBin)\DevExpress.Drawing.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v26.2">
+      <HintPath>$(DXBin)\DevExpress.Images.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v26.2.Core">
+      <HintPath>$(DXBin)\DevExpress.Printing.v26.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v26.2">
+      <HintPath>$(DXBin)\DevExpress.Utils.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v26.2">
+      <HintPath>$(DXBin)\DevExpress.XtraBars.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v26.2">
+      <HintPath>$(DXBin)\DevExpress.XtraEditors.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v26.2">
+      <HintPath>$(DXBin)\DevExpress.XtraNavBar.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v26.2">
+      <HintPath>$(DXBin)\DevExpress.BonusSkins.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v26.2">
+      <HintPath>$(DXBin)\DevExpress.XtraGrid.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v26.2">
+      <HintPath>$(DXBin)\DevExpress.XtraLayout.v26.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v26.2">
+      <HintPath>$(DXBin)\DevExpress.XtraPrinting.v26.2.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Agents.AI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f300afd708cefcd3, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Microsoft.Agents.AI.1.0.0-rc1\lib\net472\Microsoft.Agents.AI.dll</HintPath>
     </Reference>
@@ -209,12 +234,9 @@
     <Compile Include="IconSizeTileForm.Designer.cs">
       <DependentUpon>IconSizeTileForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IconSizeDockingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IconSizeDockingForm.Designer.cs">
-      <DependentUpon>IconSizeDockingForm.cs</DependentUpon>
-    </Compile>
+    <!-- IconSizeDockingForm excluded: DevExpress.XtraBars.Docking not in Bin\Framework4 -->
+    <None Include="IconSizeDockingForm.cs" />
+    <None Include="IconSizeDockingForm.Designer.cs" />
     <Compile Include="Form6.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +267,12 @@
     </Compile>
     <Compile Include="IconsForm.Designer.cs">
       <DependentUpon>IconsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiOnes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiOnes.Designer.cs">
+      <DependentUpon>MdiOnes.cs</DependentUpon>
     </Compile>
     <Compile Include="SingleLoadedResourcesForm.cs">
       <SubType>Form</SubType>
@@ -373,10 +401,16 @@
     <None Include="Resources\CheckboxFill1.svg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\actions_window.svg" />
+    <None Include="Resources\actions_addcircled.svg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\actions_addcircled.svg" />
+    <None Include="Resources\cancel_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearTableStyle.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\..\..\..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />

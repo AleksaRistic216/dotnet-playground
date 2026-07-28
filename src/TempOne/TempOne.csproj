@@ -33,14 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.Desktop.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
-    <Reference Include="DevExpress.Data.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
-    <Reference Include="DevExpress.Drawing.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
-    <Reference Include="DevExpress.Printing.v25.2.Core, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
-    <Reference Include="DevExpress.Sparkline.v25.2.Core, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
-    <Reference Include="DevExpress.Utils.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
-    <Reference Include="DevExpress.XtraEditors.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
-    <Reference Include="DevExpress.XtraBars.v25.2, Version=25.2.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
+    <Reference Include="DevExpress.Data.Desktop.v26.2, Version=26.2.0.0" />
+    <Reference Include="DevExpress.Data.v26.2, Version=26.2.0.0" />
+    <Reference Include="DevExpress.Drawing.v26.2, Version=26.2.0.0" />
+    <Reference Include="DevExpress.Printing.v26.2.Core, Version=26.2.0.0" />
+    <Reference Include="DevExpress.Sparkline.v26.2.Core, Version=26.2.0.0" />
+    <Reference Include="DevExpress.Utils.v26.2, Version=26.2.0.0" />
+    <Reference Include="DevExpress.XtraEditors.v26.2, Version=26.2.0.0" />
+    <Reference Include="DevExpress.XtraBars.v26.2, Version=26.2.0.0" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />

@@ -20,7 +20,7 @@ namespace FW.FluentIcons.WinFormsFW {
 
             // With skin patch
             // I force WXI skin - ribbon + buttons down have icons
-            //UserLookAndFeel.Default.SetSkinStyle(SkinStyle.WXI);
+            UserLookAndFeel.Default.SetSkinStyle(SkinStyle.WXI);
             SkinManager.Default.RegisterSkinPatch("C:\\Users\\aleksa.ristic\\Documents\\My DXSkins\\WXI_ICONS_SKIN_PATCH\\WXI_ICONS_SKIN_PATCH.skinpatch");
 
             Application.EnableVisualStyles();

@@ -1,19 +1,11 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DevExpress.XtraBars.Ribbon;
 using System.Windows.Forms;
 
 namespace FW.Random.WinFromsFW {
-    public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm {
+    public partial class Form1 : RibbonForm {
         public Form1() {
             InitializeComponent();
-            var sb = new SimpleButton();
+            //var sb = new SimpleButton();
             //textEdit1.AccessibilityObject.Name = "First";
             //textEdit1.AccessibilityObject.Value = "Hello Accessibility";
         }

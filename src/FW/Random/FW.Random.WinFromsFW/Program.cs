@@ -18,7 +18,7 @@ namespace FW.Random.WinFromsFW {
             WindowsFormsSettings.UseUIAutomation = DefaultBoolean.True;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form2());
         }
     }
 }

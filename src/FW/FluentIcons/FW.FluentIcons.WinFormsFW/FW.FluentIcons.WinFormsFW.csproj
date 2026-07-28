@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <DXBin>C:\work\2026.1\Bin\Framework4</DXBin>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,21 +34,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.Desktop.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.Data.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.Drawing.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.Images.v26.1, Version=26.1.0.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v26.1.Core, Version=26.1.0.0" />
-    <Reference Include="DevExpress.Utils.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraBars.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraBars.Docking.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraBars.Docking2010.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraEditors.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraNavBar.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.BonusSkins.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraGrid.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraLayout.v26.1, Version=26.1.0.0" />
-    <Reference Include="DevExpress.XtraPrinting.v26.1, Version=26.1.0.0" />
+    <Reference Include="DevExpress.Data.Desktop.v26.1"><HintPath>$(DXBin)\DevExpress.Data.Desktop.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.Data.v26.1"><HintPath>$(DXBin)\DevExpress.Data.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.Drawing.v26.1"><HintPath>$(DXBin)\DevExpress.Drawing.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.Images.v26.1"><HintPath>$(DXBin)\DevExpress.Images.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.Printing.v26.1.Core"><HintPath>$(DXBin)\DevExpress.Printing.v26.1.Core.dll</HintPath></Reference>
+    <Reference Include="DevExpress.Utils.v26.1"><HintPath>$(DXBin)\DevExpress.Utils.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.XtraBars.v26.1"><HintPath>$(DXBin)\DevExpress.XtraBars.v26.1.dll</HintPath></Reference>
+<Reference Include="DevExpress.XtraEditors.v26.1"><HintPath>$(DXBin)\DevExpress.XtraEditors.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.XtraNavBar.v26.1"><HintPath>$(DXBin)\DevExpress.XtraNavBar.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.BonusSkins.v26.1"><HintPath>$(DXBin)\DevExpress.BonusSkins.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.XtraGrid.v26.1"><HintPath>$(DXBin)\DevExpress.XtraGrid.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.XtraLayout.v26.1"><HintPath>$(DXBin)\DevExpress.XtraLayout.v26.1.dll</HintPath></Reference>
+    <Reference Include="DevExpress.XtraPrinting.v26.1"><HintPath>$(DXBin)\DevExpress.XtraPrinting.v26.1.dll</HintPath></Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

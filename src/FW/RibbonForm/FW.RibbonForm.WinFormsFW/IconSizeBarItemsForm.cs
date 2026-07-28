@@ -1,10 +1,12 @@
 using System.Drawing;
+using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 
 namespace FW.RibbonForm.WinFormsFW {
     public partial class IconSizeBarItemsForm : DevExpress.XtraBars.Ribbon.RibbonForm {
         public IconSizeBarItemsForm() {
+            this.LookAndFeel.SetSkinStyle(SkinStyle.WXI);
             InitializeComponent();
             SetupGallery16();
             SetupGallery32();

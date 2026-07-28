@@ -1,7 +1,6 @@
-﻿using DevExpress.XtraBars;
-using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraEditors.Repository;
+﻿using DevExpress.Data.Utils.Images;
+using DevExpress.Images;
+using DevExpress.XtraBars;
 using FW.RibbonForm.WinFormsFW.Helpers;
 using System;
 using System.Windows.Forms;
@@ -16,10 +15,14 @@ namespace FW.RibbonForm.WinFormsFW {
             this.SidePane.SizeChanged += SidePanel_SizeChanged;
             SidePane.Visible = false;
 
-            this.simpleButton1.ImageOptions.ImageUri = "edit";
+            //this.simpleButton1.ImageOptions.ImageUri = "edit";
+            var pen = Icons.EditPen;
+            pen.Set = DevExpress.Utils.Design.IconSet.Fluent;
+            pen.Color = IconColor.Monochrome;
+            pen.Style = IconStyle.Regular;
+            //this.simpleButton1.ImageOptions.ImageUri = "edit_pen;";
+            this.simpleButton1.ImageOptions.ImageUri = pen;
         }
-
-
 
         private void SidePanel_SizeChanged(object sender, EventArgs e) {
             labelControl1.Text = $"Side Panel Width: {this.SidePane.Width}";
@@ -160,8 +163,16 @@ namespace FW.RibbonForm.WinFormsFW {
         }
 
         private void barBtnIconSizeDocking_ItemClick(object sender, ItemClickEventArgs e) {
-            using(var f = new IconSizeDockingForm())
-                f.ShowDialog();
+            MessageBox.Show("Docking form unavailable (XtraBars.Docking not in local build)", "Unavailable");
+        }
+
+        private void barButtonItem15_ItemClick(object sender, ItemClickEventArgs e) {
+            using(var mdi = new MdiOnes())
+                mdi.ShowDialog();
+        }
+
+        private void accordionControlElement2_Click(object sender, EventArgs e) {
+
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using DevExpress.Images;
 using DevExpress.LookAndFeel;
+using DevExpress.Data.Utils.Images;
 using DevExpress.Utils;
 using DevExpress.Utils.Design;
 using DevExpress.Utils.Svg;
@@ -91,27 +92,22 @@ namespace FW.FluentIcons.WinFormsFW {
             ribbon.Items.Add(btnIconSet);
             groupSwitch.ItemLinks.Add(btnIconSet);
 
-            btnIconStyle = new BarButtonItem { Caption = "Style: regular" };
+            btnIconStyle = new BarButtonItem { Caption = "Style: " + IconSetSettings.IconStyle };
             btnIconStyle.ImageOptions.ImageUri.Uri = "edit";
             btnIconStyle.ItemClick += (s, e) => {
-                WindowsFormsSettings.IconStyle = WindowsFormsSettings.IconStyle == "regular" ? "filled" : "regular";
-                btnIconStyle.Caption = "Style: " + WindowsFormsSettings.IconStyle;
+                IconSetSettings.IconStyle = IconSetSettings.IconStyle == IconStyle.Regular ? IconStyle.Filled : IconStyle.Regular;
+                btnIconStyle.Caption = "Style: " + IconSetSettings.IconStyle;
                 UpdateStatusBar();
                 RefreshAllIcons(ribbon);
             };
             ribbon.Items.Add(btnIconStyle);
             groupSwitch.ItemLinks.Add(btnIconStyle);
 
-            btnIconColor = new BarButtonItem { Caption = "Color: " + WindowsFormsSettings.IconColor };
+            btnIconColor = new BarButtonItem { Caption = "Color: " + IconSetSettings.IconColor };
             btnIconColor.ImageOptions.ImageUri.Uri = "filter";
             btnIconColor.ItemClick += (s, e) => {
-                if (WindowsFormsSettings.IconColor == "monochrome")
-                    WindowsFormsSettings.IconColor = "colored";
-                else if (WindowsFormsSettings.IconColor == "colored")
-                    WindowsFormsSettings.IconColor = "no_color";
-                else
-                    WindowsFormsSettings.IconColor = "monochrome";
-                btnIconColor.Caption = "Color: " + WindowsFormsSettings.IconColor;
+                IconSetSettings.IconColor = IconSetSettings.IconColor == IconColor.Monochrome ? IconColor.Multicolor : IconColor.Monochrome;
+                btnIconColor.Caption = "Color: " + IconSetSettings.IconColor;
                 UpdateStatusBar();
                 RefreshAllIcons(ribbon);
             };
@@ -227,7 +223,7 @@ namespace FW.FluentIcons.WinFormsFW {
 
         void UpdateStatusBar() {
             if (lblStatus != null)
-                lblStatus.Caption = $"IconSet: {WindowsFormsSettings.ActiveIconSet}  |  Style: {WindowsFormsSettings.IconStyle}  |  Color: {WindowsFormsSettings.IconColor}";
+                lblStatus.Caption = $"IconSet: {WindowsFormsSettings.ActiveIconSet}  |  Style: {IconSetSettings.IconStyle}  |  Color: {IconSetSettings.IconColor}";
         }
 
         void RefreshAllIcons(RibbonControl ribbon) {

@@ -40,11 +40,76 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2 = new Button();
+            button2.Location = new Point(7, 85);
+            button2.Margin = new Padding(2, 1, 2, 1);
+            button2.Name = "button2";
+            button2.Size = new Size(81, 22);
+            button2.TabIndex = 1;
+            button2.Text = "Chart";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3 = new Button();
+            button3.Location = new Point(7, 115);
+            button3.Margin = new Padding(2, 1, 2, 1);
+            button3.Name = "button3";
+            button3.Size = new Size(81, 22);
+            button3.TabIndex = 2;
+            button3.Text = "3D Pie";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4 = new Button();
+            button4.Location = new Point(7, 145);
+            button4.Margin = new Padding(2, 1, 2, 1);
+            button4.Name = "button4";
+            button4.Size = new Size(81, 22);
+            button4.TabIndex = 3;
+            button4.Text = "Stacked";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button5
+            // 
+            button5 = new Button();
+            button5.Location = new Point(7, 175);
+            button5.Margin = new Padding(2, 1, 2, 1);
+            button5.Name = "button5";
+            button5.Size = new Size(81, 22);
+            button5.TabIndex = 4;
+            button5.Text = "Doughnut";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button6
+            // 
+            button6 = new Button();
+            button6.Location = new Point(7, 205);
+            button6.Margin = new Padding(2, 1, 2, 1);
+            button6.Name = "button6";
+            button6.Size = new Size(81, 22);
+            button6.TabIndex = 5;
+            button6.Text = "Radar";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(845, 460);
+            Controls.Add(button6);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
             Controls.Add(button1);
             Margin = new Padding(2, 1, 2, 1);
             Name = "Form1";
@@ -57,6 +122,11 @@
         #endregion
 
         private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }
