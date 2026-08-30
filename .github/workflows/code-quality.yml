@@ -1,0 +1,22 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  format-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0"
+
+      - name: Install CSharpier
+        run: dotnet tool install --global csharpier
+
+      - name: Check formatting
+        run: csharpier --check .
