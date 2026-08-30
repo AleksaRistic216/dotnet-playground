@@ -1,0 +1,14 @@
+name: Test Invalid Runner
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-fancy-pants
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run tests
+        run: dotnet test

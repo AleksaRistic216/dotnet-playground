@@ -1,0 +1,25 @@
+name: Nightly Bad
+
+on:
+  schedule:
+    - cron: '99 25 * * *'
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Full test
+        run: dotnet test --blame
+
+      - name: Notify
+        if: ${{ failure() && always() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Nightly failed'
+            })

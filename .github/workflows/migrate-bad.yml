@@ -1,0 +1,21 @@
+name: Migrate DB Bad
+
+on:
+  workflow_dispatch:
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run migrations
+        run: dotnet ef database update
+        env:
+          CONNECTION: ${{ secrets.DB_CONN }}
+
+  verify:
+    needs: [migrate, missing-seed]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ steps.phantom.outputs.status }}

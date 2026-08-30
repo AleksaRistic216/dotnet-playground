@@ -1,0 +1,24 @@
+name: Build Bad
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build project
+        run: dotnet build
+
+      - name: Run tests
+        run: dotnet test
+        if: ${{ success() && github.event.inputs.nonexistent }}
+
+      - name: Deploy
+        run: echo "deploying"
+        env:
+          SECRET: ${{ secrets.MY_SECRET }}
+          BAD_EXPRESSION: ${{ github.event.unknown_property.deep }}
