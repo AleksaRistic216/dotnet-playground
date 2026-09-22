@@ -26,12 +26,13 @@ namespace FW.Random.WinFromsFW {
         /// </summary>
         private void InitializeComponent() {
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
             this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
             this.backstageViewTabItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.backstageViewManager1 = new DevExpress.XtraBars.Ribbon.BackstageViewManager();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backstageViewControl1)).BeginInit();
             this.backstageViewControl1.SuspendLayout();
@@ -42,13 +43,35 @@ namespace FW.Random.WinFromsFW {
             this.ribbonControl1.ApplicationButtonDropDownControl = this.backstageViewControl1;
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
+            this.ribbonControl1.ExpandCollapseItem,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 1;
+            this.ribbonControl1.MaxItemId = 2;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.Size = new System.Drawing.Size(800, 158);
+            // 
+            // backstageViewControl1
+            // 
+            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
+            this.backstageViewControl1.Items.Add(this.backstageViewTabItem1);
+            this.backstageViewControl1.Location = new System.Drawing.Point(244, 153);
+            this.backstageViewControl1.Name = "backstageViewControl1";
+            this.backstageViewControl1.OwnerControl = this.ribbonControl1;
+            this.backstageViewControl1.Size = new System.Drawing.Size(715, 369);
+            this.backstageViewControl1.TabIndex = 1;
+            // 
+            // backstageViewClientControl1
+            // 
+            this.backstageViewClientControl1.Name = "backstageViewClientControl1";
+            this.backstageViewClientControl1.TabIndex = 1;
+            // 
+            // backstageViewTabItem1
+            // 
+            this.backstageViewTabItem1.Caption = "backstageViewTabItem1";
+            this.backstageViewTabItem1.ContentControl = this.backstageViewClientControl1;
+            this.backstageViewTabItem1.Name = "backstageViewTabItem1";
             // 
             // ribbonPage1
             // 
@@ -59,35 +82,19 @@ namespace FW.Random.WinFromsFW {
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // backstageViewControl1
-            // 
-            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
-            this.backstageViewControl1.Items.Add(this.backstageViewTabItem1);
-            this.backstageViewControl1.Location = new System.Drawing.Point(31, 42);
-            this.backstageViewControl1.Name = "backstageViewControl1";
-            this.backstageViewControl1.OwnerControl = this.ribbonControl1;
-            this.backstageViewControl1.Size = new System.Drawing.Size(715, 369);
-            this.backstageViewControl1.TabIndex = 1;
-            // 
-            // backstageViewClientControl1
-            // 
-            this.backstageViewClientControl1.Location = new System.Drawing.Point(132, 63);
-            this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-            this.backstageViewClientControl1.Size = new System.Drawing.Size(347, 86);
-            this.backstageViewClientControl1.TabIndex = 1;
-            // 
-            // backstageViewTabItem1
-            // 
-            this.backstageViewTabItem1.Caption = "backstageViewTabItem1";
-            this.backstageViewTabItem1.ContentControl = this.backstageViewClientControl1;
-            this.backstageViewTabItem1.Name = "backstageViewTabItem1";
             // 
             // backstageViewManager1
             // 
             this.backstageViewManager1.BackstageView = this.backstageViewControl1;
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // Form2
             // 
@@ -116,5 +123,6 @@ namespace FW.Random.WinFromsFW {
         private BackstageViewClientControl backstageViewClientControl1;
         private BackstageViewTabItem backstageViewTabItem1;
         private BackstageViewManager backstageViewManager1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
