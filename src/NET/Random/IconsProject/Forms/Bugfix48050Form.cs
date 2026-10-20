@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.Utils;
@@ -18,7 +18,7 @@ namespace IconsProject.Forms {
             "Add;Size16x16;Colored",
             "add",
             "add;Fluent",
-            "add;Classic",
+            "add;DesktopClassic",
             "doesnotexist",
             "doesnotexist;Fluent",
             "fluentxaf/action_edit;Fluent",
@@ -80,7 +80,7 @@ namespace IconsProject.Forms {
         }
 
         void ScenarioReadsDoNotReparse() {
-            foreach(var set in new[] { IconSet.Fluent, IconSet.Classic, IconSet.Blazor }) {
+            foreach(var set in new[] { IconSet.Fluent, IconSet.DesktopClassic, IconSet.BlazorClassic }) {
                 using(IconSetContext.Use(set))
                 using(var client = new ProbeClient("DevExpress Dark Style")) {
                     foreach(string uri in ProbeUris) {
@@ -103,7 +103,7 @@ namespace IconsProject.Forms {
         }
 
         void ScenarioSetChangedAfterConstruction() {
-            foreach(var (from, to) in new[] { (IconSet.Classic, IconSet.Fluent), (IconSet.Fluent, IconSet.Classic), (IconSet.Fluent, IconSet.Blazor), (IconSet.Blazor, IconSet.Fluent) }) {
+            foreach(var (from, to) in new[] { (IconSet.DesktopClassic, IconSet.Fluent), (IconSet.Fluent, IconSet.DesktopClassic), (IconSet.Fluent, IconSet.BlazorClassic), (IconSet.BlazorClassic, IconSet.Fluent) }) {
                 foreach(string uri in ProbeUris) {
                     CountingDxImageUri probe;
                     bool before;
@@ -225,7 +225,7 @@ namespace IconsProject.Forms {
                     UserLookAndFeel.Default.SetSkinStyle(skin);
                     foreach(IconMode mode in new[] { IconMode.Fluent, IconMode.Classic, IconMode.ThemeBased, IconMode.Fluent }) {
                         IconModeSwitch.Apply(mode);
-                        using(IconSetContext.Use(mode == IconMode.Classic ? IconSet.Classic : IconSet.Fluent)) {
+                        using(IconSetContext.Use(mode == IconMode.Classic ? IconSet.DesktopClassic : IconSet.Fluent)) {
                             foreach(var button in stressHost.Controls.OfType<SimpleButton>()) {
                                 _ = button.ImageOptions.ImageUri.HasSvgImage;
                                 button.Invalidate();

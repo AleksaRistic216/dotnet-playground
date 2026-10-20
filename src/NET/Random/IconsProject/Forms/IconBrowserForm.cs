@@ -1,10 +1,10 @@
 using System.Diagnostics;
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class IconBrowserForm : TestFormBase {
@@ -76,7 +76,7 @@ namespace IconsProject.Forms {
             int size = (int)sizeEdit.EditValue;
             var set = (IconSet)setEdit.EditValue;
             var style = (IconStyle)styleEdit.EditValue;
-            var color = (IconColor)colorEdit.EditValue;
+            var color = (IconPalette)colorEdit.EditValue;
             gallery.Gallery.BeginUpdate();
             try {
                 gallery.Gallery.Groups.Clear();

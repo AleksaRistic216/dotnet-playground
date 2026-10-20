@@ -1,4 +1,4 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
@@ -10,7 +10,7 @@ using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraVerticalGrid;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class GridTreeForm : TestFormBase {

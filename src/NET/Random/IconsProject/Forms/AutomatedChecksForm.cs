@@ -1,4 +1,4 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.LookAndFeel;
 using DevExpress.Utils;
 using DevExpress.Utils.Design;
@@ -6,7 +6,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class AutomatedChecksForm : TestFormBase {
@@ -107,8 +107,8 @@ namespace IconsProject.Forms {
             const string area = "Icon";
             Check(area, "ToString omits Default parts", () => (new DxIcon("add").ToString() == "add", new DxIcon("add").ToString()));
             Check(area, "ToString full", () => {
-                string text = new DxIcon("add", IconSet.Fluent, IconStyle.Filled, IconColor.Monochrome, IconSize.Size24).ToString();
-                return (text == "add;Fluent;Filled;Monochrome;Size24", text);
+                string text = new DxIcon("add", IconSet.Fluent, IconStyle.Filled, IconPalette.Neutral, IconSize.Size24).ToString();
+                return (text == "add;Fluent;Filled;Neutral;Size24", text);
             });
             Check(area, "Parse round-trips all 288 combinations", () => {
                 int bad = 0;
@@ -118,14 +118,14 @@ namespace IconsProject.Forms {
                             foreach(var size in IconCatalog.Sizes) {
                                 var icon = new DxIcon("x", set, style, color, size);
                                 var parsed = DxIcon.Parse(icon.ToString());
-                                if(parsed.Set != set || parsed.Style != style || parsed.Color != color || parsed.Size != size)
+                                if(parsed.Set != set || parsed.Style != style || parsed.Palette != color || parsed.Size != size)
                                     bad++;
                             }
                 return (bad == 0, $"{bad} mismatches");
             });
             Check(area, "Parse is case-insensitive", () => {
-                var icon = DxIcon.Parse("add;fluent;FILLED;monochrome;size16");
-                return (icon.Set == IconSet.Fluent && icon.Style == IconStyle.Filled && icon.Color == IconColor.Monochrome && icon.Size == IconSize.Size16, icon.ToString());
+                var icon = DxIcon.Parse("add;fluent;FILLED;Neutral;size16");
+                return (icon.Set == IconSet.Fluent && icon.Style == IconStyle.Filled && icon.Palette == IconPalette.Neutral && icon.Size == IconSize.Size16, icon.ToString());
             });
             Check(area, "Parse throws FormatException on unknown token", () => (Throws<FormatException>(() => DxIcon.Parse("add;Bogus")), "add;Bogus"));
             Check(area, "Parse throws FormatException on empty id", () => (Throws<FormatException>(() => DxIcon.Parse(";Fluent")), ";Fluent"));
@@ -134,11 +134,11 @@ namespace IconsProject.Forms {
             Check(area, "TryParse false on null", () => (!DxIcon.TryParse(null!, out _), "null"));
             Info(area, "Parse 'add,Fluent' (DxImageUri splits on ',' too)", () => DxIcon.TryParse("add,Fluent", out var icon) ? $"=> id-only Icon '{icon}' (Icon.Parse splits on ';' only)" : "TryParse false");
             Info(area, "Parse numeric token 'add;1'", () => $"=> '{DxIcon.Parse("add;1")}' (Enum.TryParse accepts numbers; 1 is a defined IconSet)");
-            Info(area, "Parse duplicate category 'add;Fluent;Classic'", () => $"=> '{DxIcon.Parse("add;Fluent;Classic")}' (Icon.Parse: last wins; DxImageUriParser: first wins)");
+            Info(area, "Parse duplicate category 'add;Fluent;DesktopClassic'", () => $"=> '{DxIcon.Parse("add;Fluent;DesktopClassic")}' (Icon.Parse: last wins; DxImageUriParser: first wins)");
             Info(area, "Parse whitespace 'add; Fluent'", () => DxIcon.TryParse("add; Fluent", out var icon) ? $"=> '{icon}'" : "TryParse false");
             Check(area, "Setters change ToString", () => {
-                var icon = new DxIcon("add") { Set = IconSet.Blazor, Size = IconSize.Size20 };
-                return (icon.ToString() == "add;Blazor;Size20", icon.ToString());
+                var icon = new DxIcon("add") { Set = IconSet.BlazorClassic, Size = IconSize.Size20 };
+                return (icon.ToString() == "add;BlazorClassic;Size20", icon.ToString());
             });
             Check(area, "Generated Icons class exposes icons", () => {
                 int count = IconCatalog.AllGeneratedIcons().Count();
@@ -149,9 +149,9 @@ namespace IconsProject.Forms {
                 return (pinned.Length == 0, pinned.Length == 0 ? "all plain ids" : string.Join(", ", pinned));
             });
             Check(area, "Generated Icons return a new instance per read", () => {
-                var a = DevExpress.Images.Icons.Add;
-                a.Set = IconSet.Blazor;
-                var b = DevExpress.Images.Icons.Add;
+                var a = Icons.Add;
+                a.Set = IconSet.BlazorClassic;
+                var b = Icons.Add;
                 return (b.Set == IconSet.Default, "mutating one Icons.Add must not leak into the next read");
             });
         }
@@ -173,7 +173,7 @@ namespace IconsProject.Forms {
             });
             Check(area, "ImageOptions.ImageUri = Icon", () => {
                 using var button = new SimpleButton();
-                button.ImageOptions.ImageUri = DevExpress.Images.Icons.Search;
+                button.ImageOptions.ImageUri = Icons.Search;
                 return (button.ImageOptions.ImageUri.Uri == "search", button.ImageOptions.ImageUri.Uri);
             });
             Check(area, "DxImageUri.Clone/Assign keeps uri", () => {
@@ -187,13 +187,13 @@ namespace IconsProject.Forms {
 
         void ParserChecks() {
             const string area = "DxImageUri";
-            foreach(var (uri, expectSvg) in new[] { ("add;Fluent", true), ("add;Classic", true), ("add;Blazor", true), ("alert;Fluent", true), ("filter_funnel;Blazor;Filled", true), ("add,Fluent,Filled", true), ("doesnotexist;Fluent", false) }) {
+            foreach(var (uri, expectSvg) in new[] { ("add;Fluent", true), ("add;DesktopClassic", true), ("add;BlazorClassic", true), ("alert;Fluent", true), ("filter_funnel;BlazorClassic;Filled", true), ("add,Fluent,Filled", true), ("doesnotexist;Fluent", false) }) {
                 Check(area, $"HasSvgImage '{uri}'", () => {
                     var u = new DxImageUri(uri);
                     return (u.HasSvgImage == expectSvg, $"HasSvgImage={u.HasSvgImage} ImageType={u.ImageType}");
                 });
             }
-            foreach(var (uri, type) in new[] { ("add;Fluent", ImageType.Fluent), ("add;Classic", ImageType.DxDesktop), ("add;Blazor", ImageType.Blazor), ("Add;Size16x16;GrayScaled", ImageType.GrayScaled), ("Save;Svg", ImageType.Svg) }) {
+            foreach(var (uri, type) in new[] { ("add;Fluent", ImageType.Fluent), ("add;DesktopClassic", ImageType.DesktopClassic), ("add;BlazorClassic", ImageType.Blazor), ("Add;Size16x16;GrayScaled", ImageType.GrayScaled), ("Save;Svg", ImageType.Svg) }) {
                 Check(area, $"ImageType '{uri}'", () => {
                     var u = new DxImageUri(uri);
                     return (u.ImageType == type, $"{u.ImageType}");
@@ -223,8 +223,8 @@ namespace IconsProject.Forms {
                 return (u.HasImage && !u.HasSvgImage, $"HasImage={u.HasImage} HasSvgImage={u.HasSvgImage} ImageType={u.ImageType}");
             });
             Info(area, "Blazor forces Regular style", () => {
-                var filled = new DxImageUri("filter_funnel;Blazor;Filled").GetSvgImage(new Size(16, 16), null);
-                var regular = new DxImageUri("filter_funnel;Blazor;Regular").GetSvgImage(new Size(16, 16), null);
+                var filled = new DxImageUri("filter_funnel;BlazorClassic;Filled").GetSvgImage(new Size(16, 16), null);
+                var regular = new DxImageUri("filter_funnel;BlazorClassic;Regular").GetSvgImage(new Size(16, 16), null);
                 return $"filled={(filled == null ? "null" : "img")} regular={(regular == null ? "null" : "img")} (compare visually in the matrix form)";
             });
             Info(area, "Unknown token 'add;Fluent;Bogus'", () => {
@@ -241,7 +241,7 @@ namespace IconsProject.Forms {
             const string area = "Provider";
             var provider = DxImageAssemblyUtil.ImageProvider;
             Check(area, "ImageProvider is IDXImagesProviderEx", () => (provider != null, provider?.GetType().FullName ?? "null"));
-            foreach(var set in new[] { IconSet.Fluent, IconSet.Classic, IconSet.Blazor }) {
+            foreach(var set in new[] { IconSet.Fluent, IconSet.DesktopClassic, IconSet.BlazorClassic }) {
                 foreach(int px in new[] { 16, 32 }) {
                     var missing = IconCatalog.Metaphors.Where(id => provider.GetSvgImage(id, set, new Size(px, px)) == null).ToArray();
                     Add(area, $"{set} {px}px resolves catalog", missing.Length == 0 ? "PASS" : "INFO", missing.Length == 0 ? $"{IconCatalog.Metaphors.Length}/{IconCatalog.Metaphors.Length}" : $"missing (fallback expected for sets without that file): {string.Join(", ", missing)}");
@@ -258,10 +258,10 @@ namespace IconsProject.Forms {
             });
             Info(area, "Default color per set", () => {
                 var parts = new List<string>();
-                foreach(var set in new[] { IconSet.Fluent, IconSet.Classic, IconSet.Blazor }) {
-                    var d = provider.GetSvgImage("add", set, new Size(16, 16), IconColor.Default);
-                    var mono = provider.GetSvgImage("add", set, new Size(16, 16), IconColor.Monochrome);
-                    var multi = provider.GetSvgImage("add", set, new Size(16, 16), IconColor.Multicolor);
+                foreach(var set in new[] { IconSet.Fluent, IconSet.DesktopClassic, IconSet.BlazorClassic }) {
+                    var d = provider.GetSvgImage("add", set, new Size(16, 16), IconPalette.Default);
+                    var mono = provider.GetSvgImage("add", set, new Size(16, 16), IconPalette.Neutral);
+                    var multi = provider.GetSvgImage("add", set, new Size(16, 16), IconPalette.Colored);
                     parts.Add($"{set}: default={(d == null ? "null" : d.GetHashCode().ToString("x"))} mono={(mono == null ? "null" : mono.GetHashCode().ToString("x"))} multi={(multi == null ? "null" : multi.GetHashCode().ToString("x"))}");
                 }
                 return string.Join(" | ", parts) + " (instances are cached; equal hash → same resource)";
@@ -281,21 +281,21 @@ namespace IconsProject.Forms {
                 IconSet a, b, c;
                 using(IconSetContext.Use(IconSet.Fluent)) {
                     a = IconSetContext.Current;
-                    using(IconSetContext.Use(IconSet.Classic))
+                    using(IconSetContext.Use(IconSet.DesktopClassic))
                         b = IconSetContext.Current;
                     c = IconSetContext.Current;
                 }
-                return (a == IconSet.Fluent && b == IconSet.Classic && c == IconSet.Fluent, $"{a}/{b}/{c}");
+                return (a == IconSet.Fluent && b == IconSet.DesktopClassic && c == IconSet.Fluent, $"{a}/{b}/{c}");
             });
             Check(area, "Set ignored inside scope", () => {
                 using(IconSetContext.Use(IconSet.Fluent)) {
-                    IconSetContext.Set(IconSet.Blazor);
+                    IconSetContext.Set(IconSet.BlazorClassic);
                     return (IconSetContext.Current == IconSet.Fluent, Describe());
                 }
             });
             Check(area, "Double Dispose is harmless", () => {
                 using(IconSetContext.Use(IconSet.Fluent)) {
-                    var inner = IconSetContext.Use(IconSet.Classic);
+                    var inner = IconSetContext.Use(IconSet.DesktopClassic);
                     inner.Dispose();
                     inner.Dispose();
                     return (IconSetContext.Current == IconSet.Fluent, Describe());
@@ -303,7 +303,7 @@ namespace IconsProject.Forms {
             });
             Check(area, "Context is thread-static", () => {
                 IconSet seen = IconSet.Default;
-                using(IconSetContext.Use(IconSet.Blazor)) {
+                using(IconSetContext.Use(IconSet.BlazorClassic)) {
                     var thread = new Thread(() => seen = IconSetContext.Current);
                     thread.Start();
                     thread.Join();
@@ -314,7 +314,7 @@ namespace IconsProject.Forms {
                 Image? fluent, classic;
                 using(IconSetContext.Use(IconSet.Fluent))
                     fluent = new DxImageUri("add;Size16").GetSvgImage(new Size(16, 16), null);
-                using(IconSetContext.Use(IconSet.Classic))
+                using(IconSetContext.Use(IconSet.DesktopClassic))
                     classic = new DxImageUri("add;Size16").GetSvgImage(new Size(16, 16), null);
                 return (fluent != null && classic != null, $"fluent={(fluent == null ? "null" : "img")} classic={(classic == null ? "null" : "img")}");
             });
@@ -344,7 +344,7 @@ namespace IconsProject.Forms {
                 IconModeSwitch.Apply(IconMode.Fluent);
                 Check(area, "Same mode twice raises nothing", () => (styleChanged == 0, $"{styleChanged} events"));
                 IconModeSwitch.Apply(IconMode.Classic);
-                Check(area, "SetClassicIconStyle → active Classic", () => (LookAndFeelHelper.GetActiveIconSet(UserLookAndFeel.Default) == IconSet.Classic, IconModeSwitch.Describe()));
+                Check(area, "SetDesktopClassicIconStyle → active Classic", () => (LookAndFeelHelper.GetActiveIconSet(UserLookAndFeel.Default) == IconSet.DesktopClassic, IconModeSwitch.Describe()));
                 IconModeSwitch.Apply(IconMode.ThemeBased);
                 Check(area, "SetThemeBasedIconStyle → settings Default", () => (IconSetSettings.ActiveIconSet == IconSet.Default, IconModeSwitch.Describe()));
                 Info(area, "Theme-based set per skin", () => {
@@ -431,7 +431,7 @@ namespace IconsProject.Forms {
             }
             Check(area, "Built under Classic, read under Fluent", () => {
                 CountingDxImageUri probe;
-                using(IconSetContext.Use(IconSet.Classic))
+                using(IconSetContext.Use(IconSet.DesktopClassic))
                     probe = new CountingDxImageUri("Add;Size16x16");
                 using(IconSetContext.Use(IconSet.Fluent)) {
                     probe.ResetCounters();

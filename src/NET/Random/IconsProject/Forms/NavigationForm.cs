@@ -1,11 +1,11 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using DevExpress.XtraLayout;
 using DevExpress.XtraNavBar;
 using DevExpress.XtraTab;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class NavigationForm : TestFormBase {
@@ -42,7 +42,7 @@ namespace IconsProject.Forms {
                 index++;
             }
             var pinned = new AccordionControlElement { Text = "Pinned Classic / Filled", Style = ElementStyle.Group, Expanded = true };
-            pinned.ImageOptions.ImageUri = new DxIcon("folder", IconSet.Classic);
+            pinned.ImageOptions.ImageUri = new DxIcon("folder", IconSet.DesktopClassic);
             var filled = new AccordionControlElement { Text = "Filled star", Style = ElementStyle.Item };
             filled.ImageOptions.ImageUri = new DxIcon("star", style: IconStyle.Filled);
             var legacy = new AccordionControlElement { Text = "Legacy DXImages.Home", Style = ElementStyle.Item };
@@ -92,7 +92,7 @@ namespace IconsProject.Forms {
                 tabs.TabPages.Add(page);
             }
             var pinned = new XtraTabPage { Text = "Pinned Blazor" };
-            pinned.ImageOptions.ImageUri = new DxIcon("home", IconSet.Blazor);
+            pinned.ImageOptions.ImageUri = new DxIcon("home", IconSet.BlazorClassic);
             tabs.TabPages.Add(pinned);
             var legacy = new XtraTabPage { Text = "Legacy Add;Size16x16" };
             legacy.ImageOptions.ImageUri = "Add;Size16x16";
@@ -127,7 +127,7 @@ namespace IconsProject.Forms {
                     item.Move(root.Items[root.Items.Count - 2] as LayoutControlItem, DevExpress.XtraLayout.Utils.InsertType.Right);
             }
             var group = root.AddGroup("Group with caption image");
-            group.CaptionImageOptions.ImageUri = new DxIcon("folder", IconSet.Classic);
+            group.CaptionImageOptions.ImageUri = new DxIcon("folder", IconSet.DesktopClassic);
             var button = new SimpleButton { Text = "Button in layout" };
             button.ImageOptions.ImageUri = new DxIcon("save");
             group.AddItem("Button", button).TextVisible = false;

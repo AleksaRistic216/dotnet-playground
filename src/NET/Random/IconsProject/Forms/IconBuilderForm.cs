@@ -1,10 +1,10 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.Utils;
 using DevExpress.Utils.Svg;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class IconBuilderForm : TestFormBase {
@@ -28,7 +28,7 @@ namespace IconsProject.Forms {
             editors.Controls.AddRange(new Control[] { Caption("Id", 30), idEdit, Caption("Set", 30), setEdit, Caption("Style", 40), styleEdit, Caption("Color", 40), colorEdit, Caption("Size", 30), sizeEdit });
             AddToolbarButton(editors, "Build Icon", (s, e) => ShowUri(BuildIcon().ToString(), BuildIcon()));
 
-            rawEdit = new TextEdit { Width = 420, EditValue = "add;Fluent;Filled;Monochrome;Size24" };
+            rawEdit = new TextEdit { Width = 420, EditValue = "add;Fluent;Filled;Neutral;Size24" };
             var rawCombo = new ComboBoxEdit { Width = 260 };
             foreach(var entry in IconCatalog.AllUris())
                 rawCombo.Properties.Items.Add(entry.Uri);
@@ -62,7 +62,7 @@ namespace IconsProject.Forms {
         }
 
         DxIcon BuildIcon() {
-            return new DxIcon(idEdit.Text, (IconSet)setEdit.EditValue, (IconStyle)styleEdit.EditValue, (IconColor)colorEdit.EditValue, (IconSize)sizeEdit.EditValue);
+            return new DxIcon(idEdit.Text, (IconSet)setEdit.EditValue, (IconStyle)styleEdit.EditValue, (IconPalette)colorEdit.EditValue, (IconSize)sizeEdit.EditValue);
         }
 
         void ParseRaw(bool useTryParse) {
@@ -76,7 +76,7 @@ namespace IconsProject.Forms {
             }
             try {
                 DxIcon parsed = DxIcon.Parse(raw);
-                IconLog.Write($"Icon.Parse('{raw}') => '{parsed}' (Set={parsed.Set}, Style={parsed.Style}, Color={parsed.Color}, Size={parsed.Size})");
+                IconLog.Write($"Icon.Parse('{raw}') => '{parsed}' (Set={parsed.Set}, Style={parsed.Style}, Palette={parsed.Palette}, Size={parsed.Size})");
                 ShowUri(parsed.ToString(), parsed);
             }
             catch(Exception ex) {
@@ -94,7 +94,7 @@ namespace IconsProject.Forms {
                             var icon = new DxIcon("add", set, style, color, size);
                             string text = icon.ToString();
                             var parsed = DxIcon.Parse(text);
-                            bool same = parsed.Set == set && parsed.Style == style && parsed.Color == color && parsed.Size == size && parsed.ToString() == text;
+                            bool same = parsed.Set == set && parsed.Style == style && parsed.Palette == color && parsed.Size == size && parsed.ToString() == text;
                             DxImageUri uri = icon;
                             bool uriSame = uri.Uri == text;
                             if(!same || !uriSame) {
@@ -118,8 +118,8 @@ namespace IconsProject.Forms {
             if(icon != null) {
                 string asString = icon;
                 lines.Add($"Icon.ToString() : '{icon}'   implicit string: '{asString}'");
-                lines.Add($"Icon axes       : Set={icon.Set} Style={icon.Style} Color={icon.Color} Size={icon.Size}");
-                lines.Add($"expected file   : {IconCatalog.ExpectedFileName(idEdit.Text, icon.Set == IconSet.Default ? IconModeSwitch.ActiveForDefaultLookAndFeel : icon.Set, icon.Style, icon.Color, icon.Size)} (informational; Default parts resolved by the cache)");
+                lines.Add($"Icon axes       : Set={icon.Set} Style={icon.Style} Palette={icon.Palette} Size={icon.Size}");
+                lines.Add($"expected file   : {IconCatalog.ExpectedFileName(idEdit.Text, icon.Set == IconSet.Default ? IconModeSwitch.ActiveForDefaultLookAndFeel : icon.Set, icon.Style, icon.Palette, icon.Size)} (informational; Default parts resolved by the cache)");
             }
             lines.Add($"Icon.TryParse   : {(DxIcon.TryParse(uriText, out var reparsed) ? "'" + reparsed + "'" : "false")}");
 
@@ -163,7 +163,7 @@ namespace IconsProject.Forms {
             AddPicture("GetLargeImage", large);
             AddPicture("GetSvgImage 24", svg24);
             AddPicture("Scaled", scaled);
-            SvgImage? direct = SafeGet(() => provider.GetSvgImage(id, icon?.Set ?? IconSet.Default, IconCatalog.PixelSize(icon?.Size ?? IconSize.Size32), icon?.Color ?? IconColor.Default, icon?.Style ?? IconStyle.Default));
+            SvgImage? direct = SafeGet(() => provider.GetSvgImage(id, icon?.Set ?? IconSet.Default, IconCatalog.PixelSize(icon?.Size ?? IconSize.Size32), icon?.Palette ?? IconPalette.Default, icon?.Style ?? IconStyle.Default));
             var directPicture = new PictureEdit { Size = new Size(90, 90), SvgImage = direct, ToolTip = "provider.GetSvgImage(id, set, size, color, style)" };
             directPicture.Properties.SizeMode = PictureSizeMode.Squeeze;
             previewPanel.Controls.Add(directPicture);

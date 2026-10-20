@@ -1,4 +1,4 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.Utils;
 using DevExpress.Utils.Svg;
 using DevExpress.XtraEditors;
@@ -84,8 +84,8 @@ namespace IconsProject.Forms {
                 ("size 16", n => ResourceImageHelper.CreateSvgImageFromResources(n, assembly, new FixedSize(16))),
                 ("size 32", n => ResourceImageHelper.CreateSvgImageFromResources(n, assembly, new FixedSize(32))),
                 ("Fluent", n => ResourceImageHelper.CreateSvgImageFromResources(n, assembly, IconSet.Fluent, new FixedSize(16))),
-                ("Classic", n => ResourceImageHelper.CreateSvgImageFromResources(n, assembly, IconSet.Classic, new FixedSize(16))),
-                ("Blazor", n => ResourceImageHelper.CreateSvgImageFromResources(n, assembly, IconSet.Blazor, new FixedSize(16))),
+                ("Classic", n => ResourceImageHelper.CreateSvgImageFromResources(n, assembly, IconSet.DesktopClassic, new FixedSize(16))),
+                ("Blazor", n => ResourceImageHelper.CreateSvgImageFromResources(n, assembly, IconSet.BlazorClassic, new FixedSize(16))),
                 ("Default", n => ResourceImageHelper.CreateSvgImageFromResources(n, assembly, IconSet.Default, new FixedSize(16))),
                 ("raw stream", n => {
                     using var stream = assembly.GetManifestResourceStream(n);

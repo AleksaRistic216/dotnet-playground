@@ -87,7 +87,7 @@ namespace IconsProject.Infrastructure {
 
         void AddModeButton(Control parent, string caption, IconMode mode) {
             var button = AddToolbarButton(parent, caption, (s, e) => IconModeSwitch.Apply(mode));
-            button.ImageOptions.ImageUri = mode == IconMode.Fluent ? "star;Fluent" : mode == IconMode.Classic ? "star;Classic" : "star";
+            button.ImageOptions.ImageUri = mode == IconMode.Fluent ? "star;Fluent" : mode == IconMode.Classic ? "star;DesktopClassic" : "star";
         }
 
         protected T Track<T>(T options) where T : ImageOptions {
@@ -144,7 +144,7 @@ namespace IconsProject.Infrastructure {
             BeginInvoke(new Action(() => {
                 if(logMemo.IsDisposed)
                     return;
-                logMemo.MaskBox.AppendText(line + Environment.NewLine);
+                logMemo.AppendText(line + Environment.NewLine);
             }));
         }
 

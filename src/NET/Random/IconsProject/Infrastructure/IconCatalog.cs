@@ -1,6 +1,6 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.Images;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Infrastructure {
     public static class IconCatalog {
@@ -76,17 +76,17 @@ namespace IconsProject.Infrastructure {
         public static readonly (string Caption, string Uri)[] IconSetUris = {
             ("add", "add"),
             ("add;Fluent", "add;Fluent"),
-            ("add;Classic", "add;Classic"),
-            ("add;Blazor", "add;Blazor"),
+            ("add;DesktopClassic", "add;DesktopClassic"),
+            ("add;BlazorClassic", "add;BlazorClassic"),
             ("add;Fluent;Filled", "add;Fluent;Filled"),
-            ("add;Fluent;Monochrome", "add;Fluent;Monochrome"),
-            ("add;Fluent;Multicolor", "add;Fluent;Multicolor"),
-            ("add;Fluent;Filled;Monochrome;Size24", "add;Fluent;Filled;Monochrome;Size24"),
-            ("add;Classic;Size32", "add;Classic;Size32"),
+            ("add;Fluent;Neutral", "add;Fluent;Neutral"),
+            ("add;Fluent;Colored", "add;Fluent;Colored"),
+            ("add;Fluent;Filled;Neutral;Size24", "add;Fluent;Filled;Neutral;Size24"),
+            ("add;DesktopClassic;Size32", "add;DesktopClassic;Size32"),
             ("delete;Fluent;Size48", "delete;Fluent;Size48"),
             ("delete;Fluent;Size12", "delete;Fluent;Size12"),
             ("alert;Fluent", "alert;Fluent"),
-            ("filter_funnel;Blazor;Filled", "filter_funnel;Blazor;Filled"),
+            ("filter_funnel;BlazorClassic;Filled", "filter_funnel;BlazorClassic;Filled"),
             ("add;Filled (no set)", "add;Filled"),
             ("add;Size20 (no set)", "add;Size20"),
             ("fluentxaf/action_edit;Fluent", "fluentxaf/action_edit;Fluent")
@@ -95,14 +95,14 @@ namespace IconsProject.Infrastructure {
         public static readonly (string Caption, string Uri)[] EdgeUris = {
             ("comma separated", "add,Fluent,Filled"),
             ("reordered tokens", "add;Size16;Filled;Fluent"),
-            ("duplicate set (first wins)", "add;Classic;Fluent"),
-            ("lower-case tokens", "add;fluent;filled;monochrome;size24"),
+            ("duplicate set (first wins)", "add;DesktopClassic;Fluent"),
+            ("lower-case tokens", "add;fluent;filled;neutral;size24"),
             ("numeric token", "add;1"),
             ("unknown token", "add;Fluent;Bogus"),
             ("missing icon", "doesnotexist;Fluent"),
             ("missing icon, no set", "doesnotexist"),
-            ("share has no Classic file", "share;Classic"),
-            ("star has no Blazor file", "star;Blazor"),
+            ("share has no Classic file", "share;DesktopClassic"),
+            ("star has no Blazor file", "star;BlazorClassic"),
             ("Size28 not published for add", "add;Fluent;Size28"),
             ("Size48 not published for add", "add;Fluent;Size48"),
             ("Size12 not published for add", "add;Fluent;Size12"),
@@ -121,9 +121,9 @@ namespace IconsProject.Infrastructure {
                 yield return entry;
         }
 
-        public static readonly IconSet[] Sets = { IconSet.Default, IconSet.Fluent, IconSet.Classic, IconSet.Blazor };
+        public static readonly IconSet[] Sets = { IconSet.Default, IconSet.Fluent, IconSet.DesktopClassic, IconSet.BlazorClassic };
         public static readonly IconStyle[] Styles = { IconStyle.Default, IconStyle.Regular, IconStyle.Filled };
-        public static readonly IconColor[] Colors = { IconColor.Default, IconColor.Multicolor, IconColor.Monochrome };
+        public static readonly IconPalette[] Colors = { IconPalette.Default, IconPalette.Colored, IconPalette.Neutral };
         public static readonly IconSize[] Sizes = {
             IconSize.Default, IconSize.Size12, IconSize.Size16, IconSize.Size20, IconSize.Size24, IconSize.Size28, IconSize.Size32, IconSize.Size48
         };
@@ -140,10 +140,10 @@ namespace IconsProject.Infrastructure {
             }
         }
 
-        public static string ExpectedFileName(string id, IconSet set, IconStyle style, IconColor color, IconSize size) {
-            string setToken = set == IconSet.Fluent ? "fluent" : set == IconSet.Blazor ? "blazor_classic" : "desktop_classic";
+        public static string ExpectedFileName(string id, IconSet set, IconStyle style, IconPalette color, IconSize size) {
+            string setToken = set == IconSet.Fluent ? "fluent" : set == IconSet.BlazorClassic ? "blazor_classic" : "desktop_classic";
             string styleToken = style == IconStyle.Filled ? "filled" : "regular";
-            string colorToken = color == IconColor.Monochrome ? "monochrome" : color == IconColor.Multicolor ? "multicolor" : set == IconSet.Classic || set == IconSet.Default ? "multicolor" : "monochrome";
+            string colorToken = color == IconPalette.Neutral ? "neutral" : color == IconPalette.Colored ? "colored" : set == IconSet.BlazorClassic ? "neutral" : "colored";
             return $"{id}-{setToken}-{styleToken}-{colorToken}-{PixelSize(size).Width}.svg";
         }
 

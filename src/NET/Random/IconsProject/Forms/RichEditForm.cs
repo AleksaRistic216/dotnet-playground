@@ -37,7 +37,7 @@ namespace IconsProject.Forms {
             page.Groups.Add(group);
             foreach(IconMode mode in Enum.GetValues(typeof(IconMode))) {
                 var item = new BarButtonItem { Caption = mode.ToString(), RibbonStyle = RibbonItemStyles.Large };
-                item.ImageOptions.ImageUri = mode == IconMode.Fluent ? "star;Fluent" : mode == IconMode.Classic ? "star;Classic" : "star";
+                item.ImageOptions.ImageUri = mode == IconMode.Fluent ? "star;Fluent" : mode == IconMode.Classic ? "star;DesktopClassic" : "star";
                 item.ItemClick += (s, e) => IconModeSwitch.Apply(mode);
                 ribbon.Items.Add(item);
                 group.ItemLinks.Add(item);

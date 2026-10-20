@@ -1,9 +1,9 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class IconMatrixForm : TestFormBase {
@@ -47,9 +47,9 @@ namespace IconsProject.Forms {
             table.ColumnStyles.Clear();
             table.RowStyles.Clear();
             string id = idEdit.Text;
-            var sets = new[] { IconSet.Default, IconSet.Fluent, IconSet.Classic, IconSet.Blazor };
+            var sets = new[] { IconSet.Default, IconSet.Fluent, IconSet.DesktopClassic, IconSet.BlazorClassic };
             var styles = new[] { IconStyle.Regular, IconStyle.Filled };
-            var colors = new[] { IconColor.Multicolor, IconColor.Monochrome };
+            var colors = new[] { IconPalette.Colored, IconPalette.Neutral };
             table.ColumnCount = IconCatalog.Sizes.Length + 1;
             table.Controls.Add(Caption("set / style / color", 190), 0, 0);
             for(int c = 0; c < IconCatalog.Sizes.Length; c++)

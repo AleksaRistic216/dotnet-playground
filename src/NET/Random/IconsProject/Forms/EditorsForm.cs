@@ -1,11 +1,12 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
+using DevExpress.Utils.Design;
 using DevExpress.LookAndFeel;
 using DevExpress.Utils;
 using DevExpress.Utils.Menu;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class EditorsForm : TestFormBase {
@@ -42,7 +43,7 @@ namespace IconsProject.Forms {
             pinnedFilled.ImageOptions.ImageUri = new DxIcon("star", style: IconStyle.Filled);
             flow.Controls.Add(pinnedFilled);
             var pinnedClassic = new SimpleButton { Text = "Pinned Classic", Size = new Size(130, 40) };
-            pinnedClassic.ImageOptions.ImageUri = new DxIcon("star", IconSet.Classic);
+            pinnedClassic.ImageOptions.ImageUri = new DxIcon("star", IconSet.DesktopClassic);
             flow.Controls.Add(pinnedClassic);
             var svgSizeOverride = new SimpleButton { Text = "SvgImageSize 32", Size = new Size(150, 48) };
             svgSizeOverride.ImageOptions.ImageUri = Icons("delete");
@@ -156,7 +157,7 @@ namespace IconsProject.Forms {
             contextText.Properties.ContextImageOptions.ImageUri = Icons("mail");
             Track(contextText.Properties.ContextImageOptions);
             var contextPinned = new TextEdit { Width = 200, EditValue = "Context pinned Classic" };
-            contextPinned.Properties.ContextImageOptions.ImageUri = new DxIcon("mail", IconSet.Classic);
+            contextPinned.Properties.ContextImageOptions.ImageUri = new DxIcon("mail", IconSet.DesktopClassic);
             var label = new LabelControl { Text = "LabelControl + uri", ImageAlignToText = ImageAlignToText.LeftCenter };
             label.ImageOptions.ImageUri = Icons("info");
             Track(label.ImageOptions);

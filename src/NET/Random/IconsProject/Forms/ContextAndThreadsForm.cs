@@ -1,4 +1,4 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.LookAndFeel;
 using DevExpress.Utils;
 using DevExpress.Utils.Design;
@@ -20,7 +20,7 @@ namespace IconsProject.Forms {
             AddToolbarButton(actions, "Set() outside / inside scope", (s, e) => SetSemantics());
             AddToolbarButton(actions, "Render the same uri in each scope", (s, e) => RenderInScopes());
             AddToolbarButton(actions, "Open EditorsForm on new UI thread (Use Fluent)", (s, e) => OpenOnThread(IconSet.Fluent, useScope: true));
-            AddToolbarButton(actions, "Open EditorsForm on new UI thread (Set Blazor)", (s, e) => OpenOnThread(IconSet.Blazor, useScope: false));
+            AddToolbarButton(actions, "Open EditorsForm on new UI thread (Set Blazor)", (s, e) => OpenOnThread(IconSet.BlazorClassic, useScope: false));
             AddToolbarButton(actions, "Render on thread pool x8", (s, e) => RenderOnThreadPool());
             AddToolbarButton(actions, "Reset this thread's context to Default", (s, e) => {
                 IconSetContext.Set(IconSet.Default);
@@ -42,14 +42,14 @@ namespace IconsProject.Forms {
             IconLog.Write($"outside: {Ctx()}");
             using(IconSetContext.Use(IconSet.Fluent)) {
                 IconLog.Write($"  Use(Fluent): {Ctx()}");
-                using(IconSetContext.Use(IconSet.Classic)) {
+                using(IconSetContext.Use(IconSet.DesktopClassic)) {
                     IconLog.Write($"    Use(Classic): {Ctx()}");
                     using(IconSetContext.Use(IconSet.Default))
                         IconLog.Write($"      Use(Default): {Ctx()} (HasValue must be false for Default)");
                     IconLog.Write($"    back in Classic: {Ctx()}");
                 }
                 IconLog.Write($"  back in Fluent: {Ctx()}");
-                var scope = IconSetContext.Use(IconSet.Blazor);
+                var scope = IconSetContext.Use(IconSet.BlazorClassic);
                 scope.Dispose();
                 scope.Dispose();
                 IconLog.Write($"  after double Dispose of a Blazor scope: {Ctx()} (must still be Fluent)");
@@ -59,10 +59,10 @@ namespace IconsProject.Forms {
 
         void SetSemantics() {
             IconSet before = IconSetContext.Current;
-            IconSetContext.Set(IconSet.Classic);
+            IconSetContext.Set(IconSet.DesktopClassic);
             IconLog.Write($"Set(Classic) outside a scope: {Ctx()}");
             using(IconSetContext.Use(IconSet.Fluent)) {
-                IconSetContext.Set(IconSet.Blazor);
+                IconSetContext.Set(IconSet.BlazorClassic);
                 IconLog.Write($"Set(Blazor) inside Use(Fluent): {Ctx()} (expected Fluent: Set is ignored inside a scope)");
             }
             IconLog.Write($"after scope: {Ctx()} (expected Classic)");
@@ -114,7 +114,7 @@ namespace IconsProject.Forms {
         }
 
         void RenderOnThreadPool() {
-            var sets = new[] { IconSet.Fluent, IconSet.Classic, IconSet.Blazor, IconSet.Default };
+            var sets = new[] { IconSet.Fluent, IconSet.DesktopClassic, IconSet.BlazorClassic, IconSet.Default };
             var tasks = Enumerable.Range(0, 8).Select(i => Task.Run(() => {
                 var set = sets[i % sets.Length];
                 using(IconSetContext.Use(set)) {
@@ -149,7 +149,7 @@ namespace IconsProject.Forms {
                 var info = new LabelControl { Dock = DockStyle.Top, AutoSizeMode = LabelAutoSizeMode.None, Height = 36 };
                 info.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
                 var flow = new FlowLayoutPanel { Dock = DockStyle.Fill };
-                foreach(var (caption, uri) in new[] { ("unpinned", "add"), ("legacy", "Add;Size16x16"), ("gray legacy", "Add;Size16x16;GrayScaled"), ("pinned Fluent", "add;Fluent"), ("pinned Classic", "add;Classic"), ("missing", "doesnotexist") }) {
+                foreach(var (caption, uri) in new[] { ("unpinned", "add"), ("legacy", "Add;Size16x16"), ("gray legacy", "Add;Size16x16;GrayScaled"), ("pinned Fluent", "add;Fluent"), ("pinned Classic", "add;DesktopClassic"), ("missing", "doesnotexist") }) {
                     var button = new SimpleButton { Text = caption, Size = new Size(125, 36) };
                     button.ImageOptions.ImageUri = uri;
                     Track(button.ImageOptions);

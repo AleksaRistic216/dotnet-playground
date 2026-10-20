@@ -1,11 +1,12 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
+using DevExpress.Utils.Design;
 using DevExpress.LookAndFeel;
 using DevExpress.Utils;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class HubForm : RibbonForm {
@@ -59,7 +60,7 @@ namespace IconsProject.Forms {
             page.Groups.Add(modeGroup);
             modeItems = Enum.GetValues(typeof(IconMode)).Cast<IconMode>().Select(mode => {
                 var item = new BarCheckItem { Caption = mode.ToString(), GroupIndex = 1, RibbonStyle = RibbonItemStyles.Large, Checked = mode == IconModeSwitch.Mode, Tag = mode };
-                item.ImageOptions.ImageUri = mode == IconMode.Fluent ? new DxIcon("star", IconSet.Fluent) : mode == IconMode.Classic ? new DxIcon("star", IconSet.Classic) : new DxIcon("star");
+                item.ImageOptions.ImageUri = mode == IconMode.Fluent ? new DxIcon("star", IconSet.Fluent) : mode == IconMode.Classic ? new DxIcon("star", IconSet.DesktopClassic) : new DxIcon("star");
                 item.ItemClick += (s, e) => IconModeSwitch.Apply(mode);
                 ribbon.Items.Add(item);
                 modeGroup.ItemLinks.Add(item);
@@ -120,7 +121,7 @@ namespace IconsProject.Forms {
             UserLookAndFeel.Default.StyleChanged += OnModeChanged;
             Shown += (s, e) => {
                 foreach(string line in IconLog.Snapshot())
-                    logMemo.MaskBox.AppendText(line + Environment.NewLine);
+                    logMemo.AppendText(line + Environment.NewLine);
             };
             UpdateStatus();
         }
@@ -162,7 +163,7 @@ namespace IconsProject.Forms {
         void OnLogged(string line) {
             if(IsDisposed || !IsHandleCreated)
                 return;
-            BeginInvoke(new Action(() => logMemo.MaskBox.AppendText(line + Environment.NewLine)));
+            BeginInvoke(new Action(() => logMemo.AppendText(line + Environment.NewLine)));
         }
 
         protected override void Dispose(bool disposing) {

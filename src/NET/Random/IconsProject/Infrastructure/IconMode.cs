@@ -1,4 +1,4 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.LookAndFeel;
 using DevExpress.Utils;
 using DevExpress.Utils.Design;
@@ -21,7 +21,7 @@ namespace IconsProject.Infrastructure {
                     WindowsFormsSettings.SetFluentIconStyle();
                     break;
                 case IconMode.Classic:
-                    WindowsFormsSettings.SetClassicIconStyle();
+                    WindowsFormsSettings.SetDesktopClassicIconStyle();
                     break;
                 default:
                     WindowsFormsSettings.SetThemeBasedIconStyle();

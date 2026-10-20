@@ -1,9 +1,9 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class TileAndListsForm : TestFormBase {
@@ -64,8 +64,8 @@ namespace IconsProject.Forms {
             var pinnedGroup = new TileGroup { Text = "Pinned sizes / sets (provider ignored)" };
             pinnedGroup.Items.Add(Tile("Size12", new DxIcon("delete", size: IconSize.Size12), TileItemSize.Wide, TileItemImageScaleMode.NoScale));
             pinnedGroup.Items.Add(Tile("Size48", new DxIcon("delete", size: IconSize.Size48), TileItemSize.Small, TileItemImageScaleMode.NoScale));
-            pinnedGroup.Items.Add(Tile("Classic", new DxIcon("mail", IconSet.Classic), TileItemSize.Medium, TileItemImageScaleMode.Default));
-            pinnedGroup.Items.Add(Tile("Blazor", new DxIcon("mail", IconSet.Blazor), TileItemSize.Medium, TileItemImageScaleMode.Default));
+            pinnedGroup.Items.Add(Tile("Classic", new DxIcon("mail", IconSet.DesktopClassic), TileItemSize.Medium, TileItemImageScaleMode.Default));
+            pinnedGroup.Items.Add(Tile("Blazor", new DxIcon("mail", IconSet.BlazorClassic), TileItemSize.Medium, TileItemImageScaleMode.Default));
             pinnedGroup.Items.Add(Tile("Legacy", "Add;Size32x32", TileItemSize.Medium, TileItemImageScaleMode.Default));
             var multiGroup = new TileGroup { Text = "Multiple elements" };
             var multi = new TileItem { ItemSize = TileItemSize.Large };

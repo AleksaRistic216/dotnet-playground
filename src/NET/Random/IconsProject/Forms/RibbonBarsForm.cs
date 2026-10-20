@@ -1,4 +1,4 @@
-using DevExpress.Data.Utils.Images;
+using DevExpress.IconLibrary;
 using DevExpress.Utils;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
@@ -6,7 +6,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using IconsProject.Infrastructure;
-using DxIcon = DevExpress.Data.Utils.Images.Icon;
+using DxIcon = DevExpress.IconLibrary.Icon;
 
 namespace IconsProject.Forms {
     public class RibbonBarsForm : TestFormBase {
@@ -80,7 +80,7 @@ namespace IconsProject.Forms {
                 }
 
                 var pinnedPage = Page("Pinned");
-                foreach(var set in new[] { IconSet.Fluent, IconSet.Classic, IconSet.Blazor }) {
+                foreach(var set in new[] { IconSet.Fluent, IconSet.DesktopClassic, IconSet.BlazorClassic }) {
                     var group = Group(pinnedPage, $"Set = {set}");
                     foreach(string id in new[] { "add", "delete", "save", "search", "share", "star" })
                         group.ItemLinks.Add(Item($"{id} {set}", new DxIcon(id, set), RibbonItemStyles.Large));
@@ -88,9 +88,9 @@ namespace IconsProject.Forms {
                 var stylesGroup = Group(pinnedPage, "Style / color");
                 stylesGroup.ItemLinks.Add(Item("Filled", new DxIcon("add", style: IconStyle.Filled), RibbonItemStyles.Large));
                 stylesGroup.ItemLinks.Add(Item("Regular", new DxIcon("add", style: IconStyle.Regular), RibbonItemStyles.Large));
-                stylesGroup.ItemLinks.Add(Item("Monochrome", new DxIcon("add", color: IconColor.Monochrome), RibbonItemStyles.Large));
-                stylesGroup.ItemLinks.Add(Item("Multicolor", new DxIcon("add", color: IconColor.Multicolor), RibbonItemStyles.Large));
-                stylesGroup.ItemLinks.Add(Item("Fluent Filled Mono", new DxIcon("add", IconSet.Fluent, IconStyle.Filled, IconColor.Monochrome), RibbonItemStyles.Large));
+                stylesGroup.ItemLinks.Add(Item("Neutral", new DxIcon("add", palette: IconPalette.Neutral), RibbonItemStyles.Large));
+                stylesGroup.ItemLinks.Add(Item("Colored", new DxIcon("add", palette: IconPalette.Colored), RibbonItemStyles.Large));
+                stylesGroup.ItemLinks.Add(Item("Fluent Filled Neutral", new DxIcon("add", IconSet.Fluent, IconStyle.Filled, IconPalette.Neutral), RibbonItemStyles.Large));
                 var sizesGroup = Group(pinnedPage, "Pinned sizes (large items)");
                 foreach(var size in IconCatalog.Sizes)
                     sizesGroup.ItemLinks.Add(Item(size.ToString(), new DxIcon("delete", size: size), RibbonItemStyles.Large));
@@ -124,7 +124,7 @@ namespace IconsProject.Forms {
                 ribbon.Toolbar.ItemLinks.Add(Item("QAT legacy", DevExpress.Images.DXImages.Undo, RibbonItemStyles.Default));
                 statusBar.ItemLinks.Add(Item("Status info", Icons("info"), RibbonItemStyles.Default));
                 statusBar.ItemLinks.Add(Item("Status warning", Icons("warning"), RibbonItemStyles.Default));
-                statusBar.ItemLinks.Add(Item("Status pinned classic", new DxIcon("alert", IconSet.Classic), RibbonItemStyles.Default));
+                statusBar.ItemLinks.Add(Item("Status pinned classic", new DxIcon("alert", IconSet.DesktopClassic), RibbonItemStyles.Default));
             }
             finally {
                 ribbon.EndInit();
@@ -141,7 +141,7 @@ namespace IconsProject.Forms {
             foreach(string id in new[] { "document", "table", "image", "link" })
                 sub.AddItem(Item($"sub {id}", Icons(id), RibbonItemStyles.Default));
             var nested = new BarSubItem { Caption = "Nested (pinned Classic)" };
-            nested.ImageOptions.ImageUri = new DxIcon("folder", IconSet.Classic);
+            nested.ImageOptions.ImageUri = new DxIcon("folder", IconSet.DesktopClassic);
             ribbon.Items.Add(nested);
             nested.AddItem(Item("nested legacy", DevExpress.Images.DXImages.Find, RibbonItemStyles.Default));
             nested.AddItem(Item("nested fluent filled", new DxIcon("search", IconSet.Fluent, IconStyle.Filled), RibbonItemStyles.Default));

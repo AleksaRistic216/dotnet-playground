@@ -63,7 +63,7 @@
             // 
             barButtonItem3.Caption = "barButtonItem3";
             barButtonItem3.Id = 3;
-            barButtonItem3.ImageOptions.ImageUri.Uri = "fluentxaf/action_edit;Fluent";
+            barButtonItem3.ImageOptions.Image = Properties.Resources.Screenshot_2026_09_28_175819;
             barButtonItem3.Name = "barButtonItem3";
             // 
             // ribbonPage1
@@ -91,6 +91,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(ribbonControl1);
+            IconOptions.ImageUri.Uri = "ClearTableStyle;Svg";
             Name = "Form1";
             Ribbon = ribbonControl1;
             Text = "Form1";

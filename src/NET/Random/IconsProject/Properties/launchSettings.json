@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "IconsProject": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DX_LOG": "enabled",
+        "DX_LOG_TARGET": "debugger"
+      },
+      "jsWebView2Debugging": false
+    }
+  }
+}
