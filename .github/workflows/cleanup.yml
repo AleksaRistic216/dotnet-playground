@@ -1,0 +1,18 @@
+name: Cleanup Artifacts
+
+on:
+  schedule:
+    - cron: '0 6 * * 0'
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const artifacts = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            console.log(`Found ${artifacts.data.total_count} artifacts`);

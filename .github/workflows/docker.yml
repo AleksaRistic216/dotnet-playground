@@ -1,0 +1,17 @@
+name: Docker
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t myapp .
+
+      - name: List images
+        run: docker images

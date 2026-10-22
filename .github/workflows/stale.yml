@@ -1,0 +1,15 @@
+name: Stale Issues
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 30
+          days-before-close: 7
+          stale-issue-message: "This issue has been automatically marked as stale."
