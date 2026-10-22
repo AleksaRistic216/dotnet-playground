@@ -1,0 +1,1 @@
+Glossary of domain-specific terms used in the codebase.
