@@ -1,0 +1,21 @@
+name: Lint Broken
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint code
+        run: echo "linting"
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-results
+          path: results/
+          retention-days: not-a-number

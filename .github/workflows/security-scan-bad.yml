@@ -1,0 +1,25 @@
+name: Security Scan Bad
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run scan
+        run: echo "scanning"
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Report
+        run: echo ${{ steps.missing.outputs.report }}
+
+  publish:
+    needs: [scan, phantom-job]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "publishing results"

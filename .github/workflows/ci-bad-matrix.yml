@@ -1,0 +1,28 @@
+name: CI Bad Matrix
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  test-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        dotnet: [6.0, 8.0]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ matrix.dotnet_version }}
+
+      - name: Build
+        run: dotnet build
+
+      - name: Test
+        run: |
+          echo "Testing on ${{ matrix.operating_system }}"
+          dotnet test

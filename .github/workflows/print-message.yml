@@ -1,0 +1,17 @@
+name: Print Message
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print message
+        run: echo "This one should fail status"
+
+      - name: Intentional lint error
+        run: echo ${{ github.event.pull_request.title }}

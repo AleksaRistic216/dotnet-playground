@@ -1,0 +1,26 @@
+name: Publish NuGet Bad
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pack
+        run: dotnet pack -c Release
+
+      - name: Push to NuGet
+        run: dotnet nuget push **/*.nupkg
+        env:
+          API_KEY: ${{ secrets.NUGET_KEY }}
+
+  announce:
+    needs: [publish, missing-notify]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Announce
+        run: echo "Released ${{ github.event.release.nonexistent_field }}"

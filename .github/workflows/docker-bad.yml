@@ -1,0 +1,29 @@
+name: Docker Bad
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASS }}
+
+      - name: Build image
+        run: docker build -t myapp .
+
+      - name: Push image
+        run: docker push ${{ steps.nonexistent.outputs.tag }}
+
+  verify:
+    needs: [docker, ghost-job]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "verifying"
