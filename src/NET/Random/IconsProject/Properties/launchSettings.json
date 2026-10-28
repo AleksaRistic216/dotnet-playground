@@ -4,7 +4,7 @@
       "commandName": "Project",
       "environmentVariables": {
         "DX_LOG": "enabled",
-        "DX_LOG_TARGET": "debugger"
+        "DX_LOG_TARGET": "C:\\temp\\dx-logs.log"
       },
       "jsWebView2Debugging": false
     }
